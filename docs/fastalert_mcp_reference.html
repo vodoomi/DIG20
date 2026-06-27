@@ -1,0 +1,382 @@
+
+<style>
+.ref-wrap { font-family: var(--font-sans); padding: 8px 0 24px; }
+.tool-card { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); margin-bottom: 12px; overflow: hidden; }
+.tool-header { display: flex; align-items: center; gap: 10px; padding: 10px 14px; cursor: pointer; user-select: none; }
+.tool-header:hover { background: var(--color-background-secondary); }
+.badge { font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; white-space: nowrap; }
+.badge-coral  { background: #FAECE7; color: #993C1D; }
+.badge-blue   { background: #E6F1FB; color: #185FA5; }
+.badge-amber  { background: #FAEEDA; color: #854F0B; }
+.badge-teal   { background: #E1F5EE; color: #0F6E56; }
+.badge-gray   { background: #F1EFE8; color: #5F5E5A; }
+@media (prefers-color-scheme: dark) {
+  .badge-coral  { background: #3C1508; color: #F0997B; }
+  .badge-blue   { background: #042C53; color: #85B7EB; }
+  .badge-amber  { background: #412402; color: #EF9F27; }
+  .badge-teal   { background: #04342C; color: #5DCAA5; }
+  .badge-gray   { background: #2C2C2A; color: #B4B2A9; }
+}
+.tool-name { font-size: 13px; font-weight: 500; color: var(--color-text-primary); font-family: var(--font-mono); }
+.chevron { margin-left: auto; font-size: 12px; color: var(--color-text-tertiary); transition: transform .2s; }
+.chevron.open { transform: rotate(180deg); }
+.tool-body { display: none; padding: 0 14px 14px; }
+.tool-body.open { display: block; }
+.section-label { font-size: 11px; font-weight: 500; color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: .04em; margin: 12px 0 6px; }
+.arg-row { display: flex; align-items: flex-start; gap: 8px; padding: 5px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 12px; }
+.arg-row:last-child { border-bottom: none; }
+.arg-name { font-family: var(--font-mono); color: var(--color-text-primary); min-width: 200px; flex-shrink: 0; }
+.arg-req { color: #D85A30; font-size: 10px; font-weight: 500; }
+.arg-opt { color: var(--color-text-tertiary); font-size: 10px; }
+.arg-desc { color: var(--color-text-secondary); line-height: 1.5; }
+.field-row { display: flex; gap: 8px; padding: 4px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 12px; }
+.field-row:last-child { border-bottom: none; }
+.field-name { font-family: var(--font-mono); color: var(--color-text-primary); min-width: 200px; flex-shrink: 0; }
+.field-type { font-size: 10px; color: var(--color-text-tertiary); min-width: 60px; }
+.field-desc { color: var(--color-text-secondary); line-height: 1.5; }
+.note { font-size: 11px; color: var(--color-text-tertiary); background: var(--color-background-secondary); border-radius: 6px; padding: 6px 10px; margin-top: 8px; line-height: 1.6; }
+.quota-row { display: flex; gap: 12px; font-size: 11px; color: var(--color-text-secondary); margin-top: 6px; }
+</style>
+<div class="ref-wrap">
+<h2 class="sr-only">FASTALERT MCP 関数リファレンス</h2>
+
+<!-- ===== fastalert_topics ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-coral">国内災害</span>
+    <span class="tool-name">fastalert_topics</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">categories <span class="arg-opt">任意</span></span><span class="arg-desc">カンマ区切り。事故 / 火災 / 事件 / ライフライン / 気象・災害 / その他</span></div>
+    <div class="arg-row"><span class="arg-name">locations <span class="arg-opt">任意</span></span><span class="arg-desc">都道府県名・市区町村名（例: 石川県,石川県金沢市）</span></div>
+    <div class="arg-row"><span class="arg-name">limit <span class="arg-opt">任意</span></span><span class="arg-desc">最大件数 1〜100。デフォルト 30</span></div>
+    <div class="arg-row"><span class="arg-name">order_by <span class="arg-opt">任意</span></span><span class="arg-desc">created_at（デフォルト） / updated_at</span></div>
+    <div class="arg-row"><span class="arg-name">after / before <span class="arg-opt">任意</span></span><span class="arg-desc">ISO 8601。期間指定（created_at / updated_at ベース）</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">count</span><span class="field-type">int</span><span class="field-desc">返却件数</span></div>
+    <div class="field-row"><span class="field-name">head / tail</span><span class="field-type">string</span><span class="field-desc">ページング用カーソル（before に渡すと次ページ）</span></div>
+    <div class="field-row"><span class="field-name">topics[].id</span><span class="field-type">int</span><span class="field-desc">トピックID（topic_detail / affected_user_locations に渡す）</span></div>
+    <div class="field-row"><span class="field-name">topics[].head</span><span class="field-type">string</span><span class="field-desc">トピックタイトル</span></div>
+    <div class="field-row"><span class="field-name">topics[].category</span><span class="field-type">string</span><span class="field-desc">細分類（例: 車両火災、停電・電力設備トラブル）</span></div>
+    <div class="field-row"><span class="field-name">topics[].is_hot</span><span class="field-type">bool</span><span class="field-desc">短時間で投稿が集中している注目トピック</span></div>
+    <div class="field-row"><span class="field-name">topics[].item_size</span><span class="field-type">int</span><span class="field-desc">収集済み投稿件数</span></div>
+    <div class="field-row"><span class="field-name">topics[].location</span><span class="field-type">object</span><span class="field-desc">{ prefecture, city }  都道府県・市区町村</span></div>
+    <div class="field-row"><span class="field-name">topics[].created_at</span><span class="field-type">string</span><span class="field-desc">トピック作成日時（ISO 8601）</span></div>
+    <div class="field-row"><span class="field-name">topics[].items[]</span><span class="field-type">array</span><span class="field-desc">投稿サマリー。id / head / category / created_at / published_at / url</span></div>
+    <div class="note">⚠ items には添付画像・動画URLは含まれない。取得するには topic_detail を使う。</div>
+    <div class="quota-row"><span>disasterバケット共有</span><span>日300件 / 週1,500件 / 月3,000件</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_topic_detail ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-coral">国内災害</span>
+    <span class="tool-name">fastalert_topic_detail</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">topic_id <span class="arg-req">必須</span></span><span class="arg-desc">topics[].id の値</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">id / head / category / location / created_at / updated_at / is_hot / item_size</span><span class="field-type">-</span><span class="field-desc">topics と同様</span></div>
+    <div class="field-row"><span class="field-name">items[].attachments[]</span><span class="field-type">array</span><span class="field-desc">添付メディア。type（image/video）と image_url / video_url</span></div>
+    <div class="note">📌 一覧との違いは attachments の有無。is_hot トピックの現場画像確認に使う。</div>
+    <div class="quota-row"><span>disasterバケット共有 / 1呼び出し = 1件消費</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_topic_affected_user_locations ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-coral">国内災害</span>
+    <span class="tool-name">fastalert_topic_affected_user_locations</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">topic_id <span class="arg-req">必須</span></span><span class="arg-desc">fastalert_topics で取得した災害トピックID</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">locations[].id</span><span class="field-type">string</span><span class="field-desc">施設ID</span></div>
+    <div class="field-row"><span class="field-name">locations[].name</span><span class="field-type">string</span><span class="field-desc">施設名</span></div>
+    <div class="field-row"><span class="field-name">locations[].address</span><span class="field-type">string</span><span class="field-desc">住所</span></div>
+    <div class="field-row"><span class="field-name">locations[].latitude / longitude</span><span class="field-type">float</span><span class="field-desc">緯度経度</span></div>
+    <div class="note">ℹ MCP使用量クォータ対象外。FASTALERTに登録済みの「全施設を選択している災害通知設定」と同じ地理的交差判定で絞り込む。</div>
+  </div>
+</div>
+
+<!-- ===== fastalert_earthquakes ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-blue">気象・地震・津波</span>
+    <span class="tool-name">fastalert_earthquakes</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">min_intensity <span class="arg-opt">任意</span></span><span class="arg-desc">INTENSITY1 / INTENSITY3 / INTENSITY5LOWER / INTENSITY7</span></div>
+    <div class="arg-row"><span class="arg-name">locations <span class="arg-opt">任意</span></span><span class="arg-desc">都道府県名（例: 石川県,長野県）。未指定で全国</span></div>
+    <div class="arg-row"><span class="arg-name">limit <span class="arg-opt">任意</span></span><span class="arg-desc">最大件数。デフォルト 20</span></div>
+    <div class="arg-row"><span class="arg-name">within_seconds <span class="arg-opt">任意</span></span><span class="arg-desc">現在から遡る秒数（since/until より優先）</span></div>
+    <div class="arg-row"><span class="arg-name">since / until <span class="arg-opt">任意</span></span><span class="arg-desc">ISO 8601。セットで指定</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">earthquakes[].eventID</span><span class="field-type">string</span><span class="field-desc">地震イベントID（earthquake_detail に渡す）</span></div>
+    <div class="field-row"><span class="field-name">earthquakes[].epicenterName</span><span class="field-type">string</span><span class="field-desc">震源地名称（例: 長野県中部）</span></div>
+    <div class="field-row"><span class="field-name">earthquakes[].magnitude</span><span class="field-type">string</span><span class="field-desc">マグニチュード（例: "2.6"）</span></div>
+    <div class="field-row"><span class="field-name">earthquakes[].maxIntensity</span><span class="field-type">string</span><span class="field-desc">最大震度（例: INTENSITY1）</span></div>
+    <div class="field-row"><span class="field-name">earthquakes[].originTime</span><span class="field-type">string</span><span class="field-desc">発生時刻（ISO 8601 with TZ）</span></div>
+    <div class="field-row"><span class="field-name">earthquakes[].reportDateTime</span><span class="field-type">string</span><span class="field-desc">気象庁発表日時</span></div>
+    <div class="field-row"><span class="field-name">earthquakes[].depth</span><span class="field-type">string</span><span class="field-desc">震源深さ（例: "１０ｋｍ"）</span></div>
+    <div class="field-row"><span class="field-name">earthquakes[].epicenter</span><span class="field-type">object</span><span class="field-desc">{ latitude, longitude } 震源座標</span></div>
+    <div class="field-row"><span class="field-name">total_hits / truncated</span><span class="field-type">int/bool</span><span class="field-desc">全件数と切り捨て有無</span></div>
+    <div class="quota-row"><span>disasterバケット共有</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_earthquake_detail ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-blue">気象・地震・津波</span>
+    <span class="tool-name">fastalert_earthquake_detail</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">event_id <span class="arg-req">必須</span></span><span class="arg-desc">earthquakes[].eventID の値</span></div>
+    <div class="section-label">レスポンスフィールド（一覧との差分）</div>
+    <div class="field-row"><span class="field-name">headline</span><span class="field-type">string</span><span class="field-desc">気象庁発表ヘッドライン文（例: "17日13時17分ころ、地震がありました。"）</span></div>
+    <div class="field-row"><span class="field-name">forecastComment</span><span class="field-type">string</span><span class="field-desc">津波有無コメント（例: "この地震による津波の心配はありません。"）</span></div>
+    <div class="field-row"><span class="field-name">areaIntensities[]</span><span class="field-type">array</span><span class="field-desc">市区町村別震度。{ intensity, code, name, prefecture, location{lat,lng} }</span></div>
+    <div class="field-row"><span class="field-name">stationIntensities[]</span><span class="field-type">array</span><span class="field-desc">観測所別震度。{ intensity, code, name, prefecture, location{lat,lng} }</span></div>
+    <div class="field-row"><span class="field-name">facilityIntensities[]</span><span class="field-type">array</span><span class="field-desc">自組織登録施設の推定震度（施設が登録されている場合）</span></div>
+    <div class="field-row"><span class="field-name">varComment</span><span class="field-type">string</span><span class="field-desc">補足コメント（気象庁以外の観測点注記など）</span></div>
+    <div class="quota-row"><span>disasterバケット共有 / 1呼び出し = 1件消費</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_weather_warnings ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-blue">気象・地震・津波</span>
+    <span class="tool-name">fastalert_weather_warnings</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">locations <span class="arg-opt">任意</span></span><span class="arg-desc">都道府県名・市区町村名。未指定で全国（200件超になりやすいので推奨）</span></div>
+    <div class="arg-row"><span class="arg-name">warning_kinds <span class="arg-opt">任意</span></span><span class="arg-desc">大雨警報 / 大雨特別警報 / 土砂災害警戒情報 / 暴風警報 など。警戒レベル単位指定も可</span></div>
+    <div class="arg-row"><span class="arg-name">limit <span class="arg-opt">任意</span></span><span class="arg-desc">デフォルト 50</span></div>
+    <div class="arg-row"><span class="arg-name">within_seconds / since+until <span class="arg-opt">任意</span></span><span class="arg-desc">期間フィルタ（最大30日）</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">topics[].id</span><span class="field-type">string</span><span class="field-desc">警報トピックID（suffix付き）。weather_warning_detail に渡す</span></div>
+    <div class="field-row"><span class="field-name">topics[].report_id</span><span class="field-type">string</span><span class="field-desc">suffix無しID（現在発令中か解除済みかに関わらず最新状態を取得）</span></div>
+    <div class="field-row"><span class="field-name">topics[].title</span><span class="field-type">string</span><span class="field-desc">例: "熊本県気象警報・注意報"</span></div>
+    <div class="field-row"><span class="field-name">topics[].headline</span><span class="field-type">string</span><span class="field-desc">発表文（例: "注意報を解除します。"）</span></div>
+    <div class="field-row"><span class="field-name">topics[].warnings[]</span><span class="field-type">array</span><span class="field-desc">{ kind, status, level, prefecture, area_count, area_names[3件まで] }</span></div>
+    <div class="field-row"><span class="field-name">topics[].date_time</span><span class="field-type">string</span><span class="field-desc">発表日時（ISO 8601）</span></div>
+    <div class="note">ℹ since/until は「発令時刻の範囲」ではなく「その期間に有効だった警報」を返す。</div>
+    <div class="quota-row"><span>disasterバケット共有</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_weather_warning_detail ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-blue">気象・地震・津波</span>
+    <span class="tool-name">fastalert_weather_warning_detail</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">topic_id <span class="arg-req">必須</span></span><span class="arg-desc">warnings[].id（suffix付き）または report_id</span></div>
+    <div class="section-label">レスポンスフィールド（一覧との差分）</div>
+    <div class="field-row"><span class="field-name">body.items[].areas[]</span><span class="field-type">array</span><span class="field-desc">対象市区町村全件。{ code, name, centroid{lat,lng,weight} }</span></div>
+    <div class="field-row"><span class="field-name">facility_warnings[]</span><span class="field-type">array</span><span class="field-desc">自組織登録施設が対象エリアに含まれるかの判定結果</span></div>
+    <div class="field-row"><span class="field-name">warning_bounds</span><span class="field-type">object</span><span class="field-desc">対象エリアの外接矩形 { min_lat, min_lng, max_lat, max_lng }</span></div>
+    <div class="quota-row"><span>disasterバケット共有 / 1呼び出し = 1件消費</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_tsunami_alerts ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-blue">気象・地震・津波</span>
+    <span class="tool-name">fastalert_tsunami_alerts</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">active_only <span class="arg-opt">任意</span></span><span class="arg-desc">true（デフォルト）= 現在発令中のみ。false = 期間検索（since+until or within_seconds 必須）</span></div>
+    <div class="arg-row"><span class="arg-name">limit <span class="arg-opt">任意</span></span><span class="arg-desc">デフォルト 20</span></div>
+    <div class="arg-row"><span class="arg-name">locations <span class="arg-opt">任意</span></span><span class="arg-desc">active_only=false のときのみ有効</span></div>
+    <div class="arg-row"><span class="arg-name">within_seconds / since+until <span class="arg-opt">任意</span></span><span class="arg-desc">active_only=false のときのみ有効（最大30日）</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">alerts[].record_id</span><span class="field-type">string</span><span class="field-desc">津波警報レコードID（detail / observations に渡す）</span></div>
+    <div class="field-row"><span class="field-name">alerts[].headline</span><span class="field-type">string</span><span class="field-desc">発表ヘッドライン</span></div>
+    <div class="field-row"><span class="field-name">alerts[].max_warning_kind</span><span class="field-type">string</span><span class="field-desc">最大警報種別（大津波警報 / 津波警報 / 津波注意報）</span></div>
+    <div class="field-row"><span class="field-name">alerts[].items[]</span><span class="field-type">array</span><span class="field-desc">3件まで（area名・kind）</span></div>
+    <div class="quota-row"><span>disasterバケット共有</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_tsunami_alert_detail ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-blue">気象・地震・津波</span>
+    <span class="tool-name">fastalert_tsunami_alert_detail</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">record_id <span class="arg-req">必須</span></span><span class="arg-desc">alerts[].record_id の値</span></div>
+    <div class="section-label">レスポンスフィールド（一覧との差分）</div>
+    <div class="field-row"><span class="field-name">items[]（全件）</span><span class="field-type">array</span><span class="field-desc">予想津波高・到達予想時刻・警報種別変化方向（上昇/下降）を全予報区分含む</span></div>
+    <div class="field-row"><span class="field-name">comments.warning_comment</span><span class="field-type">string</span><span class="field-desc">気象庁の警告コメント本文</span></div>
+    <div class="field-row"><span class="field-name">warning_bounds</span><span class="field-type">object</span><span class="field-desc">警報エリアの外接矩形</span></div>
+    <div class="field-row"><span class="field-name">text</span><span class="field-type">string</span><span class="field-desc">電文本文（生テキスト）</span></div>
+    <div class="quota-row"><span>disasterバケット共有 / 1呼び出し = 1件消費</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_tsunami_alert_observations ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-blue">気象・地震・津波</span>
+    <span class="tool-name">fastalert_tsunami_alert_observations</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">record_id <span class="arg-req">必須</span></span><span class="arg-desc">tsunami_alerts の alerts[].record_id の値</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">observations[]</span><span class="field-type">array</span><span class="field-desc">時系列で全電文分。各電文に観測地点の第1波到達時刻・最大波高の実測値</span></div>
+    <div class="note">ℹ 観測情報がまだ出ていない場合は observations=[] (空配列)。detail との組み合わせで「予想 vs 実測」の比較が可能。</div>
+    <div class="quota-row"><span>disasterバケット共有 / 1呼び出し = 1件消費</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_domestic_news ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-amber">国内ニュース</span>
+    <span class="tool-name">fastalert_domestic_news</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">keyword <span class="arg-opt">任意</span></span><span class="arg-desc">全文検索。スペース区切りでAND、カンマ区切りでOR</span></div>
+    <div class="arg-row"><span class="arg-name">categories <span class="arg-opt">任意</span></span><span class="arg-desc">事故 / 火災 / 事件 / インフラ・ライフライン / 気象・災害 / 社会・政治的リスク / ヘルスリスク / その他</span></div>
+    <div class="arg-row"><span class="arg-name">locations <span class="arg-opt">任意</span></span><span class="arg-desc">都道府県名・市区町村名</span></div>
+    <div class="arg-row"><span class="arg-name">limit <span class="arg-opt">任意</span></span><span class="arg-desc">1〜100。デフォルト 30</span></div>
+    <div class="arg-row"><span class="arg-name">after / before <span class="arg-opt">任意</span></span><span class="arg-desc">ISO 8601</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">topics[].id</span><span class="field-type">int</span><span class="field-desc">トピックID（domestic_news_detail に渡す）</span></div>
+    <div class="field-row"><span class="field-name">topics[].head</span><span class="field-type">string</span><span class="field-desc">ニュースタイトル</span></div>
+    <div class="field-row"><span class="field-name">topics[].category</span><span class="field-type">string</span><span class="field-desc">細分類</span></div>
+    <div class="field-row"><span class="field-name">topics[].location</span><span class="field-type">object</span><span class="field-desc">{ prefecture, city }</span></div>
+    <div class="field-row"><span class="field-name">topics[].items[]</span><span class="field-type">array</span><span class="field-desc">記事サマリー。head / url / published_at（添付なし）</span></div>
+    <div class="field-row"><span class="field-name">has_more / tail</span><span class="field-type">bool/string</span><span class="field-desc">次ページ有無・ページングカーソル</span></div>
+    <div class="quota-row"><span>domestic_newsバケット独立</span><span>日100件 / 週500件 / 月1,000件</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_domestic_news_detail ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-amber">国内ニュース</span>
+    <span class="tool-name">fastalert_domestic_news_detail</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">topic_id <span class="arg-req">必須</span></span><span class="arg-desc">domestic_news の topics[].id の値</span></div>
+    <div class="section-label">レスポンスフィールド（一覧との差分）</div>
+    <div class="field-row"><span class="field-name">items[].body</span><span class="field-type">string</span><span class="field-desc">記事本文テキスト（全文）</span></div>
+    <div class="field-row"><span class="field-name">items[].attachments[]</span><span class="field-type">array</span><span class="field-desc">添付画像・動画URL（type / image_url / video_url）</span></div>
+    <div class="quota-row"><span>domestic_newsバケット共有 / 1呼び出し = 1件消費</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_foreign_news ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-teal">海外ニュース</span>
+    <span class="tool-name">fastalert_foreign_news</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">countries <span class="arg-opt">任意</span></span><span class="arg-desc">ISO 3166-1 alpha-2 カンマ区切り（例: US,CN,PH）。keyword より高速・正確</span></div>
+    <div class="arg-row"><span class="arg-name">keyword <span class="arg-opt">任意</span></span><span class="arg-desc">原文・翻訳文の両方を全文検索。英語の方が精度高</span></div>
+    <div class="arg-row"><span class="arg-name">categories <span class="arg-opt">任意</span></span><span class="arg-desc">事故 / 事件 / 火災 / インフラ・ライフライン / 気象・災害 / 社会・政治的リスク / ヘルスリスク（これらの下位概念も指定可能（例えば、インフラ・ライフラインの下位概念としてサイバー攻撃））</span></div>
+    <div class="arg-row"><span class="arg-name">kinds <span class="arg-opt">任意</span></span><span class="arg-desc">news（デフォルト）/ official（USGS地震・各国気象）/ news,official</span></div>
+    <div class="arg-row"><span class="arg-name">min_level <span class="arg-opt">任意</span></span><span class="arg-desc">Lv1 / Lv2 / Lv3。newsトピックのみ適用（officialは常に含まれる）</span></div>
+    <div class="arg-row"><span class="arg-name">min_supply_chain_impact_score <span class="arg-opt">任意</span></span><span class="arg-desc">1〜5。SCM影響度スコアで絞り込み</span></div>
+    <div class="arg-row"><span class="arg-name">only_supply_chain_impactful <span class="arg-opt">任意</span></span><span class="arg-desc">true = 影響ありフラグのトピックのみ</span></div>
+    <div class="arg-row"><span class="arg-name">min_magnitude <span class="arg-opt">任意</span></span><span class="arg-desc">USGS地震トピックのみに適用するMの下限値</span></div>
+    <div class="arg-row"><span class="arg-name">order_by <span class="arg-opt">任意</span></span><span class="arg-desc">supply_chain_impact_score_desc（SCMスコア降順・単一ページ専用）</span></div>
+    <div class="arg-row"><span class="arg-name">limit <span class="arg-opt">任意</span></span><span class="arg-desc">1〜100。デフォルト 30</span></div>
+    <div class="arg-row"><span class="arg-name">after / before <span class="arg-opt">任意</span></span><span class="arg-desc">ISO 8601（updated_atベース）</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">topics[].id</span><span class="field-type">int</span><span class="field-desc">トピックID（foreign_news_detail に渡す）</span></div>
+    <div class="field-row"><span class="field-name">topics[].head</span><span class="field-type">string</span><span class="field-desc">ニュースタイトル（日本語翻訳）</span></div>
+    <div class="field-row"><span class="field-name">topics[].level</span><span class="field-type">string</span><span class="field-desc">深刻度 Lv1〜Lv3（newsのみ。officialは省略）</span></div>
+    <div class="field-row"><span class="field-name">topics[].supply_chain_impact_score</span><span class="field-type">int</span><span class="field-desc">SCM影響スコア 1〜5（分析済みのみ）</span></div>
+    <div class="field-row"><span class="field-name">topics[].is_supply_chain_impactful</span><span class="field-type">bool</span><span class="field-desc">影響ありフラグ</span></div>
+    <div class="field-row"><span class="field-name">topics[].earthquake</span><span class="field-type">object</span><span class="field-desc">USGSトピックのみ付与。{ lat, lng, magnitude }</span></div>
+    <div class="field-row"><span class="field-name">has_more / tail</span><span class="field-type">bool/string</span><span class="field-desc">ページングカーソル</span></div>
+    <div class="quota-row"><span>foreign_newsバケット独立</span><span>日300件 / 週1,500件 / 月3,000件</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_foreign_news_detail ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-teal">海外ニュース</span>
+    <span class="tool-name">fastalert_foreign_news_detail</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">topic_id <span class="arg-req">必須</span></span><span class="arg-desc">foreign_news の topics[].id の値</span></div>
+    <div class="section-label">レスポンスフィールド（一覧との差分）</div>
+    <div class="field-row"><span class="field-name">items[].body</span><span class="field-type">string</span><span class="field-desc">記事本文（翻訳 + 原文）</span></div>
+    <div class="field-row"><span class="field-name">items[].attachments[]</span><span class="field-type">array</span><span class="field-desc">添付メディア</span></div>
+    <div class="field-row"><span class="field-name">items[].supply_chain_impact_score</span><span class="field-type">int</span><span class="field-desc">アイテム単位の詳細SCMスコア</span></div>
+    <div class="field-row"><span class="field-name">items[].is_supply_chain_impactful</span><span class="field-type">bool</span><span class="field-desc">アイテム単位の影響フラグ</span></div>
+    <div class="quota-row"><span>foreign_newsバケット共有 / 1呼び出し = 1件消費</span></div>
+  </div>
+</div>
+
+<!-- ===== fastalert_usage_self ===== -->
+<div class="tool-card">
+  <div class="tool-header" onclick="toggle(this)">
+    <span class="badge badge-gray">ユーティリティ</span>
+    <span class="tool-name">fastalert_usage_self</span>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="tool-body">
+    <div class="section-label">引数</div>
+    <div class="arg-row"><span class="arg-name">（なし）</span><span class="arg-desc">引数なし</span></div>
+    <div class="section-label">レスポンスフィールド</div>
+    <div class="field-row"><span class="field-name">organization_id / organization_name</span><span class="field-type">string</span><span class="field-desc">組織ID・組織名</span></div>
+    <div class="field-row"><span class="field-name">generated_at</span><span class="field-type">string</span><span class="field-desc">取得日時（ISO 8601 UTC）</span></div>
+    <div class="field-row"><span class="field-name">buckets[]</span><span class="field-type">array</span><span class="field-desc">disaster / domestic_news / foreign_news の3バケット</span></div>
+    <div class="field-row"><span class="field-name">buckets[].bucket</span><span class="field-type">string</span><span class="field-desc">バケット名</span></div>
+    <div class="field-row"><span class="field-name">buckets[].daily / weekly / monthly</span><span class="field-type">object</span><span class="field-desc">{ delivered_count, limit, remaining, resets_at, is_default_limit }</span></div>
+    <div class="note">📋 現在の使用量（本日時点）: disaster 65/300件、domestic_news 100/100件（上限到達）、foreign_news 0/300件</div>
+  </div>
+</div>
+
+</div>
+<script>
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+}
+</script>
