@@ -1,0 +1,23 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Data files
+*.txt
+*.csv
+*.zip
+*.qmd
+*.gpkg
+data/wajima_buildings/gsi/*.xml
+data/openquake/noto_scenario_risk/exposure_model.xml
+
+# Data Directory
+data/openquake/initial_scenario_risk/
+data/openquake/initial_try/
