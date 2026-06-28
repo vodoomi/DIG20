@@ -1,0 +1,113 @@
+regions:
+  wajima:
+    name: "輪島市"
+    # 耐震基準の比率設定（合計1.0になるように設定）
+    code_ratios:
+      CDL: 0.60
+      CDH: 0.40
+    building_rules:
+      普通建物:
+        heights:
+          "H:1": 0.30
+          "H:2": 0.70
+        taxonomies:
+          CDL: "W+WHE/LPB/CDL+ERL/{height}/RES"
+          CDH: "W+WLI/LWAL/CDH+ERM/{height}/RES"
+      堅ろう建物:
+        heights:
+          "H:3": 0.70
+          "H:4": 0.30
+        taxonomies:
+          CDL: "CR/LWAL/CDL+ERM/{height}/RES"
+          CDH: "CR/LWAL/CDH+ERM/{height}/RES"
+      普通無壁舎:
+        taxonomies:
+          CDL: "S/LFBR/CDL+ERM/H:1/COM"
+          CDH: "S/LFBR/CDH+ERH/H:1/COM"
+      堅ろう無壁舎:
+        taxonomies:
+          CDL: "CR/LDUAL/CDL+ERM/H:3/COM"
+          CDH: "CR/LDUAL/CDH+ERH/H:3/COM"
+      fallback:
+        taxonomies:
+          CDL: "W+WHE/LPB/CDL+ERL/H:2/RES"
+          CDH: "W+WLI/LWAL/CDH+ERM/H:2/RES"
+
+  nagaoka:
+    name: "長岡市"
+    # 長岡市の耐震化率約88%に基づき、3分類で設定
+    code_ratios:
+      CDL: 0.12  # 旧耐震 (12%)
+      CDM: 0.48  # 新耐震・移行期 (48%)
+      CDH: 0.40  # 新耐震・高耐震 (40%)
+    building_rules:
+      普通建物:
+        heights:
+          "H:1": 0.30
+          "H:2": 0.70
+        taxonomies:
+          CDL: "W+WHE/LPB/CDL+ERL/{height}/RES"
+          CDM: "W+WHE/LPB/CDM+ERM/{height}/RES"  # 在来軸組(LPB)のCDM
+          CDH: "W+WHE/LPB/CDH+ERM/{height}/RES"  # 在来軸組(LPB)のCDH
+      堅ろう建物:
+        heights:
+          "H:3": 0.70
+          "H:4": 0.30
+        taxonomies:
+          CDL: "CR/LWAL/CDL+ERM/{height}/RES"
+          CDM: "CR/LWAL/CDM+ERM/{height}/RES"
+          CDH: "CR/LWAL/CDH+ERM/{height}/RES"
+      普通無壁舎:
+        taxonomies:
+          CDL: "S/LFBR/CDL+ERM/H:1/COM"
+          CDM: "S/LFBR/CDH+ERH/H:1/COM"  # リストにCDM/COMがないため、CDHで代用
+          CDH: "S/LFBR/CDH+ERH/H:1/COM"
+      堅ろう無壁舎:
+        taxonomies:
+          CDL: "CR/LDUAL/CDL+ERM/H:3/COM"
+          CDM: "CR/LDUAL/CDH+ERH/H:3/COM"  # リストにCDM/COMがないため、CDHで代用
+          CDH: "CR/LDUAL/CDH+ERH/H:3/COM"
+      fallback:
+        taxonomies:
+          CDL: "W+WHE/LPB/CDL+ERL/H:2/RES"
+          CDM: "W+WHE/LPB/CDM+ERM/H:2/RES"
+          CDH: "W+WHE/LPB/CDH+ERM/H:2/RES"
+  uchinada:
+    name: "内灘町"
+    # 内灘町の住宅耐震化率 約78.0%（耐震性不足 約22.0%）に基づく比率設定
+    code_ratios:
+      CDL: 0.22  # 旧耐震 (22%)
+      CDM: 0.43  # 新耐震・移行期 (43%)
+      CDH: 0.35  # 新耐震・高耐震 (35%)
+    building_rules:
+      普通建物:
+        heights:
+          "H:1": 0.30
+          "H:2": 0.70
+        taxonomies:
+          CDL: "W+WHE/LPB/CDL+ERL/{height}/RES"
+          CDM: "W+WHE/LPB/CDM+ERM/{height}/RES"
+          CDH: "W+WHE/LPB/CDH+ERM/{height}/RES"
+      堅ろう建物:
+        heights:
+          "H:3": 0.70
+          "H:4": 0.30
+        taxonomies:
+          CDL: "CR/LWAL/CDL+ERM/{height}/RES"
+          CDM: "CR/LWAL/CDM+ERM/{height}/RES"
+          CDH: "CR/LWAL/CDH+ERM/{height}/RES"
+      普通無壁舎:
+        taxonomies:
+          CDL: "S/LFBR/CDL+ERM/H:1/COM"
+          CDM: "S/LFBR/CDH+ERH/H:1/COM"
+          CDH: "S/LFBR/CDH+ERH/H:1/COM"
+      堅ろう無壁舎:
+        taxonomies:
+          CDL: "CR/LDUAL/CDL+ERM/H:3/COM"
+          CDM: "CR/LDUAL/CDH+ERH/H:3/COM"
+          CDH: "CR/LDUAL/CDH+ERH/H:3/COM"
+      fallback:
+        taxonomies:
+          CDL: "W+WHE/LPB/CDL+ERL/H:2/RES"
+          CDM: "W+WHE/LPB/CDM+ERM/H:2/RES"
+          CDH: "W+WHE/LPB/CDH+ERM/H:2/RES"

@@ -16,8 +16,12 @@ wheels/
 *.qmd
 *.gpkg
 data/wajima_buildings/gsi/*.xml
-data/openquake/noto_scenario_risk/exposure_model.xml
+data/nagaoka_buildings/gsi/*.xml
+data/uchinada_buildings/gsi/*.xml
+data/openquake/wajima_scenario_risk/exposure_model.xml
 
 # Data Directory
 data/openquake/initial_scenario_risk/
 data/openquake/initial_try/
+data/openquake/nagaoka_scenario_risk/
+data/openquake/uchinada_scenario_risk/
