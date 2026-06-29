@@ -1,3 +1,4 @@
+import argparse
 import csv
 import json
 import urllib.request
@@ -73,13 +74,17 @@ def get_jshis_data(lon, lat):
 # メイン処理
 # ==========================================
 def main():
-    if not os.path.exists(input_csv):
-        print(f"エラー: 入力ファイル '{input_csv}' が見つかりません。")
+    parser = argparse.ArgumentParser(description="J-SHIS APIから地盤情報を取得し、site_model.csvを生成するスクリプト")
+    parser.add_argument('--input-csv', type=str, default=input_csv, help='入力CSVファイルのパス (デフォルト: ./data/wajima_buildings/gsi/noto_buildings.csv)')
+    parser.add_argument('--output-csv', type=str, default=output_csv, help='出力CSVファイルのパス (デフォルト: ./data/wajima_buildings/j-shis/site_model.csv)')
+    args = parser.parse_args()
+    if not os.path.exists(args.input_csv):
+        print(f"エラー: 入力ファイル '{args.input_csv}' が見つかりません。")
         return
 
     # 1. CSVデータの読み込み
     buildings = []
-    with open(input_csv, 'r', encoding='utf-8') as f:
+    with open(args.input_csv, 'r', encoding='utf-8') as f:
         reader = csv.DictReader(f)
         for row in reader:
             buildings.append({
@@ -109,12 +114,12 @@ def main():
         })
 
     # 3. site_model.csv への出力
-    with open(output_csv, 'w', newline='', encoding='utf-8') as f:
+    with open(args.output_csv, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=['lon', 'lat', 'vs30', 'z1pt0', 'z2pt5', 'vs30measured'])
         writer.writeheader()
         writer.writerows(site_model_data)
 
-    print(f"\n完了しました。保存先: {output_csv} (データ数: {len(site_model_data)}件)")
+    print(f"\n完了しました。保存先: {args.output_csv} (データ数: {len(site_model_data)}件)")
 
 if __name__ == "__main__":
     main()

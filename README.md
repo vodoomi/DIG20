@@ -12,15 +12,17 @@
 uv sync
 ```
 
-#### 1.2 輪島市の建物データの取得
+#### 1.2 建物データの取得
 
-[国土地理院の基盤地図情報ダウンロードサービス](https://service.gsi.go.jp/kiban/)から`基本項目`を選択し、左のサイドバーから以下の条件で検索
+[国土地理院の基盤地図情報ダウンロードサービス](https://service.gsi.go.jp/kiban/)から`基本項目`を選択し、左のサイドバーから以下の条件で検索（例えば、輪島市の場合）
 
 - 作成年月：過去データを含む（2023年10月から2023年12月までを指定）
 - 地物等：全項目
 - ダウンロードするファイルの単位：メッシュ単位->都道府県・市区町村上でメッシュ->石川県輪島市
 
 `FG-GML-553677-ALL-20231001.zip`と`FG-GML-563710-ALL-20231001.zip`が得られるので、`FG-GML-553677-BldA-20231001-0001.xml`と`FG-GML-563710-BldA-20231001-0001.xml`を`data/wajima_buildings/gsi/`に配置する。
+
+> ⚠️ この先の分析では、新潟県長岡市と石川県内灘町のデータも使用するが、輪島市だけでも動作確認は可能
 
 #### 1.3 建物データの前処理
 
@@ -51,32 +53,54 @@ uv sync
     - 保存先は`data/wajima_buildings/gsi/noto_buildings.csv`とする
     - 出力する属性（カラム）として、fid（地理院ID）、type（建物種別：普通建物や堅ろう建物）、先ほど計算した lon、lat、area のみにチェックを入れて保存
 
-#### 1.4 建物の場所ごとのサイト特性・地盤の取得
-
-```bash
-uv run scripts/fetch_jshis_site_model.py
-```
-
-#### 1.5 曝露モデルの作成
+#### 1.4 建物のサンプリング
 
 計算の都合上、建物は100件にサンプリングしている
 
 ```bash
-uv run scripts/generate_exposure.py
+uv run scripts/sampling.py \
+    --input-csv ./data/wajima_buildings/gsi/noto_buildings.csv \
+    --output-csv ./data/wajima_buildings/gsi/noto_buildings_sampled.csv \
+    --sample-size 100
 ```
 
-#### 1.6 OpenQuakeによる地震動解析
+> ⚠️ 長岡市や内灘町の建物データも同様にサンプリングする場合は、`--input-csv`と`--output-csv`のパスを変更して実行する
+
+#### 1.5 建物の場所ごとのサイト特性・地盤の取得
 
 ```bash
-uv run oq engine --run ./data/openquake/noto_scenario_risk/job.ini
+uv run scripts/fetch_jshis_site_model.py \
+    --input-csv ./data/wajima_buildings/gsi/noto_buildings_sampled.csv \
+    --output-csv ./data/wajima_buildings/j-shis/site_model.csv
 ```
 
-#### 1.7 結果の保存
+#### 1.6 曝露モデルの作成
+
+> ⚠️ 長岡市や内灘町の曝露モデルを作成する場合は、以下を実行してからスクリプトを回す
+
+```bash
+cp -r data/openquake/wajima_scenario_risk/ data/openquake/nagaoka_scenario_risk/
+cp -r data/openquake/wajima_scenario_risk/ data/openquake/uchinada_scenario_risk/
+```
+
+曝露モデルを作成するスクリプトを実行するコマンド
+
+```bash
+uv run scripts/generate_exposure.py --place wajima
+```
+
+#### 1.7 OpenQuakeによる地震動解析
+
+```bash
+uv run oq engine --run ./data/openquake/wajima_scenario_risk/job.ini
+```
+
+#### 1.8 結果の保存
 
 job_idは、`uv run oq engine --lrc`で確認できる
 
 ```bash
-uv run oq export avg_losses-rlzs <job_id> --export-dir ./data/openquake/noto_scenario_risk/
+uv run oq export avg_losses-rlzs <job_id> --export-dir ./data/openquake/wajima_scenario_risk/
 ```
 
 ## 参考資料

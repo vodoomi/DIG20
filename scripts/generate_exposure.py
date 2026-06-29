@@ -1,16 +1,9 @@
+import argparse
 import csv
 import random
 import os
+import yaml
 
-# ==========================================
-# 設定
-# ==========================================
-input_buildings_csv = "./data/wajima_buildings/gsi/noto_buildings.csv" # 元の建物情報CSV (約2500件)
-input_site_csv = "./data/wajima_buildings/j-shis/site_model.csv"            # API取得した地盤情報CSV (約2500件)
-
-output_xml = "./data/openquake/noto_scenario_risk/exposure_model.xml"             # 保存先：サンプリング建物XML
-output_site_csv = "./data/openquake/noto_scenario_risk/site_model.csv"   # 保存先：サンプリング地盤CSV
-sample_size = 100
 
 # 再現性のためのシード固定
 random.seed(42)
@@ -25,55 +18,72 @@ DEFAULT_Z1PT4 = 300.0 # S波速度 1.4 km/s 層上面までの深さ (m) の初�
 # ==========================================
 # 脆弱性モデルの定義に完全合致させたTaxonomy推定ロジック
 # ==========================================
-def estimate_taxonomy(bld_type):
-    # 耐震基準の決定（60%が旧耐震 CDL、40%が新耐震 CDH）
-    is_low_code = random.random() < 0.60
+class TaxonomyEstimator:
+    def __init__(self, config_path: str, region_key: str):
+        """
+        YAMLファイルを読み込み、指定された地区のルールを保持します。
+        """
+        with open(config_path, 'r', encoding='utf-8') as f:
+            config = yaml.safe_load(f)
+        
+        if 'regions' not in config or region_key not in config['regions']:
+            raise ValueError(f"指定された地区 '{region_key}' が設定ファイルに見つかりません。")
+            
+        self.region_config = config['regions'][region_key]
+        self.code_ratios = self.region_config['code_ratios']
+        self.building_rules = self.region_config['building_rules']
 
-    if bld_type == "普通建物":
-        # 階数の決定（30%が1階建て H:1、70%が2階建て H:2）
-        height = "H:1" if random.random() < 0.30 else "H:2"
-        if is_low_code:
-            # 旧耐震木造在来工法: W+WHE/LPB/CDL+ERL/...
-            return f"W+WHE/LPB/CDL+ERL/{height}/RES"
-        else:
-            # 新耐震木造枠組壁工法: W+WLI/LWAL/CDH+ERM/...
-            return f"W+WLI/LWAL/CDH+ERM/{height}/RES"
+    def estimate_taxonomy(self, bld_type: str) -> str:
+        """
+        建物種別(type)から確率的にTaxonomyを割り当てます。
+        """
+        # 1. 耐震基準コードの決定 (YAMLで定義された確率から重み付きランダム選択)
+        codes = list(self.code_ratios.keys())
+        code_weights = list(self.code_ratios.values())
+        selected_code = random.choices(codes, weights=code_weights, k=1)[0]
 
-    elif bld_type == "堅ろう建物":
-        # 階数の決定（70%が3階建て H:3、30%が4階建て H:4）
-        height = "H:3" if random.random() < 0.70 else "H:4"
-        if is_low_code:
-            # 旧耐震壁式RC造: CR/LWAL/CDL+ERM/...
-            return f"CR/LWAL/CDL+ERM/{height}/RES"
-        else:
-            # 新耐震壁式RC造: CR/LWAL/CDH+ERM/...
-            return f"CR/LWAL/CDH+ERM/{height}/RES"
+        # 2. 該当する建物種別のルールを取得 (存在しない場合は fallback)
+        rule = self.building_rules.get(bld_type)
+        if not rule:
+            rule = self.building_rules.get('fallback')
+            if not rule:
+                raise ValueError(f"建物種別 '{bld_type}' に対するルールおよびfallbackが定義されていません。")
 
-    elif bld_type == "普通無壁舎":
-        # 鉄骨ブレース造（1階建て、非居住/商業用）
-        if is_low_code:
-            return "S/LFBR/CDL+ERM/H:1/COM"
-        else:
-            return "S/LFBR/CDH+ERH/H:1/COM"
+        # 3. 階数(height)の決定 (設定がある場合のみ確率選択)
+        height_str = ""
+        if 'heights' in rule and rule['heights']:
+            heights = list(rule['heights'].keys())
+            height_weights = list(rule['heights'].values())
+            height_str = random.choices(heights, weights=height_weights, k=1)[0]
 
-    elif bld_type == "堅ろう無壁舎":
-        # RCデュアルシステム造（3階建て、非居住/商業用）
-        if is_low_code:
-            return "CR/LDUAL/CDL+ERM/H:3/COM"
-        else:
-            return "CR/LDUAL/CDH+ERH/H:3/COM"
+        # 4. Taxonomyテンプレートの抽出
+        tax_templates = rule.get('taxonomies', {})
+        # 選択された耐震コードに対する設定がない場合は、利用可能なコードで代用
+        tax_template = tax_templates.get(selected_code)
+        if not tax_template:
+            available_codes = list(tax_templates.keys())
+            tax_template = tax_templates[available_codes[0]]
 
-    else:
-        # 想定外の種別があった場合のフォールバック（一般的な木造2階建て住宅）
-        if is_low_code:
-            return "W+WHE/LPB/CDL+ERL/H:2/RES"
+        # 5. 階数プレースホルダー {height} を置換してTaxonomyを生成
+        if "{height}" in tax_template:
+            return tax_template.format(height=height_str)
         else:
-            return "W+WLI/LWAL/CDH+ERM/H:2/RES"
+            return tax_template
 
 # ==========================================
 # メイン処理
 # ==========================================
 def main():
+    parser = argparse.ArgumentParser(description="建物種別からTaxonomyを推定するスクリプト")
+    parser.add_argument('--place', type=str, default='wajima', help='地区名 (デフォルト: wajima)')
+    args = parser.parse_args()
+
+    input_buildings_csv = f"./data/{args.place}_buildings/gsi/noto_buildings_sampled.csv"
+    input_site_csv = f"./data/{args.place}_buildings/j-shis/site_model.csv"
+
+    output_xml = f"./data/openquake/{args.place}_scenario_risk/exposure_model.xml"             # 保存先：サンプリング建物XML
+    output_site_csv = f"./data/openquake/{args.place}_scenario_risk/site_model.csv"   # 保存先：サンプリング地盤CSV
+
     # ファイル存在チェック
     for filepath in [input_buildings_csv, input_site_csv]:
         if not os.path.exists(filepath):
@@ -126,12 +136,7 @@ def main():
         print("エラー: 建物データと地盤データの座標が一致しませんでした。")
         return
 
-    # 3. 100件のランダムサンプリング
-    actual_sample_size = min(sample_size, total_count)
-    sampled_data = random.sample(merged_dataset, actual_sample_size)
-    print(f"{actual_sample_size} 件をサンプリングしました。")
-
-    # 4. 露出モデル (XML) の書き出し
+    # 3. 露出モデル (XML) の書き出し
     xml_lines = []
     xml_lines.append('<?xml version="1.0" encoding="UTF-8"?>')
     xml_lines.append('<nrml xmlns:gml="http://www.opengis.net/gml" xmlns="http://openquake.org/xmlns/nrml/0.5">')
@@ -146,8 +151,9 @@ def main():
     xml_lines.append('    ')
     xml_lines.append('    <assets>')
 
-    for idx, item in enumerate(sampled_data, start=1):
-        taxonomy = estimate_taxonomy(item['type'])
+    estimator = TaxonomyEstimator(config_path="./config/taxonomy_rules.yaml", region_key=args.place)
+    for idx, item in enumerate(merged_dataset, start=1):
+        taxonomy = estimator.estimate_taxonomy(item['type'])
         xml_lines.append('      <!-- 価値を 1.0 (再調達価額を1とした比率) に設定 -->')
         xml_lines.append(f'      <asset id="asset_{idx}" taxonomy="{taxonomy}" number="1">')
         xml_lines.append(f'        <location lon="{item["lon_str"]}" lat="{item["lat_str"]}" />')
@@ -164,7 +170,7 @@ def main():
         f.write('\n'.join(xml_lines) + '\n')
     print(f"露出モデルXMLを保存しました: {output_xml}")
 
-    # 5. サンプリングされた地盤モデル (site_model_sampled.csv) の書き出し
+    # 4. サンプリングされた地盤モデル (site_model_sampled.csv) の書き出し
     seen_coordinates = set()
     written_site_count = 0
 
@@ -172,7 +178,7 @@ def main():
         writer = csv.DictWriter(f, fieldnames=['lon', 'lat', 'vs30', 'z1pt0', 'z2pt5', 'vs30measured', 'xvf', 'backarc', 'z1pt4'])
         writer.writeheader()
         
-        for item in sampled_data:
+        for item in merged_dataset:
             coord_key = (item['lon_str'], item['lat_str'])
             
             # すでに書き出し済みの座標ペアであればスキップ
