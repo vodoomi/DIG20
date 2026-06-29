@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nrml xmlns="http://openquake.org/xmlns/nrml/0.5" xmlns:gml="http://www.opengis.net/gml">
+    <multiPlanesRupture>
+        <!-- 3枚の断層を合わせた合計のモーメントマグニチュード (Mw 7.44) -->
+        <magnitude>7.44</magnitude>
+        
+        <!-- 全体のすべり角（加重平均により算出された代表値 108.2°） -->
+        <rake>108.2</rake>
+        
+        <!-- 破壊開始点（震源。本震の震央位置を指定します。以下は気象庁震央の一例：137.26°E, 37.49°N, 10.0km） -->
+        <hypocenter lon="137.26" lat="37.49" depth="10.0"/>
+        
+        <!-- ==================== 断層面 1 ==================== -->
+        <planarSurface strike="22.7" dip="40.6">
+            <topLeft lon="136.68000" lat="37.24600" depth="0.10"/>
+            <topRight lon="136.77587" lat="37.42845" depth="0.10"/>
+            <bottomLeft lon="136.77651" lat="37.21384" depth="8.04"/>
+            <bottomRight lon="136.87238" lat="37.39629" depth="8.04"/>
+        </planarSurface>
+        
+        <!-- ==================== 断層面 2 ==================== -->
+        <planarSurface strike="78.3" dip="54.9">
+            <topLeft lon="136.87600" lat="37.41400" depth="0.00"/>
+            <topRight lon="137.05562" lat="37.44354" depth="0.00"/>
+            <bottomLeft lon="136.90294" lat="37.31072" depth="16.69"/>
+            <bottomRight lon="137.08256" lat="37.34026" depth="16.69"/>
+        </planarSurface>
+        
+        <!-- ==================== 断層面 3 ==================== -->
+        <planarSurface strike="53.3" dip="49.7">
+            <topLeft lon="137.03700" lat="37.44500" depth="0.10"/>
+            <topRight lon="137.64380" lat="37.80401" depth="0.10"/>
+            <bottomLeft lon="137.08741" lat="37.39136" depth="8.87"/>
+            <bottomRight lon="137.69421" lat="37.75037" depth="8.87"/>
+        </planarSurface>
+    </multiPlanesRupture>
+</nrml>
