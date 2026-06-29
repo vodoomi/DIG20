@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fastalert": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "https://app.fastalert.jp/mcp/sse"
+      ]
+    }
+  }
+}
