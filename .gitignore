@@ -25,3 +25,6 @@ data/openquake/initial_scenario_risk/
 data/openquake/initial_try/
 data/openquake/nagaoka_scenario_risk/
 data/openquake/uchinada_scenario_risk/
+
+# Environment files
+.env
