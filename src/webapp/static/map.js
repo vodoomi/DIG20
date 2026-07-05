@@ -44,7 +44,7 @@ function renderState(data) {
   markerLayer.clearLayers();
 
   const entries = collectEntries(data);
-  let lastLatLng = null;
+  let currentLatLng = null;
 
   for (const entry of entries) {
     const q = entry.query;
@@ -68,11 +68,15 @@ function renderState(data) {
           `補償額 ${entry.payout.payout_yen_formatted}(${shindoLabel})`
       )
       .addTo(markerLayer);
-    lastLatLng = [q.lat, q.lon];
+
+    // 最新の問い合わせ(data.query)にフォーカスする。historyは過去分なので上書きしない。
+    if (entry.query === data.query) {
+      currentLatLng = [q.lat, q.lon];
+    }
   }
 
-  if (lastLatLng) {
-    map.panTo(lastLatLng);
+  if (currentLatLng) {
+    map.panTo(currentLatLng);
   }
 }
 
