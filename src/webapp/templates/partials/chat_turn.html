@@ -1,0 +1,10 @@
+<div class="msg msg-user">{{ user_message }}</div>
+<div class="msg msg-assistant">{{ assistant_message_html | safe }}</div>
+{% if show_explain_button %}
+<div id="quick-reply-slot" hx-swap-oob="true">
+  <button type="button" class="preset-btn"
+    onclick="document.getElementById('message-input').value='この補償額になった根拠を教えてください'">
+    この補償額になった根拠を教えてください
+  </button>
+</div>
+{% endif %}

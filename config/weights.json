@@ -1,0 +1,20 @@
+{
+  "w0": -12.0,
+  "w1": 1.5,
+  "feature_weights": {
+    "ratio_倒壊": 3.0,
+    "ratio_救助要請": 3.0,
+    "ratio_火災": 2.7,
+    "ratio_津波": 2.4,
+    "ratio_土砂災害": 2.1,
+    "ratio_液状化": 1.5,
+    "ratio_地盤変状": 1.2,
+    "ratio_道路被害": 1.2,
+    "ratio_断水": 0.9,
+    "ratio_停電": 0.9
+  },
+  "replacement_value_yen": 20000000,
+  "quake_time": "2024-01-01T16:10:00+09:00",
+  "feature_window_hours": 72,
+  "note": "暫定値。最適化スクリプトは未実装のため手動設定。単一のseverity指標に集約せず、被害タイプ(ratio_*)ごとに重みを持たせて合成寄与Σw_k×ratio_kを直接補償額計算に使う(features.pyのSEVERITY_WEIGHTS×3.0と同値。旧w2=3.0×severity方式と数学的に同一で、支払額は変わらない)。震度5弱・特徴量無しでP≈0.008となるようw0を設定し、震度1階級(計測震度0.5)でオッズ+0.75とした。"
+}

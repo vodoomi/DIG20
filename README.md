@@ -103,6 +103,72 @@ job_idは、`uv run oq engine --lrc`で確認できる
 uv run oq export avg_losses-rlzs <job_id> --export-dir ./data/openquake/wajima_scenario_risk/
 ```
 
+### 2. 最適化
+
+Coming soon
+
+### 3. LM Studioの設定
+
+[Setup FastAlert MCP](./docs/setup_fastalert_mcp.md)の`Setup`を参照してください
+
+### 4. 地震保険 補償額査定アプリの起動
+
+事前に「3. LM Studioの設定」([Setup FastAlert MCP](./docs/setup_fastalert_mcp.md)の`Setup`)を完了させ、
+LM Studio APIキー(`LM_STUDIO_API_KEY`)の取得とFASTALERT MCPの認証まで済ませておいてください。
+
+#### 4.1 環境変数の設定
+
+リポジトリのルートに`.env`を作成し、取得済みのLM Studio APIキーを設定する
+
+```bash
+echo "LM_STUDIO_API_KEY=<取得したトークン>" > .env
+```
+
+#### 4.2 FASTALERT特徴量CSVの作成(初回のみ)
+
+FASTALERT MCPを実際に呼び出して、輪島市・長岡市・内灘町の被害特徴量CSVを作成する
+(すでに`data/features/raw_topics_*.json`が生成済みならMCPは再呼び出しされず、それを再利用する)
+
+```bash
+uv run scripts/build_fastalert_features.py
+```
+
+#### 4.3 LM Studioサーバーの起動
+
+ssh接続したRTX 5090上で実行する([Setup FastAlert MCP](./docs/setup_fastalert_mcp.md)の`Inference`と同じ)
+
+```bash
+lms load qwen3.6-35b-a3b --gpu max -c 32768
+lms server start
+```
+
+#### 4.4 Webアプリの起動
+
+```bash
+uv run uvicorn webapp.main:app --app-dir src --host 127.0.0.1 --port 8000
+```
+
+#### 4.5 ブラウザで開く
+
+- VS Codeでssh接続している場合は8000番ポートが自動フォワードされるので、ターミナルに表示される
+  リンクをクリックすると手元PCのブラウザで開く
+- それ以外の場合は、手元PCから以下のようにポートフォワードしてから`http://localhost:8000`を開く
+
+    ```bash
+    ssh -L 8000:127.0.0.1:8000 <ユーザー名>@<GPUサーバーのIPアドレス>
+    ```
+
+#### 4.6 使い方
+
+- 画面上部で震度・特徴量それぞれの取得モード(CSVモック / ライブ(FASTALERT))を切り替えられる
+  (既定はどちらもモック)
+- チャット欄のボタンから「能登半島地震における住所の補償額を教えてください」の例文を入力するか、
+  自分で住所を入力して送信する(対象自治体は輪島市・長岡市・内灘町)
+- 補償額が回答されると「この補償額になった根拠を教えてください」ボタンが表示され、押すと震度・
+  特徴量・重み・計算式を含めた根拠が返る
+- 地図には問い合わせた建物の位置に補償額の大きさ(円の大きさ)と震度(円の色)を示す円が表示され、
+  別の住所を問い合わせても過去の円は残る
+
 ## 参考資料
 
 - 震源断層

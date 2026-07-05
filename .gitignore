@@ -25,6 +25,16 @@ data/openquake/initial_scenario_risk/
 data/openquake/initial_try/
 data/openquake/nagaoka_scenario_risk/
 data/openquake/uchinada_scenario_risk/
+data/features/
+# Webアプリの実行時状態(チャット⇔地図の橋渡し用、セッション毎に変化するためコミット対象外)
+data/app_state/
 
 # Environment files
 .env
+
+# test code
+tests/
+
+# docs
+docs/web_app_architecture.md
+docs/payout_webapp_implementation.md

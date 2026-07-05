@@ -1,0 +1,26 @@
+{
+  "wajima": {
+    "muni_code": "17204",
+    "muni_name": "輪島市",
+    "full_name": "石川県輪島市",
+    "prefecture": "石川県",
+    "center": { "lat": 37.3868, "lon": 136.8996 },
+    "mock_intensity": { "shindo_class": "7", "s_i": 6.75 }
+  },
+  "nagaoka": {
+    "muni_code": "15202",
+    "muni_name": "長岡市",
+    "full_name": "新潟県長岡市",
+    "prefecture": "新潟県",
+    "center": { "lat": 37.4468, "lon": 138.8514 },
+    "mock_intensity": { "shindo_class": "6弱", "s_i": 5.75 }
+  },
+  "uchinada": {
+    "muni_code": "17365",
+    "muni_name": "内灘町",
+    "full_name": "石川県内灘町",
+    "prefecture": "石川県",
+    "center": { "lat": 36.651066, "lon": 136.636642 },
+    "mock_intensity": { "shindo_class": "5弱", "s_i": 4.75 }
+  }
+}

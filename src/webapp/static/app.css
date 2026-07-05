@@ -1,0 +1,156 @@
+:root {
+  --border: #d0d0d0;
+  --bg-user: #e3f2fd;
+  --bg-assistant: #f1f8e9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
+  color: #222;
+}
+
+#top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+#top-bar h1 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+#mode-form {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+#mode-status {
+  color: #2E7D32;
+}
+
+main {
+  display: flex;
+  height: calc(100vh - 56px);
+}
+
+#chat-panel {
+  width: 40%;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  padding: 0.75rem;
+}
+
+#messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.msg {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+  max-width: 90%;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.msg-user {
+  align-self: flex-end;
+  background: var(--bg-user);
+}
+
+.msg-assistant {
+  align-self: flex-start;
+  background: var(--bg-assistant);
+}
+
+#quick-reply-slot {
+  margin: 0.5rem 0;
+}
+
+.preset-btn {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: #fafafa;
+  cursor: pointer;
+}
+
+.preset-btn:hover {
+  background: #eee;
+}
+
+#chat-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#message-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+}
+
+.htmx-indicator {
+  opacity: 0;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.htmx-request .htmx-indicator,
+.htmx-request.htmx-indicator {
+  opacity: 1;
+}
+
+.fallback-link {
+  font-size: 0.75rem;
+  margin: 0.4rem 0 0;
+}
+
+.fallback-link a {
+  color: #888;
+}
+
+#map-panel {
+  flex: 1;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+#legend {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+#legend strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}

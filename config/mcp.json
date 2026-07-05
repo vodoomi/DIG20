@@ -7,6 +7,15 @@
         "mcp-remote",
         "https://app.fastalert.jp/mcp/sse"
       ]
+    },
+    "payout": {
+      "command": "__REPO_ROOT__/.venv/bin/python",
+      "args": ["-m", "payout_mcp.server"],
+      "env": {
+        "PYTHONPATH": "__REPO_ROOT__/src",
+        "PAYOUT_REPO_ROOT": "__REPO_ROOT__",
+        "PAYOUT_STATE_DIR": "__REPO_ROOT__/data/app_state"
+      }
     }
   }
 }

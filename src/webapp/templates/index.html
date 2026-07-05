@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>地震保険 即時補償額デモ</title>
+<link rel="stylesheet" href="/static/vendor/leaflet.css">
+<link rel="stylesheet" href="/static/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="/static/app.css">
+<script src="/static/vendor/htmx.min.js"></script>
+<script src="/static/vendor/katex/katex.min.js"></script>
+<script src="/static/vendor/katex/auto-render.min.js"></script>
+</head>
+<body>
+  <header id="top-bar">
+    <h1>地震保険 即時補償額デモ</h1>
+    <form id="mode-form" hx-post="/api/mode" hx-target="#mode-status" hx-swap="innerHTML">
+      <label>震度:
+        <select name="intensity_mode">
+          <option value="mock" {% if config.intensity_mode == "mock" %}selected{% endif %}>CSVモック</option>
+          <option value="live" {% if config.intensity_mode == "live" %}selected{% endif %}>ライブ(FASTALERT)</option>
+        </select>
+      </label>
+      <label>特徴量:
+        <select name="features_mode">
+          <option value="mock" {% if config.features_mode == "mock" %}selected{% endif %}>CSVモック</option>
+          <option value="live" {% if config.features_mode == "live" %}selected{% endif %}>ライブ(FASTALERT)</option>
+        </select>
+      </label>
+      <button type="submit">モード適用</button>
+      <span id="mode-status"></span>
+    </form>
+  </header>
+
+  <main>
+    <section id="chat-panel">
+      <div id="messages"></div>
+
+      <div id="quick-reply-slot">
+        <button type="button" class="preset-btn"
+          onclick="document.getElementById('message-input').value='能登半島地震における石川県輪島市河井町の補償額を教えてください'">
+          能登半島地震における住所の補償額を聞く(例文)
+        </button>
+      </div>
+
+      <form id="chat-form" hx-post="/chat" hx-target="#messages" hx-swap="beforeend"
+            hx-indicator="#spinner" hx-on::after-request="this.reset(); refreshMapState();">
+        <input type="text" name="message" id="message-input"
+               placeholder="例: 能登半島地震における石川県輪島市河井町の補償額を教えてください" required>
+        <button type="submit">送信</button>
+        <span id="spinner" class="htmx-indicator">考え中...</span>
+      </form>
+
+      <p class="fallback-link">
+        <a href="#" onclick="toggleDirectMode(); return false;" id="fallback-toggle">
+          (LLMを使わず直接計算するモードに切替)
+        </a>
+      </p>
+    </section>
+
+    <section id="map-panel">
+      <div id="map"></div>
+      <div id="legend"></div>
+    </section>
+  </main>
+
+  <script src="/static/vendor/leaflet.js"></script>
+  <script src="/static/map.js"></script>
+  <script>
+    function toggleDirectMode() {
+      const form = document.getElementById('chat-form');
+      const link = document.getElementById('fallback-toggle');
+      const direct = form.getAttribute('hx-post') === '/chat_direct';
+      form.setAttribute('hx-post', direct ? '/chat' : '/chat_direct');
+      link.textContent = direct ? '(LLMを使わず直接計算するモードに切替)' : '(LLM経由モードに戻す)';
+      htmx.process(form);
+    }
+
+    function renderMath(el) {
+      if (window.renderMathInElement) {
+        renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '\\[', right: '\\]', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+          ],
+        });
+      }
+    }
+
+    // htmxで新着メッセージ(#messages配下)がDOMに追加されるたびに数式を描画する
+    document.body.addEventListener('htmx:afterSwap', (evt) => renderMath(evt.detail.target));
+    document.body.addEventListener('htmx:oobAfterSwap', (evt) => renderMath(evt.detail.target));
+  </script>
+</body>
+</html>

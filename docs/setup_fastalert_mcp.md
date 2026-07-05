@@ -22,9 +22,12 @@ lms get -y qwen/qwen3.6-35b-a3b # qwen3.6-27b@q8_0
 
 ### 3. LM Studioの設定
 
+リポジトリのルートディレクトリで実行してください(`config/mcp.json`の`__REPO_ROOT__`を
+自分の実際のチェックアウトパスに置き換えるため、`pwd`を使って生成します)。
+
 ```bash
 cp config/http-server-config.json ~/.lmstudio/.internal/http-server-config.json
-cp config/mcp.json ~/.lmstudio/mcp.json
+sed "s|__REPO_ROOT__|$(pwd)|g" config/mcp.json > ~/.lmstudio/mcp.json
 ```
 
 ### 4. LM Studio APIキーの取得
