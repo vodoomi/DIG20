@@ -8,6 +8,7 @@ server.py — 地震保険即時支払いデモ用 独自MCPサーバ(Model Cont
   - compute_features               : FASTALERT特徴量取得(mock=事前CSV / live=fastalert_topicsを都度呼び出し)
   - calculate_payout              : 補償額計算(P = sigmoid(w0+w1*S_i+Σ_k w_k*ratio_k) x 再調達価額)
   - explain_payout                 : 直近の計算の根拠を平易な日本語の文章で返す
+  - get_damage_image               : 根拠で寄与が大きかった被害カテゴリの実画像URLを1枚返す
   - estimate_payout_for_address    : 上記を1コールで実行する複合ツール(フォールバック用)
 
 設計:
@@ -28,7 +29,7 @@ import os
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
-from payout_mcp import fastalert_client, features, geocode, intensity, payout, state
+from payout_mcp import damage_images, fastalert_client, features, geocode, intensity, payout, state
 
 try:
     from mcp.server import Server
@@ -50,6 +51,7 @@ def _repo_root() -> Path:
 
 CONFIG_DIR = _repo_root() / "config"
 FEATURES_CSV = _repo_root() / "data" / "features" / "fastalert_features.csv"
+IMAGE_URLS_JSON = _repo_root() / "data" / "images" / "image_urls.json"
 
 _INT_FEATURE_FIELDS = {"n_signal", "n_types"}
 
@@ -141,6 +143,8 @@ CALCULATE_PAYOUT_SCHEMA = {
 }
 
 EXPLAIN_PAYOUT_SCHEMA = {"type": "object", "properties": {}}
+
+GET_DAMAGE_IMAGE_SCHEMA = {"type": "object", "properties": {}}
 
 ESTIMATE_SCHEMA = {
     "type": "object",
@@ -360,6 +364,30 @@ def run_explain_payout(args: dict) -> dict:
     }
 
 
+def run_get_damage_image(args: dict) -> dict:
+    if not IMAGE_URLS_JSON.exists():
+        return {"error": f"被害画像インデックスがありません: {IMAGE_URLS_JSON}"}
+
+    latest = state.read_latest()
+    result = damage_images.pick_damage_image(
+        latest,
+        damage_images.load_image_index(IMAGE_URLS_JSON),
+        validate_url=damage_images.url_is_alive,  # 元ツイート削除で404の画像はスキップ
+    )
+    if "error" in result:
+        return result
+
+    # チャット欄にそのまま貼れば<img>として表示されるMarkdownを添えて返す。
+    # LLMにURLを書き写させると打ち間違いが起きるため、この文字列を無加工で使わせる。
+    result["markdown"] = (
+        f"![{result['muni_name']}の{result['category']}の被害画像]({result['image_url']})\n\n"
+        f"*{result['muni_name']}・カテゴリ「{result['category']}」の被害投稿画像"
+        f"([出典]({result['source_url']}))*"
+    )
+    state.merge_latest({"damage_image": result})
+    return result
+
+
 async def run_estimate_payout_for_address(args: dict) -> dict:
     geo = run_geocode_address({"address": args["address"]})
     if "error" in geo:
@@ -391,6 +419,7 @@ _TOOL_HANDLERS = {
     "compute_features": run_compute_features,
     "calculate_payout": run_calculate_payout,
     "explain_payout": run_explain_payout,
+    "get_damage_image": run_get_damage_image,
     "estimate_payout_for_address": run_estimate_payout_for_address,
 }
 
@@ -448,6 +477,17 @@ def build_server():
                     "引数は不要で、状態ファイルの内容だけから完結して答えられる。"
                 ),
                 inputSchema=EXPLAIN_PAYOUT_SCHEMA,
+            ),
+            Tool(
+                name="get_damage_image",
+                description=(
+                    "直近の補償額算定で影響が大きかった被害カテゴリの実際の被害画像を1枚ランダムに返す"
+                    "(FASTALERTで収集済みのSNS投稿画像)。『被害の様子を画像で見せて』のような依頼が"
+                    "来たら、余計なことを考えずにこのツールを1回呼ぶこと。引数は不要。"
+                    "回答には、返り値の markdown フィールドの文字列を一字も変えずにそのまま貼り付ける"
+                    "(URLを書き写したり要約したりしない)。"
+                ),
+                inputSchema=GET_DAMAGE_IMAGE_SCHEMA,
             ),
             Tool(
                 name="estimate_payout_for_address",

@@ -21,7 +21,11 @@ from fastapi.staticfiles import StaticFiles  # noqa: E402
 from fastapi.templating import Jinja2Templates  # noqa: E402
 
 from payout_mcp import state  # noqa: E402
-from payout_mcp.server import run_estimate_payout_for_address, run_explain_payout  # noqa: E402
+from payout_mcp.server import (  # noqa: E402
+    run_estimate_payout_for_address,
+    run_explain_payout,
+    run_get_damage_image,
+)
 from webapp import lmstudio  # noqa: E402
 
 
@@ -123,6 +127,16 @@ async def chat_direct(request: Request, message: str = Form(...)):
 
 
 async def _direct_answer(message: str) -> str:
+    if "画像" in message:
+        result = run_get_damage_image({})
+        if "error" in result:
+            return result["error"]
+        return (
+            f"{result['markdown']}\n\n"
+            f"補償額の算定で影響が大きかった被害タイプ「{result['damage_type']}」に対応する、"
+            f"{result['muni_name']}で実際に投稿された被害画像です。"
+        )
+
     if "根拠" in message:
         result = run_explain_payout({})
         if "error" in result:

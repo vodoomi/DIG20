@@ -76,6 +76,15 @@ main {
   background: var(--bg-assistant);
 }
 
+/* 被害画像(get_damage_imageのMarkdown画像)をチャット枠に収める */
+.msg-assistant img {
+  display: block;
+  max-width: 100%;
+  max-height: 320px;
+  border-radius: 0.4rem;
+  margin: 0.4rem 0;
+}
+
 #quick-reply-slot {
   margin: 0.5rem 0;
 }

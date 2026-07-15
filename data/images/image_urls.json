@@ -1,0 +1,4391 @@
+{
+  "note": "raw_topics_{wajima,nagaoka,uchinada}.json の全トピックを fastalert_topic_detail で照会し、添付メディアURLを抽出したもの。type=video の image_url はサムネイル。",
+  "generated_at": "2026-07-15T07:16:16.798747+00:00",
+  "topic_count": 127,
+  "topics_with_attachments": 83,
+  "total_images": 264,
+  "total_videos": 35,
+  "errors": [],
+  "topics": [
+    {
+      "topic_id": 9393858,
+      "region": "wajima",
+      "category": "土砂災害",
+      "head": "石川県輪島市市ノ瀬町付近で土砂災害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T11:45:26.102876Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9393858",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9393621,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市下山町付近で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T11:04:06.069086Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9393621",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9393090,
+      "region": "wajima",
+      "category": "停電",
+      "head": "石川県輪島市で停電",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T09:40:35.516837Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9393090",
+      "image_count": 0,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337740973,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1742489017395073024/pu/img/k1UNRrbprYXdoXJj.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1742489017395073024/pu/vid/avc1/480x852/VEcKFd4yVbw-NsWW.mp4?tag=12",
+          "source_url": "https://twitter.com/SDK1856229/status/1742489293699108915",
+          "published_at": "2024-01-03T10:13:16Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9392211,
+      "region": "wajima",
+      "category": "土砂災害",
+      "head": "石川県輪島市 県道1号 熊野トンネル付近で土砂災害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T07:41:48.741128Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9392211",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337739397,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC5srama4AAoA19.png",
+          "video_url": null,
+          "source_url": "https://twitter.com/miyawai3/status/1742450169390694424",
+          "published_at": "2024-01-03T07:37:48Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9391665,
+      "region": "wajima",
+      "category": "地震被害",
+      "head": "石川県輪島市で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T06:29:35.490899Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9391665",
+      "image_count": 3,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337738565,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC5dcVqb0AASg1A.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hitomin_0119_/status/1742432865483432259",
+          "published_at": "2024-01-03T06:29:02Z"
+        },
+        {
+          "item_id": 337738565,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC5dcVqb0AEE54H.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hitomin_0119_/status/1742432865483432259",
+          "published_at": "2024-01-03T06:29:02Z"
+        },
+        {
+          "item_id": 337738565,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC5dcVobcAAKScy.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hitomin_0119_/status/1742432865483432259",
+          "published_at": "2024-01-03T06:29:02Z"
+        },
+        {
+          "item_id": 337738565,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1742432847267536896/pu/img/JAzUyR0xo607aahr.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1742432847267536896/pu/vid/avc1/480x852/wihYYpy74Qb0tlF8.mp4?tag=12",
+          "source_url": "https://twitter.com/hitomin_0119_/status/1742432865483432259",
+          "published_at": "2024-01-03T06:29:02Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9391060,
+      "region": "wajima",
+      "category": "土砂災害",
+      "head": "石川県輪島市三井町細屋付近で土砂災害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T04:44:07.149263Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9391060",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337737830,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC5FHw4aoAAmSQE.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/0801_KK_ashi/status/1742406113893744958",
+          "published_at": "2024-01-03T04:42:44Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9391219,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T05:14:41.48544Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9391219",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9390551,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市河井町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T03:22:25.550492Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9390551",
+      "image_count": 0,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337737244,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1742384878484918272/pu/img/vPPml6ZhpTMlbrCy.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1742384878484918272/pu/vid/avc1/480x852/4OqVEV565UuDmadv.mp4?tag=12",
+          "source_url": "https://twitter.com/4_6n_k/status/1742385301572755472",
+          "published_at": "2024-01-03T03:20:02Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9389866,
+      "region": "wajima",
+      "category": "地震被害",
+      "head": "石川県輪島市門前町道下付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T01:40:28.233634Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9389866",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337736484,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4aMJ4a4AAGqpd.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wrq98oUiQ2TANYR/status/1742358950371324367",
+          "published_at": "2024-01-03T01:35:19Z"
+        },
+        {
+          "item_id": 337736484,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4aNSUagAAWFft.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wrq98oUiQ2TANYR/status/1742358950371324367",
+          "published_at": "2024-01-03T01:35:19Z"
+        },
+        {
+          "item_id": 337736484,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4aN33aAAADCbS.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wrq98oUiQ2TANYR/status/1742358950371324367",
+          "published_at": "2024-01-03T01:35:19Z"
+        },
+        {
+          "item_id": 337736484,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4aOtMawAA1nhE.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wrq98oUiQ2TANYR/status/1742358950371324367",
+          "published_at": "2024-01-03T01:35:19Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9392138,
+      "region": "wajima",
+      "category": "土砂災害",
+      "head": "石川県輪島市市ノ瀬町付近で土砂災害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T07:31:43.534477Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9392138",
+      "image_count": 2,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337739094,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1742318506996387840/pu/img/qSM4Ts4iMAOf_26M.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1742318506996387840/pu/vid/avc1/480x852/CtrUsRicBrwPMmps.mp4?tag=12",
+          "source_url": "https://twitter.com/mosaaaaann/status/1742318605046603863",
+          "published_at": "2024-01-02T22:55:00Z"
+        },
+        {
+          "item_id": 337739094,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC31c2_bIAAs52H.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/mosaaaaann/status/1742318605046603863",
+          "published_at": "2024-01-02T22:55:00Z"
+        },
+        {
+          "item_id": 337739094,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC31c3AaYAA5RkL.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/mosaaaaann/status/1742318605046603863",
+          "published_at": "2024-01-02T22:55:00Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9391035,
+      "region": "wajima",
+      "category": "自然現象",
+      "head": "石川県輪島市 黒島漁港で自然現象",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-03T04:39:20.225075Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9391035",
+      "image_count": 2,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337737805,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC2-j0JXYAALqOT.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/SAKETUBER/status/1742258158863618320",
+          "published_at": "2024-01-02T18:54:49Z"
+        },
+        {
+          "item_id": 337737805,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC2-j0OXEAEZ-Uv.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/SAKETUBER/status/1742258158863618320",
+          "published_at": "2024-01-02T18:54:49Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9387479,
+      "region": "wajima",
+      "category": "停電",
+      "head": "石川県輪島市 輪島市立大屋小学校付近で停電",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T14:48:27.207397Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9387479",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9386988,
+      "region": "wajima",
+      "category": "断水",
+      "head": "石川県輪島市で断水",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T13:09:37.789881Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9386988",
+      "image_count": 0,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337733165,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/amplify_video_thumb/1742170827410522112/img/R5dKXlR3kdMmCQiW.jpg",
+          "video_url": "https://video.twimg.com/amplify_video/1742170827410522112/vid/avc1/480x852/YzMXuehC8gNWYcxp.mp4?tag=14",
+          "source_url": "https://twitter.com/HideyukiTakah18/status/1742171139391295914",
+          "published_at": "2024-01-02T13:09:02Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9385040,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市稲屋町付近 国道249号で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T09:12:44.553555Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9385040",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337730607,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC04-vda4AAavrz.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/misakura_rin/status/1742111283472973918",
+          "published_at": "2024-01-02T09:11:11Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384624,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T08:25:33.346446Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384624",
+      "image_count": 0,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337729962,
+          "type": "video",
+          "image_url": "https://p16-sign-sg.tiktokcdn.com/tos-alisg-p-0037/f1d881ae60f24abdbd8ce6cd70db9870_1704173188~tplv-tiktokx-360p.webp?lk3s=d05b14bd&x-expires=1704268800&x-signature=KWKDNKLc4uG2OG0YyWZZqsvYTX0%3D&s=FEED&se=false&sh=&sc=feed_cover&l=2024010208234376F2B951B0EC3883F8DE",
+          "video_url": "https://api16-normal-c-useast1a.tiktokv.com/aweme/v1/play/?video_id=v10044g50000cm9prnvog65t8542mvi0&line=0&watermark=1&logo_name=tiktok&source=FEED&file_id=49c118add5c641d290c45b8c55887f77&item_id=7319368055035825426&signaturev3=dmlkZW9faWQ7ZmlsZV9pZDtpdGVtX2lkLmRhNGMzMTJmMTc5NmZmZDNkNzQzZDllZjgxYTk3OWQy",
+          "source_url": "https://vt.tiktok.com/ZSN7eHMkx/",
+          "published_at": "2024-01-02T08:23:25Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384620,
+      "region": "wajima",
+      "category": "地震被害",
+      "head": "石川県輪島市町野町付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T08:24:34.005965Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384620",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337729952,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0t7b6bEAASe8d.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/_cereal928/status/1742099136651084143",
+          "published_at": "2024-01-02T08:22:55Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384568,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市門前町皆月で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T08:16:49.981264Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384568",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337729887,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0sH54aYAAOV9H.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/EiichiYoshioka/status/1742097169082138636",
+          "published_at": "2024-01-02T08:15:06Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384205,
+      "region": "wajima",
+      "category": "地震被害",
+      "head": "石川県輪島市で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T07:32:59.57047Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384205",
+      "image_count": 0,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337729471,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/amplify_video_thumb/1742086230559559680/img/b3crejhUgtTQZS_6.jpg",
+          "video_url": "https://video.twimg.com/amplify_video/1742086230559559680/vid/avc1/480x852/Whc3ZQBESNHBgcVJ.mp4?tag=14",
+          "source_url": "https://twitter.com/Kotagon421/status/1742086492628152627",
+          "published_at": "2024-01-02T07:32:40Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384139,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市門前町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T07:23:43.448215Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384139",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337729352,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0fx8-aUAAWW5t.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wrq98oUiQ2TANYR/status/1742083720516108597",
+          "published_at": "2024-01-02T07:21:39Z"
+        },
+        {
+          "item_id": 337729352,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0f0JKbwAA2BsK.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wrq98oUiQ2TANYR/status/1742083720516108597",
+          "published_at": "2024-01-02T07:21:39Z"
+        },
+        {
+          "item_id": 337729352,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0f2O0bgAAE_Al.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wrq98oUiQ2TANYR/status/1742083720516108597",
+          "published_at": "2024-01-02T07:21:39Z"
+        },
+        {
+          "item_id": 337729352,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0f6N3a0AAlce6.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wrq98oUiQ2TANYR/status/1742083720516108597",
+          "published_at": "2024-01-02T07:21:39Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384111,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市町野町広江付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T07:20:31.249427Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384111",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9383688,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T06:25:57.934707Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9383688",
+      "image_count": 11,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337729045,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0YRnMbIAAT37e.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/KsrvZX9MS2IL9HF/status/1742076278318993693",
+          "published_at": "2024-01-02T06:52:05Z"
+        },
+        {
+          "item_id": 337729045,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0YTMFb0AA9_a4.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/KsrvZX9MS2IL9HF/status/1742076278318993693",
+          "published_at": "2024-01-02T06:52:05Z"
+        },
+        {
+          "item_id": 337729045,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0ZE_DaAAA2LDu.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/KsrvZX9MS2IL9HF/status/1742076278318993693",
+          "published_at": "2024-01-02T06:52:05Z"
+        },
+        {
+          "item_id": 337729045,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0ZIoWaMAAViPY.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/KsrvZX9MS2IL9HF/status/1742076278318993693",
+          "published_at": "2024-01-02T06:52:05Z"
+        },
+        {
+          "item_id": 337728784,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0TDyQbMAAuIMT.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/rusa4rusa9/status/1742069640841642210",
+          "published_at": "2024-01-02T06:25:43Z"
+        },
+        {
+          "item_id": 337728784,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0TEq6aEAA4_yF.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/rusa4rusa9/status/1742069640841642210",
+          "published_at": "2024-01-02T06:25:43Z"
+        },
+        {
+          "item_id": 337728784,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0TFYLbQAA5HeI.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/rusa4rusa9/status/1742069640841642210",
+          "published_at": "2024-01-02T06:25:43Z"
+        },
+        {
+          "item_id": 337728784,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0TGHVaEAEBsms.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/rusa4rusa9/status/1742069640841642210",
+          "published_at": "2024-01-02T06:25:43Z"
+        },
+        {
+          "item_id": 337728752,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0SgH_awAAlxuH.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakura_hospital/status/1742068986882506784",
+          "published_at": "2024-01-02T06:23:07Z"
+        },
+        {
+          "item_id": 337728752,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0SgIAaoAAEWjn.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakura_hospital/status/1742068986882506784",
+          "published_at": "2024-01-02T06:23:07Z"
+        },
+        {
+          "item_id": 337728752,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0SgICbgAAaOAr.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakura_hospital/status/1742068986882506784",
+          "published_at": "2024-01-02T06:23:07Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9383563,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市河井町 朝市通りで倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T06:09:35.932758Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9383563",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337728603,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0Oy5WbkAASG4Q.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1742064958018589153",
+          "published_at": "2024-01-02T06:07:06Z"
+        },
+        {
+          "item_id": 337728603,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0Oy6LbIAA27DT.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1742064958018589153",
+          "published_at": "2024-01-02T06:07:06Z"
+        },
+        {
+          "item_id": 337728603,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0Oy6ZaMAAdl6R.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1742064958018589153",
+          "published_at": "2024-01-02T06:07:06Z"
+        },
+        {
+          "item_id": 337728603,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0Oy5yasAAahuR.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1742064958018589153",
+          "published_at": "2024-01-02T06:07:06Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9383556,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市河井町で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T06:08:24.380478Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9383556",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337728578,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0Od1zaQAAmFjB.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1742064583677006224",
+          "published_at": "2024-01-02T06:05:37Z"
+        },
+        {
+          "item_id": 337728578,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0Od2FbsAEIUcl.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1742064583677006224",
+          "published_at": "2024-01-02T06:05:37Z"
+        },
+        {
+          "item_id": 337728578,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0Od1_bgAEyoEw.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1742064583677006224",
+          "published_at": "2024-01-02T06:05:37Z"
+        },
+        {
+          "item_id": 337728578,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0Od14akAEep6-.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1742064583677006224",
+          "published_at": "2024-01-02T06:05:37Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9383267,
+      "region": "wajima",
+      "category": "地震被害",
+      "head": "石川県輪島市河井町付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T05:30:51.709264Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9383267",
+      "image_count": 2,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337728227,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0F5tNacAANdn2.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Z_MAN_08/status/1742055138829996498",
+          "published_at": "2024-01-02T05:28:05Z"
+        },
+        {
+          "item_id": 337728227,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0F6mpaoAAZaE6.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Z_MAN_08/status/1742055138829996498",
+          "published_at": "2024-01-02T05:28:05Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9383028,
+      "region": "wajima",
+      "category": "土砂災害",
+      "head": "石川県輪島市町野町付近で土砂災害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T04:57:08.304354Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9383028",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727929,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz-P0Aa4AAM2dm.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sosnotonomachi/status/1742046710929805361",
+          "published_at": "2024-01-02T04:54:36Z"
+        },
+        {
+          "item_id": 337727929,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz-Pz9bQAAEq0T.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sosnotonomachi/status/1742046710929805361",
+          "published_at": "2024-01-02T04:54:36Z"
+        },
+        {
+          "item_id": 337727929,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz-Pz8a8AABcO5.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sosnotonomachi/status/1742046710929805361",
+          "published_at": "2024-01-02T04:54:36Z"
+        },
+        {
+          "item_id": 337727929,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz-P0CbsAAgMeA.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sosnotonomachi/status/1742046710929805361",
+          "published_at": "2024-01-02T04:54:36Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9383019,
+      "region": "wajima",
+      "category": "地震被害",
+      "head": "石川県輪島市町野町付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T04:56:24.80042Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9383019",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727909,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz9xxaa0AAdTYJ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sosnotonomachi/status/1742046193612661217",
+          "published_at": "2024-01-02T04:52:32Z"
+        },
+        {
+          "item_id": 337727909,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz9xxXa0AAv63A.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sosnotonomachi/status/1742046193612661217",
+          "published_at": "2024-01-02T04:52:32Z"
+        },
+        {
+          "item_id": 337727909,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz9xxZbYAAb2lR.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sosnotonomachi/status/1742046193612661217",
+          "published_at": "2024-01-02T04:52:32Z"
+        },
+        {
+          "item_id": 337727909,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz9xxXbEAABsTA.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sosnotonomachi/status/1742046193612661217",
+          "published_at": "2024-01-02T04:52:32Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9382331,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T03:25:48.246632Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382331",
+      "image_count": 9,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727731,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz5LlSbsAAjCy-.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kessinzi/status/1742041323547554014",
+          "published_at": "2024-01-02T04:33:11Z"
+        },
+        {
+          "item_id": 337727731,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz5NEYaEAAyQpI.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kessinzi/status/1742041323547554014",
+          "published_at": "2024-01-02T04:33:11Z"
+        },
+        {
+          "item_id": 337727731,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz5U6wagAANpwM.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kessinzi/status/1742041323547554014",
+          "published_at": "2024-01-02T04:33:11Z"
+        },
+        {
+          "item_id": 337727120,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzrJ6EbAAAtksd.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/92co_/status/1742025736893219156",
+          "published_at": "2024-01-02T03:31:15Z"
+        },
+        {
+          "item_id": 337727120,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzrJ5-bkAA8dtH.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/92co_/status/1742025736893219156",
+          "published_at": "2024-01-02T03:31:15Z"
+        },
+        {
+          "item_id": 337727120,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzrJ6Ib0AAkKFK.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/92co_/status/1742025736893219156",
+          "published_at": "2024-01-02T03:31:15Z"
+        },
+        {
+          "item_id": 337727120,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzrJ6BacAAR2lu.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/92co_/status/1742025736893219156",
+          "published_at": "2024-01-02T03:31:15Z"
+        },
+        {
+          "item_id": 337727546,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzoO25aMAAGgk4.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hokkokushimbun/status/1742023973750407461",
+          "published_at": "2024-01-02T03:24:15Z"
+        },
+        {
+          "item_id": 337727052,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzoO25aMAAGgk4.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hokkokushimbun/status/1742023570400895073",
+          "published_at": "2024-01-02T03:22:39Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9382799,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市町野町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T04:26:51.880291Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382799",
+      "image_count": 3,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727661,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz3qe5awAAWpHj.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/y_kno1223/status/1742039509536289056",
+          "published_at": "2024-01-02T04:25:59Z"
+        },
+        {
+          "item_id": 337727661,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz3rW8acAAze7V.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/y_kno1223/status/1742039509536289056",
+          "published_at": "2024-01-02T04:25:59Z"
+        },
+        {
+          "item_id": 337727661,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz3sMAaYAAqJm4.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/y_kno1223/status/1742039509536289056",
+          "published_at": "2024-01-02T04:25:59Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9382788,
+      "region": "wajima",
+      "category": "地震被害",
+      "head": "石川県輪島市気勝平町付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T04:24:44.726464Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382788",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727645,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz3FaxbwAAyQOs.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/minamidani/status/1742038835742310718",
+          "published_at": "2024-01-02T04:23:18Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9382766,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市西山町付近で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T04:20:53.803541Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382766",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9375640,
+      "region": "wajima",
+      "category": "火災",
+      "head": "石川県輪島市河井町付近で火災",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T08:40:19.340078Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375640",
+      "image_count": 25,
+      "video_count": 10,
+      "attachments": [
+        {
+          "item_id": 337729635,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz0m-eawAAKYxI.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sayabey/status/1742036126322618646",
+          "published_at": "2024-01-02T04:12:32Z"
+        },
+        {
+          "item_id": 337727476,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzzHj7a4AA8Xes.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/dog_586/status/1742034476325286316",
+          "published_at": "2024-01-02T04:05:59Z"
+        },
+        {
+          "item_id": 337727476,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzzHj5aMAARIZH.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/dog_586/status/1742034476325286316",
+          "published_at": "2024-01-02T04:05:59Z"
+        },
+        {
+          "item_id": 337727476,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzzHj5bwAA4_jI.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/dog_586/status/1742034476325286316",
+          "published_at": "2024-01-02T04:05:59Z"
+        },
+        {
+          "item_id": 337727476,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzzHj4aoAAkZJK.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/dog_586/status/1742034476325286316",
+          "published_at": "2024-01-02T04:05:59Z"
+        },
+        {
+          "item_id": 337726987,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCznYrfaYAAwGZ2.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Arsh_10k/status/1742021701448458281",
+          "published_at": "2024-01-02T03:15:13Z"
+        },
+        {
+          "item_id": 337726282,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzYVTnaUAA0oig.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ika2kanjya/status/1742005047674974676",
+          "published_at": "2024-01-02T02:09:02Z"
+        },
+        {
+          "item_id": 337727568,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741983254746644480/pu/img/WZnMjSZwD-TiYksq.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741983254746644480/pu/vid/avc1/640x360/Jd8wP0elaWdTvbWv.mp4?tag=12",
+          "source_url": "https://twitter.com/pyongkichi1212/status/1741983293736972655",
+          "published_at": "2024-01-02T00:42:36Z"
+        },
+        {
+          "item_id": 337723744,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCx1XrZaoAEqhxT.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/youmu0606/status/1741896212989776053",
+          "published_at": "2024-01-01T18:56:34Z"
+        },
+        {
+          "item_id": 337723744,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCx1X5-a0AExOub.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/youmu0606/status/1741896212989776053",
+          "published_at": "2024-01-01T18:56:34Z"
+        },
+        {
+          "item_id": 337723686,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741827467852312576/pu/img/R0YD6qktL0SByGef.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741827467852312576/pu/vid/avc1/640x360/Z8WHLwW3ilZMBtJx.mp4?tag=12",
+          "source_url": "https://twitter.com/aries1080/status/1741827496675627494",
+          "published_at": "2024-01-01T14:23:31Z"
+        },
+        {
+          "item_id": 337723684,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741775072590008320/pu/img/JvTIie_xG2ADxqBa.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741775072590008320/pu/vid/avc1/640x360/72n4cYDY3QTF6ndt.mp4?tag=12",
+          "source_url": "https://twitter.com/aries1080/status/1741775116181328052",
+          "published_at": "2024-01-01T10:55:22Z"
+        },
+        {
+          "item_id": 337723157,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741855827844366336/pu/img/qcJuZstFJ8fnrscy.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741855827844366336/pu/vid/avc1/640x360/6OlNExFWlnRwM1_7.mp4?tag=12",
+          "source_url": "https://twitter.com/YUKAKU7/status/1741855885071376414",
+          "published_at": "2024-01-01T16:16:19Z"
+        },
+        {
+          "item_id": 337723037,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741849568525107200/pu/img/1RERxBej4cYDDJK_.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741849568525107200/pu/vid/avc1/480x852/9GOe1MdO2liB7kvP.mp4?tag=12",
+          "source_url": "https://twitter.com/thurisuro812/status/1741849668588622169",
+          "published_at": "2024-01-01T15:51:37Z"
+        },
+        {
+          "item_id": 337723023,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxKAzua4AACdlO.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Macho_MT555/status/1741848628631916956",
+          "published_at": "2024-01-01T15:47:29Z"
+        },
+        {
+          "item_id": 337723023,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxKAzcaQAAadI-.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Macho_MT555/status/1741848628631916956",
+          "published_at": "2024-01-01T15:47:29Z"
+        },
+        {
+          "item_id": 337723023,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxKAzkbQAALUNB.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Macho_MT555/status/1741848628631916956",
+          "published_at": "2024-01-01T15:47:29Z"
+        },
+        {
+          "item_id": 337723023,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxKAzcaoAA1gCG.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Macho_MT555/status/1741848628631916956",
+          "published_at": "2024-01-01T15:47:29Z"
+        },
+        {
+          "item_id": 337722810,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxCNOEbcAAFb3r.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/chocorate_ta/status/1741839992337670490",
+          "published_at": "2024-01-01T15:13:10Z"
+        },
+        {
+          "item_id": 337722810,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxCNOVbMAAMpbh.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/chocorate_ta/status/1741839992337670490",
+          "published_at": "2024-01-01T15:13:10Z"
+        },
+        {
+          "item_id": 337722558,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741829933322960896/pu/img/IvqVw9kQsR4JKm8W.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741829933322960896/pu/vid/avc1/480x852/JYK_xiuqHZuv9kZH.mp4?tag=12",
+          "source_url": "https://twitter.com/poodledayo/status/1741830069730021866",
+          "published_at": "2024-01-01T14:33:44Z"
+        },
+        {
+          "item_id": 337722523,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCw4ZDha8AAMreX.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/_mikan_ika/status/1741829172916617285",
+          "published_at": "2024-01-01T14:30:11Z"
+        },
+        {
+          "item_id": 337722474,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCw2exCbcAAu2T3.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sayabey/status/1741827086808121809",
+          "published_at": "2024-01-01T14:21:53Z"
+        },
+        {
+          "item_id": 337722429,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741825776151154688/pu/img/-QyTD8O-qZike7dp.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741825776151154688/pu/vid/avc1/480x852/_s_3l6c1ybWSJE-D.mp4?tag=12",
+          "source_url": "https://twitter.com/NLCMbdCn61R76D3/status/1741825804664000749",
+          "published_at": "2024-01-01T14:16:48Z"
+        },
+        {
+          "item_id": 337722400,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741825051845128192/pu/img/t9M81wmb0U4PbEI1.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741825051845128192/pu/vid/avc1/480x852/FbYkIRggcmMgPyRL.mp4?tag=12",
+          "source_url": "https://twitter.com/NLCMbdCn61R76D3/status/1741825079611367783",
+          "published_at": "2024-01-01T14:13:55Z"
+        },
+        {
+          "item_id": 337722240,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwwsD1bwAAMG3D.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sayabey/status/1741820698988093673",
+          "published_at": "2024-01-01T13:56:30Z"
+        },
+        {
+          "item_id": 337722091,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwsscUbIAAIAn7.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/h4x_1uv_/status/1741816324438065364",
+          "published_at": "2024-01-01T13:39:07Z"
+        },
+        {
+          "item_id": 337721821,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwlmKTaEAAV5N-.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sayabey/status/1741808506817364084",
+          "published_at": "2024-01-01T13:08:03Z"
+        },
+        {
+          "item_id": 337721148,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwWCFEbkAAB0KA.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sayabey/status/1741791393251774896",
+          "published_at": "2024-01-01T12:00:03Z"
+        },
+        {
+          "item_id": 337720579,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwKjQDbkAANuP2.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sayabey/status/1741778773266383320",
+          "published_at": "2024-01-01T11:09:54Z"
+        },
+        {
+          "item_id": 337719081,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCv0OhbakAA-R6X.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sayabey/status/1741754225485607116",
+          "published_at": "2024-01-01T09:32:22Z"
+        },
+        {
+          "item_id": 337718278,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvpzJjbMAAtqPe.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/pe_Haruru/status/1741742750641672701",
+          "published_at": "2024-01-01T08:46:46Z"
+        },
+        {
+          "item_id": 337718265,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741743249101103104/pu/img/cvr_36pZwoLVkSIY.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741743249101103104/pu/vid/avc1/376x300/F2xD1-9cQopD_vOt.mp4?tag=12",
+          "source_url": "https://twitter.com/Agate11040591/status/1741743282559054287",
+          "published_at": "2024-01-01T08:48:53Z"
+        },
+        {
+          "item_id": 337718079,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvn5DNaQAAWstJ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/mi88came/status/1741740667163009049",
+          "published_at": "2024-01-01T08:38:29Z"
+        },
+        {
+          "item_id": 337718005,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741741686936780800/pu/img/P_Zl4qUFNQZL06xV.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741741686936780800/pu/vid/avc1/640x360/mnwaqBf-EIjQLmNj.mp4?tag=12",
+          "source_url": "https://twitter.com/29912190/status/1741741757354902009",
+          "published_at": "2024-01-01T08:42:49Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9382607,
+      "region": "wajima",
+      "category": "地震被害",
+      "head": "石川県輪島市町野町曽々木付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T04:01:04.561723Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382607",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727394,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzxdgLacAAUCio.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/noukou_p/status/1742032710057808065",
+          "published_at": "2024-01-02T03:58:58Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9382558,
+      "region": "wajima",
+      "category": "土砂災害",
+      "head": "石川県輪島市 輪島市立輪島中学校で土砂災害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T03:54:51.181966Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382558",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727326,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzvqPcaAAA0e7r.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hokkokushimbun/status/1742031236196130881",
+          "published_at": "2024-01-02T03:53:06Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9382563,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市河井町付近で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T03:55:28.286366Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382563",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727237,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCztXO7agAAU74V.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hokkokushimbun/status/1742028738307780906",
+          "published_at": "2024-01-02T03:43:11Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9382105,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T03:04:07.617855Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382105",
+      "image_count": 2,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727069,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzpzscbgAAXpYe.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/necomaki_3go/status/1742024309974114786",
+          "published_at": "2024-01-02T03:25:35Z"
+        },
+        {
+          "item_id": 337726760,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzkZ9SbMAAWRqo.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/S6k3lluMe1qvPAQ/status/1742018307690246167",
+          "published_at": "2024-01-02T03:01:44Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9381428,
+      "region": "wajima",
+      "category": "土砂災害",
+      "head": "石川県輪島市渋田町付近で土砂災害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T01:34:58.166684Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9381428",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9381238,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市門前町浦上付近 国道249号で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T01:11:20.842192Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9381238",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337725766,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzK0NrboAAsayw.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/cccpasta/status/1741990180054024648",
+          "published_at": "2024-01-02T01:09:58Z"
+        },
+        {
+          "item_id": 337725766,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzK0NobcAAJmFA.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/cccpasta/status/1741990180054024648",
+          "published_at": "2024-01-02T01:09:58Z"
+        },
+        {
+          "item_id": 337725766,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzK0NiasAA5__-.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/cccpasta/status/1741990180054024648",
+          "published_at": "2024-01-02T01:09:58Z"
+        },
+        {
+          "item_id": 337725766,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzK0NmbEAAZc4E.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/cccpasta/status/1741990180054024648",
+          "published_at": "2024-01-02T01:09:58Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9380023,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T22:09:11.939431Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9380023",
+      "image_count": 22,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337725705,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzI6A1bIAAOcNu.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Mjl2Bm/status/1741988097691423223",
+          "published_at": "2024-01-02T01:01:41Z"
+        },
+        {
+          "item_id": 337725705,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzI6A0aoAAyvzE.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Mjl2Bm/status/1741988097691423223",
+          "published_at": "2024-01-02T01:01:41Z"
+        },
+        {
+          "item_id": 337725705,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzI6BNboAAQ2a5.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Mjl2Bm/status/1741988097691423223",
+          "published_at": "2024-01-02T01:01:41Z"
+        },
+        {
+          "item_id": 337725705,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzI6A5aYAA5GpS.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Mjl2Bm/status/1741988097691423223",
+          "published_at": "2024-01-02T01:01:41Z"
+        },
+        {
+          "item_id": 337725176,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCy77nHakAACjpc.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kanonstay/status/1741973821769609476",
+          "published_at": "2024-01-02T00:04:58Z"
+        },
+        {
+          "item_id": 337725176,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCy77nAaYAAr6_q.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kanonstay/status/1741973821769609476",
+          "published_at": "2024-01-02T00:04:58Z"
+        },
+        {
+          "item_id": 337725176,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCy77nHaQAAMQkh.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kanonstay/status/1741973821769609476",
+          "published_at": "2024-01-02T00:04:58Z"
+        },
+        {
+          "item_id": 337725176,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCy77nEa4AANNoz.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kanonstay/status/1741973821769609476",
+          "published_at": "2024-01-02T00:04:58Z"
+        },
+        {
+          "item_id": 337724825,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyw_5ba4AAK6um.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/strawberryTOYA/status/1741962036010250270",
+          "published_at": "2024-01-01T23:18:08Z"
+        },
+        {
+          "item_id": 337724825,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyw_58bsAAyNXe.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/strawberryTOYA/status/1741962036010250270",
+          "published_at": "2024-01-01T23:18:08Z"
+        },
+        {
+          "item_id": 337724825,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyw_5ya8AAIa-j.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/strawberryTOYA/status/1741962036010250270",
+          "published_at": "2024-01-01T23:18:08Z"
+        },
+        {
+          "item_id": 337724825,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyw_5tacAA5mHM.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/strawberryTOYA/status/1741962036010250270",
+          "published_at": "2024-01-01T23:18:08Z"
+        },
+        {
+          "item_id": 337724661,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCytParbUAAd2nj.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/1horse_power/status/1741957648084533733",
+          "published_at": "2024-01-01T23:00:41Z"
+        },
+        {
+          "item_id": 337724506,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyolyDbEAA1Srq.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1741952541875945711",
+          "published_at": "2024-01-01T22:40:24Z"
+        },
+        {
+          "item_id": 337724506,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyolx9aUAAzmq9.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1741952541875945711",
+          "published_at": "2024-01-01T22:40:24Z"
+        },
+        {
+          "item_id": 337724506,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyolx9aMAAkV19.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1741952541875945711",
+          "published_at": "2024-01-01T22:40:24Z"
+        },
+        {
+          "item_id": 337724506,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyolyAaYAAqXe3.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Syouda_Boy/status/1741952541875945711",
+          "published_at": "2024-01-01T22:40:24Z"
+        },
+        {
+          "item_id": 337724326,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyhXawaEAAr4Vr.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/1horse_power/status/1741944586371817533",
+          "published_at": "2024-01-01T22:08:47Z"
+        },
+        {
+          "item_id": 337724324,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyhF-Ua4AA6uvE.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/exscia02/status/1741944323418300645",
+          "published_at": "2024-01-01T22:07:45Z"
+        },
+        {
+          "item_id": 337724324,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyhG4baEAAZgqt.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/exscia02/status/1741944323418300645",
+          "published_at": "2024-01-01T22:07:45Z"
+        },
+        {
+          "item_id": 337724324,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyhHa1aQAAq2vF.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/exscia02/status/1741944323418300645",
+          "published_at": "2024-01-01T22:07:45Z"
+        },
+        {
+          "item_id": 337724324,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyhICnaAAAkpK2.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/exscia02/status/1741944323418300645",
+          "published_at": "2024-01-01T22:07:45Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9380860,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市長井町付近 国道249号で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T00:24:50.92439Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9380860",
+      "image_count": 2,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337725649,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzHnT1a8AAa8Go.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/gaaannnyy/status/1741986661796634677",
+          "published_at": "2024-01-02T00:55:59Z"
+        },
+        {
+          "item_id": 337725343,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzAKboaoAAklxx.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/a493893/status/1741978445775823150",
+          "published_at": "2024-01-02T00:23:20Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9381140,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市門前町黒島町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T00:59:03.905632Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9381140",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337725639,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzHiO6WAAAbAD3.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/SAKETUBER/status/1741986552031465603",
+          "published_at": "2024-01-02T00:55:33Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384339,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市河井町付近で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T07:51:25.030414Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384339",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9380531,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市鳳至町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T23:33:18.721172Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9380531",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337724936,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCy0TC6bkAAMUVT.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hayahaya5151/status/1741965406741594153",
+          "published_at": "2024-01-01T23:31:31Z"
+        },
+        {
+          "item_id": 337724936,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCy0TC7akAAK3QU.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hayahaya5151/status/1741965406741594153",
+          "published_at": "2024-01-01T23:31:31Z"
+        },
+        {
+          "item_id": 337724936,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCy0TDBa8AAKMM0.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hayahaya5151/status/1741965406741594153",
+          "published_at": "2024-01-01T23:31:31Z"
+        },
+        {
+          "item_id": 337724936,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCy0TDCboAAGliF.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hayahaya5151/status/1741965406741594153",
+          "published_at": "2024-01-01T23:31:31Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9380507,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市光浦町付近で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T23:28:12.655555Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9380507",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9379944,
+      "region": "wajima",
+      "category": "土砂災害",
+      "head": "石川県輪島市三井町長沢付近 県道1号で土砂災害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T21:48:28.409652Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379944",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337724811,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyw7kvagAA6faw.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/1horse_power/status/1741961894347583561",
+          "published_at": "2024-01-01T23:17:34Z"
+        },
+        {
+          "item_id": 337724426,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCymEwAawAAX26O.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/1horse_power/status/1741949763615109461",
+          "published_at": "2024-01-01T22:29:22Z"
+        },
+        {
+          "item_id": 337724231,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCycEQIagAAvWpG.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/1horse_power/status/1741938761641165042",
+          "published_at": "2024-01-01T21:45:39Z"
+        },
+        {
+          "item_id": 337724231,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCycEQLawAAYeiz.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/1horse_power/status/1741938761641165042",
+          "published_at": "2024-01-01T21:45:39Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9380382,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市久手川町付近で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T23:11:32.230476Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9380382",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9379869,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T21:23:03.761257Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379869",
+      "image_count": 3,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337724528,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCypkvEbMAA3hPG.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Hiroki11211121/status/1741953615139369029",
+          "published_at": "2024-01-01T22:44:40Z"
+        },
+        {
+          "item_id": 337724444,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCymwt6bEAA0fHI.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ikoDEOafrm63256/status/1741950516899582374",
+          "published_at": "2024-01-01T22:32:21Z"
+        },
+        {
+          "item_id": 337724160,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyWcNibkAA-qEF.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/mamav_v/status/1741932574002540668",
+          "published_at": "2024-01-01T21:21:03Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9380001,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市三井町興徳寺付近で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T22:04:24.803203Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9380001",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337724289,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyfat2agAA5TKI.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/1horse_power/status/1741942444491694367",
+          "published_at": "2024-01-01T22:00:17Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9379941,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市 県道269号付近で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T21:47:01.209058Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379941",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337724236,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCycSYibkAA-33D.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kgm_zero/status/1741938997163888843",
+          "published_at": "2024-01-01T21:46:35Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384323,
+      "region": "wajima",
+      "category": "横転事故",
+      "head": "石川県輪島市で横転事故",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-02T07:49:37.345363Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384323",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337729608,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyHSEVagAAjW56.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/MasaNaturebrand/status/1741915904328474790",
+          "published_at": "2024-01-01T20:14:49Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9375340,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市河井町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T08:15:22.019141Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375340",
+      "image_count": 2,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337723691,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvWbS4bEAEjwNO.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/aries1080/status/1741721453836525716",
+          "published_at": "2024-01-01T07:22:08Z"
+        },
+        {
+          "item_id": 337717090,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvdP3NbgAA9BXt.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/29912190/status/1741728954724261930",
+          "published_at": "2024-01-01T07:51:57Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9379363,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市稲舟町付近で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T17:41:08.553803Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379363",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9377331,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市河井町で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T11:20:11.671715Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377331",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337723846,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxa2JJaYAAf8BB.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Levelsapex/status/1741867047708221533",
+          "published_at": "2024-01-01T17:00:41Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9378859,
+      "region": "wajima",
+      "category": "土砂災害",
+      "head": "石川県輪島市光浦町付近 県道38号で土砂災害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T15:29:43.643981Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9378859",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9378500,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T14:19:09.465367Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9378500",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337722445,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCw1jZnboAA8Epc.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/2820_jan/status/1741826042036416609",
+          "published_at": "2024-01-01T14:17:44Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377298,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市河井町で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T11:17:26.959673Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377298",
+      "image_count": 8,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337722238,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwwT3na0AArjWx.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/zanki_narina__/status/1741820278693658704",
+          "published_at": "2024-01-01T13:54:50Z"
+        },
+        {
+          "item_id": 337721740,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwOaj_bAAAxfxM.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hayato05138810/status/1741783009437900838",
+          "published_at": "2024-01-01T11:26:44Z"
+        },
+        {
+          "item_id": 337721444,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwbumLbQAAapUN.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Texas_Special/status/1741797645105197326",
+          "published_at": "2024-01-01T12:24:54Z"
+        },
+        {
+          "item_id": 337721190,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwWGXzbAAASWMZ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/fitness8744/status/1741791464781414559",
+          "published_at": "2024-01-01T12:00:20Z"
+        },
+        {
+          "item_id": 337721102,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwU_nfbwAADdv_.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hidelcondorpasa/status/1741790531334902200",
+          "published_at": "2024-01-01T11:56:38Z"
+        },
+        {
+          "item_id": 337720664,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwMErKaYAAbwhN.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/zanki_narina__/status/1741780434869264448",
+          "published_at": "2024-01-01T11:16:31Z"
+        },
+        {
+          "item_id": 337720512,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwJOPybcAAwp-x.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/METAOYAZI/status/1741777337518325815",
+          "published_at": "2024-01-01T11:04:12Z"
+        },
+        {
+          "item_id": 337720401,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCv6v1WakAA8O8G.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/minorun1210/status/1741761388618613156",
+          "published_at": "2024-01-01T10:00:50Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9378967,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市鳳至町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T15:53:40.118619Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9378967",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337722198,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwvveQaUAAdInx.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ri_________co3/status/1741819671924609538",
+          "published_at": "2024-01-01T13:52:25Z"
+        },
+        {
+          "item_id": 337722198,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwvveUbQAA-yGR.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ri_________co3/status/1741819671924609538",
+          "published_at": "2024-01-01T13:52:25Z"
+        },
+        {
+          "item_id": 337722198,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwvveNbwAAKvW4.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ri_________co3/status/1741819671924609538",
+          "published_at": "2024-01-01T13:52:25Z"
+        },
+        {
+          "item_id": 337722198,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwvveTboAAFTTy.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ri_________co3/status/1741819671924609538",
+          "published_at": "2024-01-01T13:52:25Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377939,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市山岸町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T12:49:48.93082Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377939",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337721669,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwg8C7b0AECP0n.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Ishi221438Ishi/status/1741803376382484688",
+          "published_at": "2024-01-01T12:47:40Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377968,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市山岸町付近で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T12:54:48.404208Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377968",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9377263,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T11:13:50.821797Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377263",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337721228,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwXMIiaAAAI9Mj.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/s_u_b_0214/status/1741792660799791418",
+          "published_at": "2024-01-01T12:05:05Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377472,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市河井町で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T11:40:19.601236Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377472",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9374934,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T07:51:52.493396Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9374934",
+      "image_count": 9,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337720452,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwG-oDbQAAjm52.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Roas7y/status/1741776200723472689",
+          "published_at": "2024-01-01T10:59:41Z"
+        },
+        {
+          "item_id": 337720452,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwG-nUaIAAxtcV.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Roas7y/status/1741776200723472689",
+          "published_at": "2024-01-01T10:59:41Z"
+        },
+        {
+          "item_id": 337720452,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwG-ovbkAAbJ42.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Roas7y/status/1741776200723472689",
+          "published_at": "2024-01-01T10:59:41Z"
+        },
+        {
+          "item_id": 337720452,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwG-pCa8AAveX1.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Roas7y/status/1741776200723472689",
+          "published_at": "2024-01-01T10:59:41Z"
+        },
+        {
+          "item_id": 337720411,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCv45q5bQAAmOqG.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/minorun1210/status/1741759358541976038",
+          "published_at": "2024-01-01T09:52:46Z"
+        },
+        {
+          "item_id": 337720084,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCv50nNbMAAgPA0.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/nyorachan60/status/1741760377413857369",
+          "published_at": "2024-01-01T09:56:48Z"
+        },
+        {
+          "item_id": 337720084,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCv51AdboAAld--.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/nyorachan60/status/1741760377413857369",
+          "published_at": "2024-01-01T09:56:48Z"
+        },
+        {
+          "item_id": 337719085,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCv0iqcbEAADVmk.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Oliver_kari_/status/1741754568369942945",
+          "published_at": "2024-01-01T09:33:43Z"
+        },
+        {
+          "item_id": 337716626,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvcbupacAAScI2.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/cathy_k52/status/1741728059697582362",
+          "published_at": "2024-01-01T07:48:23Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9376330,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市河井町付近で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T09:43:43.919926Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9376330",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9374993,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T07:54:54.320479Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9374993",
+      "image_count": 2,
+      "video_count": 2,
+      "attachments": [
+        {
+          "item_id": 337718937,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvx_FIa4AAQiwM.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/TOMJER2175/status/1741751751697682912",
+          "published_at": "2024-01-01T09:22:32Z"
+        },
+        {
+          "item_id": 337718937,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvx_FHaEAE6d-_.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/TOMJER2175/status/1741751751697682912",
+          "published_at": "2024-01-01T09:22:32Z"
+        },
+        {
+          "item_id": 337716779,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741729220253102080/pu/img/qGSZoh1DVkGEsmsO.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741729220253102080/pu/vid/avc1/480x852/gKhAXBE_XK9HJWZi.mp4?tag=12",
+          "source_url": "https://twitter.com/bbaababababau/status/1741729248451383630",
+          "published_at": "2024-01-01T07:53:07Z"
+        },
+        {
+          "item_id": 337716739,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741728098335264768/pu/img/Rv-nP8N2pqzDrxkQ.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741728098335264768/pu/vid/avc1/480x852/_GmlmAKvt4IcDA0d.mp4?tag=12",
+          "source_url": "https://twitter.com/goLoko77/status/1741728118409208251",
+          "published_at": "2024-01-01T07:48:37Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9379680,
+      "region": "wajima",
+      "category": "火災",
+      "head": "石川県輪島市で火災",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T20:05:39.277201Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379680",
+      "image_count": 0,
+      "video_count": 2,
+      "attachments": [
+        {
+          "item_id": 337718631,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741747827875954688/pu/img/yeZYzhnA5r-Sjm7e.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741747827875954688/pu/vid/avc1/780x360/-GiufNZ_-qBJNOz4.mp4?tag=12",
+          "source_url": "https://twitter.com/co604153/status/1741747847928910235",
+          "published_at": "2024-01-01T09:07:01Z"
+        },
+        {
+          "item_id": 337718313,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741743257720381440/pu/img/pL63TklRrZONSRWv.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741743257720381440/pu/vid/avc1/640x360/FuSP6LAoJNffODjI.mp4?tag=12",
+          "source_url": "https://twitter.com/29912190/status/1741743472250671219",
+          "published_at": "2024-01-01T08:49:38Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9376398,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市門前町道下付近で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T09:50:31.964998Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9376398",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337720947,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/tweet_video_thumb/GCvtS32aQAAGa3W.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/louflork/status/1741746599553036767",
+          "published_at": "2024-01-01T09:02:04Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9375033,
+      "region": "wajima",
+      "category": "地震被害",
+      "head": "石川県輪島市で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T07:57:13.835065Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375033",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337717770,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvl3grbEAAUC_K.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/necomaki_3go/status/1741738481389650083",
+          "published_at": "2024-01-01T08:29:48Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9375575,
+      "region": "wajima",
+      "category": "救助要請",
+      "head": "石川県輪島市横地町で救助要請",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T08:36:15.993456Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375575",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9375671,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市横地町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T08:43:13.605985Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375671",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337717465,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvecVTbUAAYGys.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Tsunji9/status/1741730266505486388",
+          "published_at": "2024-01-01T07:57:09Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9376190,
+      "region": "wajima",
+      "category": "道路損壊",
+      "head": "石川県輪島市二ツ屋町付近で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T09:31:15.635206Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9376190",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337716656,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvcu-obkAAQxhL.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/29912190/status/1741728390053515337",
+          "published_at": "2024-01-01T07:49:42Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9374499,
+      "region": "wajima",
+      "category": "航空関連トラブル",
+      "head": "石川県輪島市 能登空港付近で航空関連トラブル",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T07:30:13.932094Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9374499",
+      "image_count": 7,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337716270,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvZ_08bMAA2iRZ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/xyzalsk/status/1741725375171039315",
+          "published_at": "2024-01-01T07:37:43Z"
+        },
+        {
+          "item_id": 337716114,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvY5KsaQAAqft9.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Mina_min74U/status/1741724171309322663",
+          "published_at": "2024-01-01T07:32:56Z"
+        },
+        {
+          "item_id": 337716114,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvY5KsakAAt_rq.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Mina_min74U/status/1741724171309322663",
+          "published_at": "2024-01-01T07:32:56Z"
+        },
+        {
+          "item_id": 337715845,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvWIVjbwAAd2bh.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Dream_LinerB787/status/1741721121744208159",
+          "published_at": "2024-01-01T07:20:49Z"
+        },
+        {
+          "item_id": 337715806,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvWxYibQAAtG-Y.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/AKIRA737/status/1741721830229250497",
+          "published_at": "2024-01-01T07:23:38Z"
+        },
+        {
+          "item_id": 337715803,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvWednbAAAaLME.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/st9708f/status/1741721505887920143",
+          "published_at": "2024-01-01T07:22:21Z"
+        },
+        {
+          "item_id": 337715757,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvVVkca8AA2WzN.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/yes_yunochi/status/1741720250360734061",
+          "published_at": "2024-01-01T07:17:21Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9374692,
+      "region": "wajima",
+      "category": "倒壊",
+      "head": "石川県輪島市河井町付近で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "輪島市"
+      },
+      "created_at": "2024-01-01T07:39:24.525521Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9374692",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337715991,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvWjWMbwAARrDV.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ryo_dojima/status/1741721596442869869",
+          "published_at": "2024-01-01T07:22:42Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9398493,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市寺泊町軽井付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-04T05:24:51.787293Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9398493",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9397444,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市城内町2丁目付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-04T02:27:13.657752Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9397444",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9397375,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市西津町付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-04T02:17:00.942141Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9397375",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9396654,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市四郎丸4丁目付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-04T00:15:40.779325Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9396654",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9396338,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市福住3丁目付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-03T23:16:52.746282Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9396338",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9395606,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市日赤町2丁目付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-03T19:18:58.874869Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9395606",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9395327,
+      "region": "nagaoka",
+      "category": "停電",
+      "head": "新潟県長岡市で停電",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-03T17:18:44.335572Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9395327",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9387613,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市四郎丸1丁目付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-02T15:13:08.362314Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9387613",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9387531,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市東坂之上町1丁目付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-02T14:57:39.719475Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9387531",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9386098,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市蓬平町で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-02T10:54:27.628142Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9386098",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9385270,
+      "region": "nagaoka",
+      "category": "地震被害",
+      "head": "新潟県長岡市 国道352号 中永トンネル付近で地震被害",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-02T09:32:38.707872Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9385270",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9384580,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市宮本町2丁目付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-02T08:19:02.608979Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384580",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9384470,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市来迎寺付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-02T08:06:56.964925Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384470",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9384434,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市西陵町付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-02T08:03:39.372916Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384434",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9382729,
+      "region": "nagaoka",
+      "category": "事故",
+      "head": "新潟県長岡市寺泊町軽井付近で事故",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-02T04:15:52.970111Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382729",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9379424,
+      "region": "nagaoka",
+      "category": "水道設備トラブル",
+      "head": "新潟県長岡市 中永トンネル付近で水道設備トラブル",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T18:02:09.031325Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379424",
+      "image_count": 3,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337723586,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxoTIwbUAAsLV1.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Index_Alter_Ego/status/1741881872672808971",
+          "published_at": "2024-01-01T17:59:35Z"
+        },
+        {
+          "item_id": 337723586,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxoTblasAAte39.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Index_Alter_Ego/status/1741881872672808971",
+          "published_at": "2024-01-01T17:59:35Z"
+        },
+        {
+          "item_id": 337723586,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCxoTyNb0AEZTVO.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Index_Alter_Ego/status/1741881872672808971",
+          "published_at": "2024-01-01T17:59:35Z"
+        },
+        {
+          "item_id": 337723586,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741881848945590272/pu/img/JFtE_ketn2QU-oaS.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741881848945590272/pu/vid/avc1/480x852/MxOi1A6qzBtjsTIS.mp4?tag=12",
+          "source_url": "https://twitter.com/Index_Alter_Ego/status/1741881872672808971",
+          "published_at": "2024-01-01T17:59:35Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377364,
+      "region": "nagaoka",
+      "category": "事故",
+      "head": "新潟県長岡市寺泊白岩付近で事故",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T11:25:08.088036Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377364",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9379318,
+      "region": "nagaoka",
+      "category": "水道設備トラブル",
+      "head": "新潟県長岡市で水道設備トラブル",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T17:22:53.382673Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379318",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337719624,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCv8MI3a4AAJDMw.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/omame2525amg/status/1741762970135511244",
+          "published_at": "2024-01-01T10:07:07Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9376353,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市和島中沢付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T09:46:16.644688Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9376353",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9376112,
+      "region": "nagaoka",
+      "category": "事故",
+      "head": "新潟県長岡市荒巻付近で事故",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T09:23:20.432648Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9376112",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9376093,
+      "region": "nagaoka",
+      "category": "ガス供給トラブル",
+      "head": "新潟県長岡市でガス供給トラブル",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T09:21:50.898097Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9376093",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9375908,
+      "region": "nagaoka",
+      "category": "地震被害",
+      "head": "新潟県長岡市で地震被害",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T09:03:50.277981Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375908",
+      "image_count": 0,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337718387,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741743326825701376/pu/img/kIuKl4subtgn8Cwi.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741743326825701376/pu/vid/avc1/480x852/JkxMtYHDRt3XXjqy.mp4?tag=12",
+          "source_url": "https://twitter.com/eusmu1qmCi70090/status/1741743622582861868",
+          "published_at": "2024-01-01T08:50:14Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9375544,
+      "region": "nagaoka",
+      "category": "事故",
+      "head": "新潟県長岡市与板町本与板付近で事故",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T08:33:48.557962Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375544",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9375339,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T08:15:20.717295Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375339",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9375217,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市城内町1丁目付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T08:07:55.41568Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375217",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9375131,
+      "region": "nagaoka",
+      "category": "報知機作動",
+      "head": "新潟県長岡市 長岡駅で報知機作動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T08:03:00.470113Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375131",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9375044,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市来迎寺付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T07:57:42.48543Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375044",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9374637,
+      "region": "nagaoka",
+      "category": "地震被害",
+      "head": "新潟県長岡市 リバーサイド千秋で地震被害",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T07:37:11.178001Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9374637",
+      "image_count": 1,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337716727,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741728304938508288/pu/img/1_WaiNUR0lfzIeRX.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741728304938508288/pu/vid/avc1/480x852/nYWaP1uEyjYpGRJL.mp4?tag=12",
+          "source_url": "https://twitter.com/ddendendende/status/1741728460870140382",
+          "published_at": "2024-01-01T07:49:59Z"
+        },
+        {
+          "item_id": 337716155,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvYm5Ua8AArrg1.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/touhiyarou/status/1741723913888096591",
+          "published_at": "2024-01-01T07:31:55Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9374676,
+      "region": "nagaoka",
+      "category": "緊急車両出動",
+      "head": "新潟県長岡市与板町与板付近で緊急車両出動",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T07:38:34.743962Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9374676",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9379288,
+      "region": "nagaoka",
+      "category": "液状化",
+      "head": "新潟県長岡市で液状化",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T17:11:53.168086Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379288",
+      "image_count": 2,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337716119,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvY1chbEAAiggX.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Arianrod_kazuki/status/1741724102434730447",
+          "published_at": "2024-01-01T07:32:40Z"
+        },
+        {
+          "item_id": 337716119,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvY1cgbwAAi7-v.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Arianrod_kazuki/status/1741724102434730447",
+          "published_at": "2024-01-01T07:32:40Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9374540,
+      "region": "nagaoka",
+      "category": "火災",
+      "head": "新潟県長岡市南陽1丁目付近で火災",
+      "location": {
+        "prefecture": "新潟県",
+        "city": "長岡市"
+      },
+      "created_at": "2024-01-01T07:32:09.494357Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9374540",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9396572,
+      "region": "uchinada",
+      "category": "緊急車両出動",
+      "head": "石川県内灘町字鶴ケ丘2丁目付近で緊急車両出動",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-04T00:01:23.270511Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9396572",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9391244,
+      "region": "uchinada",
+      "category": "液状化",
+      "head": "石川県内灘町で液状化",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-03T05:18:31.571018Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9391244",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337738044,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC5NAPebQAA7Up5.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/tyuri_suke/status/1742414777694204260",
+          "published_at": "2024-01-03T05:17:10Z"
+        },
+        {
+          "item_id": 337738044,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC5NAPea8AAq0-b.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/tyuri_suke/status/1742414777694204260",
+          "published_at": "2024-01-03T05:17:10Z"
+        },
+        {
+          "item_id": 337738044,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC5NAPfaEAA2DJj.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/tyuri_suke/status/1742414777694204260",
+          "published_at": "2024-01-03T05:17:10Z"
+        },
+        {
+          "item_id": 337738044,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC5NAPdb0AEYCpD.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/tyuri_suke/status/1742414777694204260",
+          "published_at": "2024-01-03T05:17:10Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9390407,
+      "region": "uchinada",
+      "category": "地震被害",
+      "head": "石川県内灘町字西荒屋付近 県道8号で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-03T02:59:01.486387Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9390407",
+      "image_count": 3,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337737070,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4sQfKaIAAq4Wy.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/323nigeaka/status/1742378780474368292",
+          "published_at": "2024-01-03T02:54:07Z"
+        },
+        {
+          "item_id": 337737070,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4sQfHbQAAYPQ8.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/323nigeaka/status/1742378780474368292",
+          "published_at": "2024-01-03T02:54:07Z"
+        },
+        {
+          "item_id": 337737070,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4sQfHbcAARwQo.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/323nigeaka/status/1742378780474368292",
+          "published_at": "2024-01-03T02:54:07Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9389870,
+      "region": "uchinada",
+      "category": "道路損壊",
+      "head": "石川県内灘町字室付近で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-03T01:42:08.74229Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9389870",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337736501,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4a9Jga0AAEfa4.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ryusei021052791/status/1742359755031744625",
+          "published_at": "2024-01-03T01:38:31Z"
+        },
+        {
+          "item_id": 337736501,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4a9JebAAAGuOq.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ryusei021052791/status/1742359755031744625",
+          "published_at": "2024-01-03T01:38:31Z"
+        },
+        {
+          "item_id": 337736501,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4a9JbbUAAwbMP.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ryusei021052791/status/1742359755031744625",
+          "published_at": "2024-01-03T01:38:31Z"
+        },
+        {
+          "item_id": 337736501,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC4a9JdbUAA2wpq.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/ryusei021052791/status/1742359755031744625",
+          "published_at": "2024-01-03T01:38:31Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9387100,
+      "region": "uchinada",
+      "category": "道路損壊",
+      "head": "石川県内灘町で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-02T13:33:17.801779Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9387100",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337733315,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC103-WbwAAvawH.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/mottun_400/status/1742177138344899046",
+          "published_at": "2024-01-02T13:32:52Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384245,
+      "region": "uchinada",
+      "category": "地震被害",
+      "head": "石川県内灘町で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-02T07:38:41.615382Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384245",
+      "image_count": 8,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337729764,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0pysBaUAAgp2C.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/nobupyonwee/status/1742094599861276855",
+          "published_at": "2024-01-02T08:04:53Z"
+        },
+        {
+          "item_id": 337729764,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0pzBLagAAM0IG.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/nobupyonwee/status/1742094599861276855",
+          "published_at": "2024-01-02T08:04:53Z"
+        },
+        {
+          "item_id": 337729764,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0pzVGbkAA3l7S.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/nobupyonwee/status/1742094599861276855",
+          "published_at": "2024-01-02T08:04:53Z"
+        },
+        {
+          "item_id": 337729764,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0pzkRakAAYx51.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/nobupyonwee/status/1742094599861276855",
+          "published_at": "2024-01-02T08:04:53Z"
+        },
+        {
+          "item_id": 337729523,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0jo3kboAAbjbu.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/eggand3pancake/status/1742087845345673399",
+          "published_at": "2024-01-02T07:38:03Z"
+        },
+        {
+          "item_id": 337729523,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0jo3fbcAAfYTG.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/eggand3pancake/status/1742087845345673399",
+          "published_at": "2024-01-02T07:38:03Z"
+        },
+        {
+          "item_id": 337729523,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0jo3faMAA9KT9.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/eggand3pancake/status/1742087845345673399",
+          "published_at": "2024-01-02T07:38:03Z"
+        },
+        {
+          "item_id": 337729523,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0jo3kbgAA-LAY.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/eggand3pancake/status/1742087845345673399",
+          "published_at": "2024-01-02T07:38:03Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9384267,
+      "region": "uchinada",
+      "category": "液状化",
+      "head": "石川県内灘町字鶴ケ丘2丁目付近で液状化",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-02T07:42:31.795217Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384267",
+      "image_count": 4,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337729543,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0kI2hacAA_21T.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wizard_of_Oz__/status/1742088391234408549",
+          "published_at": "2024-01-02T07:40:13Z"
+        },
+        {
+          "item_id": 337729543,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0kJWGbIAAbC9p.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wizard_of_Oz__/status/1742088391234408549",
+          "published_at": "2024-01-02T07:40:13Z"
+        },
+        {
+          "item_id": 337729543,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0kJxpbYAAaIZ4.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wizard_of_Oz__/status/1742088391234408549",
+          "published_at": "2024-01-02T07:40:13Z"
+        },
+        {
+          "item_id": 337729543,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0kKM0agAA5JLw.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Wizard_of_Oz__/status/1742088391234408549",
+          "published_at": "2024-01-02T07:40:13Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9383016,
+      "region": "uchinada",
+      "category": "地震被害",
+      "head": "石川県内灘町で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-02T04:55:55.303753Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9383016",
+      "image_count": 5,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337728443,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0K6C-awAA26vF.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/nayu5252/status/1742060628024631695",
+          "published_at": "2024-01-02T05:49:54Z"
+        },
+        {
+          "item_id": 337727923,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz-GHmaUAAQUBX.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/torihiki_tanori/status/1742046603899503034",
+          "published_at": "2024-01-02T04:54:10Z"
+        },
+        {
+          "item_id": 337727923,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz-GHqb0AAAWPJ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/torihiki_tanori/status/1742046603899503034",
+          "published_at": "2024-01-02T04:54:10Z"
+        },
+        {
+          "item_id": 337727923,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz-GHsbMAAGRzQ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/torihiki_tanori/status/1742046603899503034",
+          "published_at": "2024-01-02T04:54:10Z"
+        },
+        {
+          "item_id": 337727923,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz-GHubEAAeFVc.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/torihiki_tanori/status/1742046603899503034",
+          "published_at": "2024-01-02T04:54:10Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9375332,
+      "region": "uchinada",
+      "category": "道路損壊",
+      "head": "石川県内灘町字鶴ケ丘2丁目付近 県道8号で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T08:14:42.449314Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375332",
+      "image_count": 26,
+      "video_count": 8,
+      "attachments": [
+        {
+          "item_id": 337728390,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0JwaiakAAO9qB.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/6_lilybell/status/1742059361500114963",
+          "published_at": "2024-01-02T05:44:52Z"
+        },
+        {
+          "item_id": 337727488,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzzOJxaYAAo3zv.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kumabearpatrol/status/1742034599159775642",
+          "published_at": "2024-01-02T04:06:28Z"
+        },
+        {
+          "item_id": 337726664,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzh8aLbcAAzvvF.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/karakuri_ijiru/status/1742015593644232978",
+          "published_at": "2024-01-02T02:50:57Z"
+        },
+        {
+          "item_id": 337726664,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzh8aAbQAAwYz-.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/karakuri_ijiru/status/1742015593644232978",
+          "published_at": "2024-01-02T02:50:57Z"
+        },
+        {
+          "item_id": 337726629,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzg65YaMAA3fBj.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/jijji0124/status/1742014473542705153",
+          "published_at": "2024-01-02T02:46:30Z"
+        },
+        {
+          "item_id": 337726629,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzg7Kta4AA-HY_.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/jijji0124/status/1742014473542705153",
+          "published_at": "2024-01-02T02:46:30Z"
+        },
+        {
+          "item_id": 337726629,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzg7YGa4AAdYlJ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/jijji0124/status/1742014473542705153",
+          "published_at": "2024-01-02T02:46:30Z"
+        },
+        {
+          "item_id": 337726629,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzg7oRbQAAGHjs.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/jijji0124/status/1742014473542705153",
+          "published_at": "2024-01-02T02:46:30Z"
+        },
+        {
+          "item_id": 337726417,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzSKPDbkAAq4hr.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/yuya_3m_yoito/status/1742008225187397644",
+          "published_at": "2024-01-02T02:21:40Z"
+        },
+        {
+          "item_id": 337726417,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzSKPFaIAAtAhH.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/yuya_3m_yoito/status/1742008225187397644",
+          "published_at": "2024-01-02T02:21:40Z"
+        },
+        {
+          "item_id": 337726417,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzSKPIaQAAHrwq.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/yuya_3m_yoito/status/1742008225187397644",
+          "published_at": "2024-01-02T02:21:40Z"
+        },
+        {
+          "item_id": 337722611,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCw7StZawAASJmf.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/daynabob/status/1741832353117581755",
+          "published_at": "2024-01-01T14:42:49Z"
+        },
+        {
+          "item_id": 337722550,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCw5DHObMAAqe9A.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/milfoil91/status/1741829894034853926",
+          "published_at": "2024-01-01T14:33:03Z"
+        },
+        {
+          "item_id": 337722550,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCw5DHObUAA3zaY.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/milfoil91/status/1741829894034853926",
+          "published_at": "2024-01-01T14:33:03Z"
+        },
+        {
+          "item_id": 337722550,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCw5DHTbgAArlIL.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/milfoil91/status/1741829894034853926",
+          "published_at": "2024-01-01T14:33:03Z"
+        },
+        {
+          "item_id": 337721674,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwhSA4awAApuJ7.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/genjiro_u/status/1741803751453889001",
+          "published_at": "2024-01-01T12:49:10Z"
+        },
+        {
+          "item_id": 337720791,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741783301139079168/pu/img/0iluvruoSCBvYRVo.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741783301139079168/pu/vid/avc1/480x854/qOyCQFxaKFGDNhH8.mp4?tag=12",
+          "source_url": "https://twitter.com/ishikawazishin/status/1741783337679937852",
+          "published_at": "2024-01-01T11:28:03Z"
+        },
+        {
+          "item_id": 337720780,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvYABAbYAAEmSK.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/saygene_6106/status/1741723192908210270",
+          "published_at": "2024-01-01T07:29:03Z"
+        },
+        {
+          "item_id": 337720780,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvYABJaIAAd1AJ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/saygene_6106/status/1741723192908210270",
+          "published_at": "2024-01-01T07:29:03Z"
+        },
+        {
+          "item_id": 337720780,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvYABBaIAA1Sek.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/saygene_6106/status/1741723192908210270",
+          "published_at": "2024-01-01T07:29:03Z"
+        },
+        {
+          "item_id": 337720235,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741751028935270400/pu/img/vzIEDYhGTeCVS96h.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741751028935270400/pu/vid/avc1/640x360/WScOAXqvkEU6FDuh.mp4?tag=12",
+          "source_url": "https://twitter.com/kuromos711/status/1741751096186703999",
+          "published_at": "2024-01-01T09:19:56Z"
+        },
+        {
+          "item_id": 337720235,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvxVSebgAAXjVV.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kuromos711/status/1741751096186703999",
+          "published_at": "2024-01-01T09:19:56Z"
+        },
+        {
+          "item_id": 337719955,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741768325775171584/pu/img/HWIAzuFLSxkvQ__O.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741768325775171584/pu/vid/avc1/480x852/v2HU709Y8DbPQfqo.mp4?tag=12",
+          "source_url": "https://twitter.com/Love35487902/status/1741768354736873852",
+          "published_at": "2024-01-01T10:28:30Z"
+        },
+        {
+          "item_id": 337719819,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741765891417833472/pu/img/D4ECjeKcd9FUWuRx.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741765891417833472/pu/vid/avc1/480x852/9opW2DKQYJ7rEp9k.mp4?tag=12",
+          "source_url": "https://twitter.com/darenandesyouka/status/1741765928805949823",
+          "published_at": "2024-01-01T10:18:52Z"
+        },
+        {
+          "item_id": 337719455,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741759419099344896/pu/img/GbCx9r59qp0rFr5i.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741759419099344896/pu/vid/avc1/480x852/OSDSYugk7Aejixk9.mp4?tag=12",
+          "source_url": "https://twitter.com/max358japan/status/1741759843827057109",
+          "published_at": "2024-01-01T09:54:41Z"
+        },
+        {
+          "item_id": 337719367,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCv4ja0bMAACXjT.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/Botamochibimi/status/1741758973571965248",
+          "published_at": "2024-01-01T09:51:14Z"
+        },
+        {
+          "item_id": 337718830,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741750698788978688/pu/img/wq_grm2VgPHpcBQl.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741750698788978688/pu/vid/avc1/480x852/0HbUNhL81lyoSCOh.mp4?tag=12",
+          "source_url": "https://twitter.com/tokio_MZDAO/status/1741750793903219196",
+          "published_at": "2024-01-01T09:18:44Z"
+        },
+        {
+          "item_id": 337718147,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741741729609617408/pu/img/e5Ov6umcK3z9mA54.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741741729609617408/pu/vid/avc1/480x852/z3yLEG41sbciVvG9.mp4?tag=12",
+          "source_url": "https://twitter.com/0519_tenkei/status/1741741783581876493",
+          "published_at": "2024-01-01T08:42:55Z"
+        },
+        {
+          "item_id": 337718123,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvoq1SbMAAHI-Z.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/bunbun0828_famm/status/1741741528534704364",
+          "published_at": "2024-01-01T08:41:55Z"
+        },
+        {
+          "item_id": 337717993,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvniEGbkAAa_NU.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/bunbunbun0726/status/1741740272252518546",
+          "published_at": "2024-01-01T08:36:55Z"
+        },
+        {
+          "item_id": 337717543,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvkGpoa8AAA4rh.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/tamachan_1207/status/1741736488273125785",
+          "published_at": "2024-01-01T08:21:53Z"
+        },
+        {
+          "item_id": 337717059,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvfsn2aMAAJGVR.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/nil_ghoulx/status/1741731656959189197",
+          "published_at": "2024-01-01T08:02:41Z"
+        },
+        {
+          "item_id": 337717059,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvftO9bYAAZHQc.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/nil_ghoulx/status/1741731656959189197",
+          "published_at": "2024-01-01T08:02:41Z"
+        },
+        {
+          "item_id": 337717030,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741731156385726464/pu/img/dQhUkpP2g_S7lg95.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741731156385726464/pu/vid/avc1/480x852/wChJJx_eEVysUAX9.mp4?tag=12",
+          "source_url": "https://twitter.com/HayateKvem/status/1741731578630537519",
+          "published_at": "2024-01-01T08:02:22Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9383242,
+      "region": "uchinada",
+      "category": "地震被害",
+      "head": "石川県内灘町字西荒屋付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-02T05:28:06.602331Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9383242",
+      "image_count": 3,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337728195,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0FXnAagAAiUEc.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakko67/status/1742054564512284963",
+          "published_at": "2024-01-02T05:25:48Z"
+        },
+        {
+          "item_id": 337728195,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0FYJebwAA4mXW.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakko67/status/1742054564512284963",
+          "published_at": "2024-01-02T05:25:48Z"
+        },
+        {
+          "item_id": 337728195,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GC0FYtvboAAOZdP.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakko67/status/1742054564512284963",
+          "published_at": "2024-01-02T05:25:48Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9382733,
+      "region": "uchinada",
+      "category": "道路損壊",
+      "head": "石川県内灘町で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-02T04:16:28.223989Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9382733",
+      "image_count": 3,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337727575,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz1VK_awAAs9qW.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/yuma624yuma/status/1742036938524434814",
+          "published_at": "2024-01-02T04:15:46Z"
+        },
+        {
+          "item_id": 337727575,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz1WAPasAAbtNo.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/yuma624yuma/status/1742036938524434814",
+          "published_at": "2024-01-02T04:15:46Z"
+        },
+        {
+          "item_id": 337727575,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCz1WxTagAAbh35.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/yuma624yuma/status/1742036938524434814",
+          "published_at": "2024-01-02T04:15:46Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9381088,
+      "region": "uchinada",
+      "category": "道路損壊",
+      "head": "石川県内灘町で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-02T00:55:02.77798Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9381088",
+      "image_count": 2,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337725624,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzHVrkbgAAAPNS.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hogex27/status/1741986345982251094",
+          "published_at": "2024-01-02T00:54:44Z"
+        },
+        {
+          "item_id": 337725624,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCzHVrhb0AALKUL.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hogex27/status/1741986345982251094",
+          "published_at": "2024-01-02T00:54:44Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9380173,
+      "region": "uchinada",
+      "category": "断水",
+      "head": "石川県内灘町で断水",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T22:40:02.559355Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9380173",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337724488,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCyob1kbUAAJEmS.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/oilcoffeas/status/1741952359033696336",
+          "published_at": "2024-01-01T22:39:40Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9378895,
+      "region": "uchinada",
+      "category": "地震被害",
+      "head": "石川県内灘町字鶴ケ丘2丁目付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T15:37:50.031505Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9378895",
+      "image_count": 0,
+      "video_count": 2,
+      "attachments": [
+        {
+          "item_id": 337722960,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741845607986397184/pu/img/eVy0DKlgtU_gf7Ke.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741845607986397184/pu/vid/avc1/640x360/EG-7I9Y7U62A8Jrn.mp4?tag=12",
+          "source_url": "https://twitter.com/C_BLACK_Tweet/status/1741845778971443345",
+          "published_at": "2024-01-01T15:36:10Z"
+        },
+        {
+          "item_id": 337722960,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741845608007397376/pu/img/b33rHFF8seNiow0H.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741845608007397376/pu/vid/avc1/480x852/zOVVnfog50borGtc.mp4?tag=12",
+          "source_url": "https://twitter.com/C_BLACK_Tweet/status/1741845778971443345",
+          "published_at": "2024-01-01T15:36:10Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9379248,
+      "region": "uchinada",
+      "category": "道路損壊",
+      "head": "石川県内灘町字向粟崎1丁目付近で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T16:57:51.930454Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379248",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337721859,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwmoQSakAA5SbJ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/RjfRZr6Ld7GWbrD/status/1741809636397949263",
+          "published_at": "2024-01-01T13:12:33Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377954,
+      "region": "uchinada",
+      "category": "断水",
+      "head": "石川県内灘町で断水",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T12:52:28.196669Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377954",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337721701,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwh4olbcAA4nJo.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/motose5/status/1741804424987808131",
+          "published_at": "2024-01-01T12:51:50Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377051,
+      "region": "uchinada",
+      "category": "道路損壊",
+      "head": "石川県内灘町で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T10:51:55.640743Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377051",
+      "image_count": 7,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337720943,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwRvGXa8AAjIoX.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/NADA10M4C/status/1741786669031051419",
+          "published_at": "2024-01-01T11:41:17Z"
+        },
+        {
+          "item_id": 337720943,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwRvGaakAAAfEB.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/NADA10M4C/status/1741786669031051419",
+          "published_at": "2024-01-01T11:41:17Z"
+        },
+        {
+          "item_id": 337720341,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwGClqaIAAH0yN.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakura7160841/status/1741773815888396798",
+          "published_at": "2024-01-01T10:50:12Z"
+        },
+        {
+          "item_id": 337720341,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwGC3nbUAA5Nyf.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakura7160841/status/1741773815888396798",
+          "published_at": "2024-01-01T10:50:12Z"
+        },
+        {
+          "item_id": 337720341,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwGDQgakAEcIB6.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakura7160841/status/1741773815888396798",
+          "published_at": "2024-01-01T10:50:12Z"
+        },
+        {
+          "item_id": 337720341,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwGDgdbgAAG0YQ.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/sakura7160841/status/1741773815888396798",
+          "published_at": "2024-01-01T10:50:12Z"
+        },
+        {
+          "item_id": 337720239,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvyyKYbMAAjlKD.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/kuromos711/status/1741752638126039085",
+          "published_at": "2024-01-01T09:26:03Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377289,
+      "region": "uchinada",
+      "category": "倒壊",
+      "head": "石川県内灘町で倒壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T11:16:07.083372Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377289",
+      "image_count": 2,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337720650,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwLp_na4AAHvzl.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/10011001kkkK/status/1741779977451000144",
+          "published_at": "2024-01-01T11:14:41Z"
+        },
+        {
+          "item_id": 337720650,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwLp_lbIAAUYXw.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/10011001kkkK/status/1741779977451000144",
+          "published_at": "2024-01-01T11:14:41Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377270,
+      "region": "uchinada",
+      "category": "損壊",
+      "head": "石川県内灘町字西荒屋付近で損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T11:14:39.319167Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377270",
+      "image_count": 2,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337720632,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwLem5agAA2G6F.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hanagara_2525/status/1741779784475275523",
+          "published_at": "2024-01-01T11:13:55Z"
+        },
+        {
+          "item_id": 337720632,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCwLem6b0AAML1Y.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/hanagara_2525/status/1741779784475275523",
+          "published_at": "2024-01-01T11:13:55Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9376540,
+      "region": "uchinada",
+      "category": "断水",
+      "head": "石川県内灘町で断水",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T10:02:15.360676Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9376540",
+      "image_count": 0,
+      "video_count": 0,
+      "attachments": []
+    },
+    {
+      "topic_id": 9375497,
+      "region": "uchinada",
+      "category": "地震被害",
+      "head": "石川県内灘町字鶴ケ丘2丁目付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T08:28:43.712171Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375497",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337717291,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvh5kbbMAAIQ_I.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/gmk827366070998/status/1741734062497333660",
+          "published_at": "2024-01-01T08:12:15Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9375365,
+      "region": "uchinada",
+      "category": "道路損壊",
+      "head": "石川県内灘町字向粟崎1丁目付近で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T08:17:15.200956Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375365",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337716834,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvd7OzaMAA9bEf.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/mizukiliddell/status/1741729698626011469",
+          "published_at": "2024-01-01T07:54:54Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9375078,
+      "region": "uchinada",
+      "category": "道路損壊",
+      "head": "石川県内灘町字千鳥台4丁目付近で道路損壊",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T07:59:49.968927Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9375078",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337716338,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvaMmraUAA0zLA.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/UNK0T1MT1M/status/1741725596932301279",
+          "published_at": "2024-01-01T07:38:36Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9374602,
+      "region": "uchinada",
+      "category": "地震被害",
+      "head": "石川県内灘町で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T07:35:27.404194Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9374602",
+      "image_count": 1,
+      "video_count": 0,
+      "attachments": [
+        {
+          "item_id": 337715986,
+          "type": "image",
+          "image_url": "https://pbs.twimg.com/media/GCvX1g6aAAAlaE_.jpg",
+          "video_url": null,
+          "source_url": "https://twitter.com/M0M0syan/status/1741723001211793536",
+          "published_at": "2024-01-01T07:28:17Z"
+        }
+      ]
+    },
+    {
+      "topic_id": 9377341,
+      "region": "uchinada",
+      "category": "地震被害",
+      "head": "石川県内灘町字鶴ケ丘2丁目付近で地震被害",
+      "location": {
+        "prefecture": "石川県",
+        "city": "内灘町"
+      },
+      "created_at": "2024-01-01T11:21:36.13987Z",
+      "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9377341",
+      "image_count": 0,
+      "video_count": 1,
+      "attachments": [
+        {
+          "item_id": 337716389,
+          "type": "video",
+          "image_url": "https://pbs.twimg.com/ext_tw_video_thumb/1741722052602859520/pu/img/UXOXKYIqNNnDc1xA.jpg",
+          "video_url": "https://video.twimg.com/ext_tw_video/1741722052602859520/pu/vid/avc1/480x852/1gDKyBsGlODC3RGN.mp4?tag=12",
+          "source_url": "https://twitter.com/s_t_r_i_k_e48/status/1741722187864920355",
+          "published_at": "2024-01-01T07:25:03Z"
+        }
+      ]
+    }
+  ]
+}
