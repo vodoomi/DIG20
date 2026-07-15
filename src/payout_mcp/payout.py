@@ -22,14 +22,24 @@ def format_yen(amount: float) -> str:
     return f"約{man:,.0f}万円"
 
 
+FEATURE_KEY_PREFIXES = ("ratio_", "nsi_")
+
+
 def calculate_payout(s_i: float, features: dict, weights: dict) -> dict:
-    """s_i: 計測震度スカラー。features: compute_featuresの結果(ratio_*を含むdict)。"""
+    """s_i: 計測震度スカラー。features: compute_featuresの結果(ratio_*/nsi_*を含むdict)。"""
     w0, w1 = weights["w0"], weights["w1"]
     feature_weights = weights["feature_weights"]
     replacement_value = weights["replacement_value_yen"]
 
+    # 内訳には重み辞書のキーだけでなく観測された全特徴量を出す。
+    # 重み未設定の特徴量は寄与0(=算定に未反映)であることを明示するため。
+    observed_keys = [
+        key for key in features
+        if key.startswith(FEATURE_KEY_PREFIXES) and key not in feature_weights
+    ]
     feature_contributions = {
-        key: weight * features.get(key, 0.0) for key, weight in feature_weights.items()
+        key: feature_weights.get(key, 0.0) * (features.get(key) or 0.0)
+        for key in [*feature_weights, *observed_keys]
     }
     feature_total = sum(feature_contributions.values())
 

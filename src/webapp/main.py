@@ -127,9 +127,8 @@ async def _direct_answer(message: str) -> str:
         c = result["contributions"]
         w = result["weights"]
         breakdown = "、".join(
-            f"{key.replace('ratio_', '')}: {value:.2f}"
+            f"{key.split('_', 1)[-1]}: {value:.2f}"
             for key, value in c["feature_breakdown"].items()
-            if value > 0
         )
         return (
             f"{result['explanation_ja']}\n\n"
@@ -137,7 +136,7 @@ async def _direct_answer(message: str) -> str:
             f"- 計算式: {result['formula']}\n"
             f"- 震度スコア S_i = {result['s_i']}, 切片 w0 = {w['w0']}, 震度の重み w1 = {w['w1']}\n"
             f"- w1×S_i = {c['w1*S_i']:.3f}\n"
-            f"- 特徴量ごとの重み×構成比(寄与が0より大きいもの): {breakdown or 'なし'}\n"
+            f"- 特徴量ごとの寄与(重み×特徴量値。0は算定に未反映): {breakdown or 'なし'}\n"
             f"- 特徴量の合計寄与 feature_total = {c['feature_total']:.3f}\n"
             f"- z = w0 + w1×S_i + feature_total = {c['z']:.3f}\n"
             f"- 支払率 = 1/(1+exp(-z)) = {result['payout_ratio']:.3f}\n"

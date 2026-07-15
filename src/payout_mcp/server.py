@@ -276,18 +276,48 @@ def run_calculate_payout(args: dict) -> dict:
     return result
 
 
-def _describe_top_features(top_features: list, limit: int = 3) -> str:
-    if not top_features:
+def _feature_label(key: str) -> str:
+    for prefix in payout.FEATURE_KEY_PREFIXES:
+        if key.startswith(prefix):
+            return key[len(prefix):]
+    return key
+
+
+def _describe_observed_features(features_result: dict, limit: int = 3) -> str:
+    """観測された被害特徴量(値>0)を大きい順に列挙する。重みの有無とは無関係(実際の被害状況の説明)。"""
+    observed = sorted(
+        (
+            (key, value)
+            for key, value in features_result.items()
+            if key.startswith(payout.FEATURE_KEY_PREFIXES)
+            and isinstance(value, (int, float))
+            and value > 0
+        ),
+        key=lambda kv: kv[1],
+        reverse=True,
+    )
+    if not observed:
         return "際立って大きな被害情報は確認されませんでした"
-    names = [key.replace("ratio_", "") for key, _ in top_features[:limit]]
+    names = [_feature_label(key) for key, _ in observed[:limit]]
     return "・".join(names) + "に関する被害情報が目立ちました"
+
+
+def _describe_weighted_features(top_features: list, limit: int = 3) -> str:
+    """補償額の算定に実際に効いた(寄与>0の)特徴量の説明。"""
+    if not top_features:
+        return "補償額の算定では被害投稿による上乗せはなく、揺れの強さが主な根拠です"
+    names = [_feature_label(key) for key, _ in top_features[:limit]]
+    return "補償額の算定では、モデルが特に重視する" + "・".join(names) + "の情報を揺れの強さに加えて反映しました"
 
 
 def _build_explanation(intensity_result: dict, features_result: dict, payout_result: dict) -> str:
     """数式や重みの生数値を出さず、平易な日本語の文章で補償額の根拠を説明する。"""
     shindo_class = intensity_result.get("shindo_class", "不明")
     shindo_desc = intensity.describe_shindo(shindo_class) if intensity_result else "揺れの情報が不明"
-    feature_desc = _describe_top_features(payout_result.get("contributions", {}).get("top_features", []))
+    feature_desc = _describe_observed_features(features_result)
+    weighted_desc = _describe_weighted_features(
+        payout_result.get("contributions", {}).get("top_features", [])
+    )
     ratio_pct = round(payout_result["payout_ratio"] * 100)
 
     low_sample_note = ""
@@ -296,7 +326,7 @@ def _build_explanation(intensity_result: dict, features_result: dict, payout_res
 
     return (
         f"この地域は震度{shindo_class}相当({shindo_desc})の揺れに見舞われました。"
-        f"SNS等から集めた被害投稿を見ると、{feature_desc}。"
+        f"SNS等から集めた被害投稿を見ると、{feature_desc}。{weighted_desc}。"
         f"揺れの強さとこうした被害状況を総合的に評価した結果、建物の再調達価額(2,000万円)に対して"
         f"約{ratio_pct}%を支払う水準と判断し、{payout_result['payout_yen_formatted']}という"
         f"補償額を算出しました。{low_sample_note}"
