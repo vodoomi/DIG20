@@ -29,6 +29,9 @@ from webapp import lmstudio  # noqa: E402
 async def lifespan(app: FastAPI):
     # 前回セッションの残骸(建物マーカー等)を初期表示に出さないよう、起動時に一度だけクリアする。
     state.reset_latest()
+    # モード切替UIは撤去済みのため、起動時は常にCSVモックへ戻す
+    # (POST /api/mode は残っているので、必要ならcurl等でliveへ切替可能)。
+    state.write_config(dict(state.DEFAULT_CONFIG))
     yield
 
 
