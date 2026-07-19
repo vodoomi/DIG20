@@ -1,7 +1,22 @@
+/* 配色の設計方針(60-30-10ルール):
+   - ベース(約60%): #F2F2F2 …… 画面全体の下地。白一色の「デモ感」を消しつつ、
+     白いカード(吹き出し・凡例)を浮かび上がらせる土台にする
+   - ブランド(約30%): #4292A5(ティール)…… ヘッダー・ユーザー吹き出し・フォーカスなど
+     「アプリの声」に一貫して使う。保険ドメインに合う沈着・信頼の色
+   - アクセント(約10%): #C8565C(赤)…… 送信ボタンのみ。強い色を1箇所に絞ることで
+     視線を主要アクションへ誘導する。災害文脈の「警告の赤」と混同しないよう情報表示には使わない
+   ※地図内の円の色(震度)は既存のまま変更しない */
 :root {
-  --border: #d0d0d0;
-  --bg-user: #e3f2fd;
-  --bg-assistant: #f1f8e9;
+  --brand: #4292A5;         /* ブランド基調(ティール) */
+  --brand-dark: #35798B;    /* ホバー・強調用の濃ティール(白文字で4.9:1) */
+  --brand-text: #33646F;    /* ベース上でも読める濃ティール文字(5.9:1) */
+  --brand-tint: #DCEAED;    /* ユーザー吹き出し用の薄ティール */
+  --accent: #C8565C;        /* 主要アクション(送信) */
+  --accent-dark: #B2454B;   /* 送信ホバー(白文字で5.5:1) */
+  --base: #F2F2F2;          /* 画面の下地 */
+  --surface: #FFFFFF;       /* カード面(吹き出し・入力欄・凡例) */
+  --border: #DBE3E5;        /* ティールにわずかに寄せた中立ボーダー */
+  --text: #2B3A3F;          /* 真っ黒でなく青緑寄りの墨色(下地で10.5:1) */
 }
 
 * { box-sizing: border-box; }
@@ -9,19 +24,25 @@
 body {
   margin: 0;
   font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif;
-  color: #222;
+  color: var(--text);
+  background: var(--base);
 }
 
+/* ヘッダーはブランド色のベタ塗り。画面の先頭で「製品の顔」を作り、
+   余白だけの白ヘッダーによるデモ感を消す */
 #top-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1rem;
-  border-bottom: 1px solid var(--border);
+  padding: 0.6rem 1rem;
+  background: var(--brand);
+  color: #fff;
 }
 
 #top-bar h1 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   margin: 0;
 }
 
@@ -33,7 +54,7 @@ body {
 }
 
 #mode-status {
-  color: #2E7D32;
+  color: #eaf4f6;
 }
 
 main {
@@ -59,21 +80,40 @@ main {
 }
 
 .msg {
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.6rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.75rem;
   max-width: 90%;
   white-space: pre-wrap;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
+/* 話者の区別は「色相」で示す:
+   ユーザー = 薄ティール(ブランド色の系統) / アシスタント = 白カード。
+   灰色の下地の上では白がそのまま「浮いた面」になるので、
+   影と角丸だけで読みやすさを確保できる */
 .msg-user {
   align-self: flex-end;
-  background: var(--bg-user);
+  background: var(--brand-tint);
+  border-bottom-right-radius: 0.25rem;
 }
 
 .msg-assistant {
   align-self: flex-start;
-  background: var(--bg-assistant);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 0.25rem;
+  box-shadow: 0 1px 2px rgba(43, 58, 63, 0.06);
+  /* アシスタント側はmarkdown変換済みHTMLなので、pre-wrapだとタグ間の
+     ソース改行まで空行として描画されてしまう。改行表現は<p>等に任せる */
+  white-space: normal;
+}
+
+.msg-assistant p {
+  margin: 0 0 0.5rem;
+}
+
+.msg-assistant p:last-child {
+  margin-bottom: 0;
 }
 
 /* 被害画像(get_damage_imageのMarkdown画像)をチャット枠に収める */
@@ -89,36 +129,67 @@ main {
   margin: 0.5rem 0;
 }
 
+/* 例文ボタンは「提案」であり主要アクションではないので、
+   塗りつぶさずティールの輪郭線だけにして送信ボタンより一段弱く見せる */
 .preset-btn {
   font-size: 0.85rem;
-  padding: 0.4rem 0.7rem;
-  border: 1px solid var(--border);
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--brand);
   border-radius: 1rem;
-  background: #fafafa;
+  background: var(--surface);
+  color: var(--brand-text);
   cursor: pointer;
+  transition: background 0.15s;
 }
 
 .preset-btn:hover {
-  background: #eee;
+  background: var(--brand-tint);
 }
 
 #chat-form {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
 
 #message-input {
   flex: 1;
-  padding: 0.5rem;
+  padding: 0.55rem 0.75rem;
   border: 1px solid var(--border);
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
+  background: var(--surface);
+  font-size: 0.9rem;
+}
+
+/* フォーカスはブランド色で示す(操作中の場所を色で追えるようにする) */
+#message-input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(66, 146, 165, 0.25);
+}
+
+/* 送信 = この画面で唯一の赤。最も目立つ色を最重要アクション1つに独占させる */
+#chat-form button[type="submit"] {
+  padding: 0.55rem 1.1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#chat-form button[type="submit"]:hover {
+  background: var(--accent-dark);
 }
 
 .htmx-indicator {
   opacity: 0;
   font-size: 0.8rem;
-  color: #888;
+  color: var(--brand-text);
 }
 
 .htmx-request .htmx-indicator,
@@ -132,7 +203,7 @@ main {
 }
 
 .fallback-link a {
-  color: #888;
+  color: var(--brand-text);
 }
 
 #map-panel {
