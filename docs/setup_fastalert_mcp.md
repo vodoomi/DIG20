@@ -90,7 +90,7 @@ curl http://localhost:1234/api/v1/chat \
 ### 3. モデルの停止
 
 ```bash
-lms unload qwen3.6-35b-a3b
+lms unload qwen/qwen3.6-35b-a3b
 lms server stop
 lms daemon down
 ```

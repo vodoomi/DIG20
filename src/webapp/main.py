@@ -83,14 +83,18 @@ def _render_markdown_with_math(text: str) -> str:
 def _chat_turn_response(request: Request, message: str, answer: str):
     _chat_history.append({"role": "user", "content": message})
     _chat_history.append({"role": "assistant", "content": answer})
-    show_explain_button = "payout" in state.read_latest()
+    # 例文ボタンは「補償額→根拠(平易な説明)→数式での説明」の順に誘導する:
+    # 補償額の回答後は根拠ボタン、根拠・理由を尋ねた後は数式ボタンを出す。
+    has_payout = "payout" in state.read_latest()
+    asked_reason = ("根拠" in message) or ("理由" in message)
     return templates.TemplateResponse(
         request,
         "partials/chat_turn.html",
         {
             "user_message": message,
             "assistant_message_html": _render_markdown_with_math(answer),
-            "show_explain_button": show_explain_button,
+            "show_explain_button": has_payout and not asked_reason,
+            "show_math_button": has_payout and asked_reason,
         },
     )
 
@@ -137,10 +141,13 @@ async def _direct_answer(message: str) -> str:
             f"{result['muni_name']}で実際に投稿された被害画像です。"
         )
 
-    if "根拠" in message:
+    if "根拠" in message or "理由" in message:
         result = run_explain_payout({})
         if "error" in result:
             return result["error"]
+        if "数式" not in message:
+            # 数式が明示されない限りは、数式・重みを出さない平易な説明のみ返す
+            return result["explanation_ja"]
         c = result["contributions"]
         w = result["weights"]
         breakdown = "、".join(
