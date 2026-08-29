@@ -63,7 +63,8 @@ main {
 }
 
 #chat-panel {
-  width: 40%;
+  flex: 0 0 48%;
+  width: 48%;
   min-width: 320px;
   display: flex;
   flex-direction: column;
@@ -73,6 +74,7 @@ main {
 
 #messages {
   flex: 1;
+  min-width: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -99,6 +101,8 @@ main {
 
 .msg-assistant {
   align-self: flex-start;
+  width: 100%;
+  max-width: 100%;
   background: var(--surface);
   border: 1px solid var(--border);
   border-bottom-left-radius: 0.25rem;
@@ -116,6 +120,20 @@ main {
   margin-bottom: 0;
 }
 
+/* KaTeXはブロック数式を折り返さないため、通常は小さく表示し、
+   それでも収まらない場合だけ数式の中を横スクロールできるようにする。 */
+.msg-assistant .katex-display {
+  margin: 0.55rem 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.15rem 0;
+  scrollbar-width: thin;
+}
+
+.msg-assistant .katex-display > .katex {
+  font-size: 0.95em;
+}
+
 /* 被害画像(get_damage_imageのMarkdown画像)をチャット枠に収める */
 .msg-assistant img {
   display: block;
@@ -126,6 +144,9 @@ main {
 }
 
 #quick-reply-slot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
   margin: 0.5rem 0;
 }
 
@@ -208,6 +229,7 @@ main {
 
 #map-panel {
   flex: 1;
+  min-width: 0;
   position: relative;
 }
 
@@ -233,4 +255,22 @@ main {
 #legend strong {
   display: block;
   margin-bottom: 0.2rem;
+}
+
+@media (max-width: 900px) {
+  main {
+    flex-direction: column;
+  }
+
+  #chat-panel {
+    flex: 0 0 58%;
+    width: 100%;
+    min-width: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+
+  #map-panel {
+    min-height: 42%;
+  }
 }

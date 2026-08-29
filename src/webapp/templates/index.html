@@ -23,16 +23,18 @@
       <div id="messages"></div>
 
       <div id="quick-reply-slot">
-        <button type="button" class="preset-btn"
-          onclick="document.getElementById('message-input').value='能登半島地震における石川県輪島市河井町の補償額を教えてください'">
-          能登半島地震における住所の補償額を聞く(例文)
+        {% for reply in quick_replies %}
+        <button type="button" class="preset-btn" data-message="{{ reply.message }}"
+          onclick="setQuickReply(this.dataset.message)">
+          {{ reply.label }}
         </button>
+        {% endfor %}
       </div>
 
       <form id="chat-form" hx-post="/chat" hx-target="#messages" hx-swap="beforeend"
             hx-indicator="#spinner" hx-on::after-request="this.reset(); refreshMapState();">
         <input type="text" name="message" id="message-input"
-               placeholder="例: 能登半島地震における石川県輪島市河井町の補償額を教えてください" required>
+               placeholder="選択肢を選ぶか、質問を入力してください" required>
         <button type="submit">送信</button>
         <span id="spinner" class="htmx-indicator">考え中...</span>
       </form>
@@ -48,6 +50,12 @@
   <script src="/static/vendor/leaflet.js"></script>
   <script src="/static/map.js"></script>
   <script>
+    function setQuickReply(message) {
+      const input = document.getElementById('message-input');
+      input.value = message;
+      input.focus();
+    }
+
     function renderMath(el) {
       if (window.renderMathInElement) {
         renderMathInElement(el, {
@@ -58,12 +66,31 @@
             { left: '\\(', right: '\\)', display: false },
           ],
         });
+        fitDisplayMath(el);
       }
+    }
+
+    function fitDisplayMath(root) {
+      root.querySelectorAll('.katex-display').forEach((display) => {
+        const formula = display.querySelector(':scope > .katex');
+        if (!formula) return;
+
+        formula.style.fontSize = '';
+        if (formula.scrollWidth <= display.clientWidth) return;
+
+        // 基本の0.95emから、必要な数式だけ0.72emを下限に縮小する。
+        const fittedSize = Math.max(
+          0.72,
+          0.95 * display.clientWidth / formula.scrollWidth * 0.98,
+        );
+        formula.style.fontSize = `${fittedSize}em`;
+      });
     }
 
     // htmxで新着メッセージ(#messages配下)がDOMに追加されるたびに数式を描画する
     document.body.addEventListener('htmx:afterSwap', (evt) => renderMath(evt.detail.target));
     document.body.addEventListener('htmx:oobAfterSwap', (evt) => renderMath(evt.detail.target));
+    window.addEventListener('resize', () => fitDisplayMath(document));
   </script>
 </body>
 </html>

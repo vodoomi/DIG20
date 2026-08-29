@@ -1,18 +1,10 @@
 <div class="msg msg-user">{{ user_message }}</div>
 <div class="msg msg-assistant">{{ assistant_message_html | safe }}</div>
-{% if show_explain_button or show_math_button %}
 <div id="quick-reply-slot" hx-swap-oob="true">
-  {% if show_explain_button %}
-  <button type="button" class="preset-btn"
-    onclick="document.getElementById('message-input').value='この補償額になった根拠を教えてください'">
-    この補償額になった根拠を教えてください
+  {% for reply in quick_replies %}
+  <button type="button" class="preset-btn" data-message="{{ reply.message }}"
+    onclick="setQuickReply(this.dataset.message)">
+    {{ reply.label }}
   </button>
-  {% endif %}
-  {% if show_math_button %}
-  <button type="button" class="preset-btn"
-    onclick="document.getElementById('message-input').value='数式を使って理由を説明してください'">
-    数式を使って理由を説明してください
-  </button>
-  {% endif %}
+  {% endfor %}
 </div>
-{% endif %}

@@ -6,7 +6,7 @@ server.py — 地震保険即時支払いデモ用 独自MCPサーバ(Model Cont
   - geocode_address              : 住所→緯度経度・自治体判定(新規質問の起点。stateを初期化)
   - get_intensity                 : 震度取得(mock=固定値 / live=最寄り観測点)
   - compute_features               : FASTALERT特徴量取得(mock=事前CSV / live=fastalert_topicsを都度呼び出し)
-  - calculate_payout              : 補償額計算(P = sigmoid(w0+w1*S_i+Σ_k w_k*ratio_k) x 再調達価額)
+  - calculate_payout              : 補償額計算(sigmoid(w0+w1*S_i+Σ_k w_k*x_k) x 保険金額)
   - explain_payout                 : 直近の計算の根拠を平易な日本語の文章で返す
   - get_damage_image               : 根拠で寄与が大きかった被害カテゴリの実画像URLを1枚返す
   - estimate_payout_for_address    : 上記を1コールで実行する複合ツール(フォールバック用)
@@ -27,6 +27,7 @@ import csv
 import json
 import os
 from datetime import datetime, timedelta, timezone
+from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
 from payout_mcp import damage_images, fastalert_client, features, geocode, intensity, payout, state
@@ -103,7 +104,10 @@ def _row_to_feature_dict(row: dict) -> dict:
 GEOCODE_ADDRESS_SCHEMA = {
     "type": "object",
     "properties": {
-        "address": {"type": "string", "description": "問い合わせ対象の住所(例: 石川県輪島市河井町)"},
+        "address": {
+            "type": "string",
+            "description": "問い合わせ対象の住所(例: 石川県輪島市河井町1部115番地)",
+        },
     },
     "required": ["address"],
 }
@@ -323,6 +327,7 @@ def _build_explanation(intensity_result: dict, features_result: dict, payout_res
         payout_result.get("contributions", {}).get("top_features", [])
     )
     ratio_pct = round(payout_result["payout_ratio"] * 100)
+    insured_amount_man = payout_result["insured_amount_yen"] / 10_000
 
     low_sample_note = ""
     if features_result and features_result.get("low_sample"):
@@ -331,9 +336,75 @@ def _build_explanation(intensity_result: dict, features_result: dict, payout_res
     return (
         f"この地域は震度{shindo_class}相当({shindo_desc})の揺れに見舞われました。"
         f"SNS等から集めた被害投稿を見ると、{feature_desc}。{weighted_desc}。"
-        f"揺れの強さとこうした被害状況を総合的に評価した結果、建物の再調達価額(2,000万円)に対して"
+        f"揺れの強さとこうした被害状況を総合的に評価した結果、"
+        f"法人契約の保険金額({insured_amount_man:,.0f}万円)に対して"
         f"約{ratio_pct}%を支払う水準と判断し、{payout_result['payout_yen_formatted']}という"
         f"補償額を算出しました。{low_sample_note}"
+    )
+
+
+def _format_display_decimal(value: float) -> str:
+    """数値を小数第3位で四捨五入し、小数第2位まで表示する。"""
+    rounded = Decimal(str(value)).quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+    return f"{rounded:.2f}"
+
+
+def _build_calculation_markdown(
+    intensity_result: dict,
+    payout_result: dict,
+) -> str:
+    """数式説明用の、丸め済みで横幅を抑えたMarkdownを返す。"""
+    contributions = payout_result["contributions"]
+    weights = payout_result["weights"]
+    feature_weights = weights["feature_weights"]
+    feature_breakdown = contributions["feature_breakdown"]
+    active_feature_weights = {
+        key: value
+        for key, value in feature_weights.items()
+        if value != 0
+    }
+
+    weight_text = "、".join(
+        f"{_feature_label(key)} {_format_display_decimal(value)}"
+        for key, value in active_feature_weights.items()
+    ) or "なし"
+    contribution_text = "、".join(
+        f"{_feature_label(key)} {_format_display_decimal(feature_breakdown.get(key, 0.0))}"
+        for key in active_feature_weights
+    ) or "なし"
+
+    s_i = _format_display_decimal(intensity_result["s_i"])
+    w0 = _format_display_decimal(weights["w0"])
+    w1 = _format_display_decimal(weights["w1"])
+    intensity_contribution = _format_display_decimal(contributions["w1*S_i"])
+    feature_total = _format_display_decimal(contributions["feature_total"])
+    z = _format_display_decimal(contributions["z"])
+    payout_ratio_percent = _format_display_decimal(payout_result["payout_ratio"] * 100)
+    insured_amount = f"{payout_result['insured_amount_yen']:,}"
+    payout_amount = f"{payout_result['payout_yen']:,}"
+
+    return (
+        "**計算の内訳**\n\n"
+        "支払率を求める基本式です。\n\n"
+        "$$p = \\frac{1}{1 + \\exp(-z)}$$\n\n"
+        "$$z = w_0 + w_1 S_i + \\sum_k w_k x_k$$\n\n"
+        f"- 震度スコア: $S_i={s_i}$\n"
+        f"- 切片: $w_0={w0}$\n"
+        f"- 震度の重み: $w_1={w1}$\n"
+        f"- 被害特徴量の重み: {weight_text}\n"
+        f"- 被害特徴量の寄与: {contribution_text}\n\n"
+        "震度と被害特徴量の寄与を合計します。\n\n"
+        f"$$w_1 S_i \\approx {intensity_contribution}$$\n\n"
+        f"$$\\sum_k w_k x_k \\approx {feature_total}$$\n\n"
+        f"$$z \\approx {w0} + {intensity_contribution} + {feature_total}$$\n\n"
+        f"$$z \\approx {z}$$\n\n"
+        "丸め前の値で算出した支払率です。\n\n"
+        f"$$p \\approx {payout_ratio_percent}\\%$$\n\n"
+        "法人契約の保険金額に支払率を掛けます。\n\n"
+        f"$$P \\approx {insured_amount} \\times {payout_ratio_percent}\\%$$\n\n"
+        f"$$P = {payout_amount}\\text{{円}}$$\n\n"
+        f"したがって、補償額は**{payout_result['payout_yen_formatted']}**です。"
+        "表示値は小数第3位で四捨五入していますが、補償額は丸め前の値で計算しています。"
     )
 
 
@@ -348,6 +419,10 @@ def run_explain_payout(args: dict) -> dict:
 
     return {
         "explanation_ja": _build_explanation(intensity_result, features_result, payout_result),
+        "calculation_markdown": _build_calculation_markdown(
+            intensity_result,
+            payout_result,
+        ),
         "s_i": intensity_result.get("s_i"),
         "shindo_class": intensity_result.get("shindo_class"),
         "features": features_result,
@@ -355,6 +430,7 @@ def run_explain_payout(args: dict) -> dict:
         "contributions": payout_result["contributions"],
         "formula": payout_result["formula"],
         "payout_ratio": payout_result["payout_ratio"],
+        "insured_amount_yen": payout_result["insured_amount_yen"],
         "payout_yen_formatted": payout_result["payout_yen_formatted"],
         "low_sample": features_result.get("low_sample"),
         "data_sources": {

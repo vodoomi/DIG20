@@ -26,13 +26,22 @@ from payout_mcp.server import (  # noqa: E402
     run_explain_payout,
     run_get_damage_image,
 )
-from webapp import lmstudio  # noqa: E402
+from webapp import lmstudio, quick_replies  # noqa: E402
+
+# 単一セッション前提の簡易な会話履歴(デモ用途、プロセス内メモリのみで永続化しない)
+_chat_history: list[dict] = []
+
+
+def _reset_demo_session() -> None:
+    """地図・計算結果と会話履歴を初期状態へ戻す。"""
+    state.reset_latest()
+    _chat_history.clear()
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # 前回セッションの残骸(建物マーカー等)を初期表示に出さないよう、起動時に一度だけクリアする。
-    state.reset_latest()
+    _reset_demo_session()
     # モード切替UIは撤去済みのため、起動時は常にCSVモックへ戻す
     # (POST /api/mode は残っているので、必要ならcurl等でliveへ切替可能)。
     state.write_config(dict(state.DEFAULT_CONFIG))
@@ -43,10 +52,6 @@ WEBAPP_DIR = Path(__file__).resolve().parent
 app = FastAPI(title="地震保険 即時補償額デモ", lifespan=lifespan)
 app.mount("/static", StaticFiles(directory=WEBAPP_DIR / "static"), name="static")
 templates = Jinja2Templates(directory=WEBAPP_DIR / "templates")
-
-# 単一セッション前提の簡易な会話履歴(デモ用途、プロセス内メモリのみで永続化しない)
-_chat_history: list[dict] = []
-
 
 def _use_fastalert(config: dict) -> bool:
     return config.get("intensity_mode") == "live" or config.get("features_mode") == "live"
@@ -83,26 +88,37 @@ def _render_markdown_with_math(text: str) -> str:
 def _chat_turn_response(request: Request, message: str, answer: str):
     _chat_history.append({"role": "user", "content": message})
     _chat_history.append({"role": "assistant", "content": answer})
-    # 例文ボタンは「補償額→根拠(平易な説明)→数式での説明」の順に誘導する:
-    # 補償額の回答後は根拠ボタン、根拠・理由を尋ねた後は数式ボタンを出す。
     has_payout = "payout" in state.read_latest()
-    asked_reason = ("根拠" in message) or ("理由" in message)
     return templates.TemplateResponse(
         request,
         "partials/chat_turn.html",
         {
             "user_message": message,
             "assistant_message_html": _render_markdown_with_math(answer),
-            "show_explain_button": has_payout and not asked_reason,
-            "show_math_button": has_payout and asked_reason,
+            "quick_replies": quick_replies.build_quick_replies(
+                _chat_history,
+                has_payout=has_payout,
+            ),
         },
     )
 
 
 @app.get("/")
 async def index(request: Request):
+    # ブラウザの再読み込みを、新しい発表用デモセッションの開始として扱う。
+    _reset_demo_session()
     config = state.read_config()
-    return templates.TemplateResponse(request, "index.html", {"config": config})
+    return templates.TemplateResponse(
+        request,
+        "index.html",
+        {
+            "config": config,
+            "quick_replies": quick_replies.build_quick_replies(
+                _chat_history,
+                has_payout="payout" in state.read_latest(),
+            ),
+        },
+    )
 
 
 @app.post("/api/mode")
@@ -131,7 +147,7 @@ async def chat_direct(request: Request, message: str = Form(...)):
 
 
 async def _direct_answer(message: str) -> str:
-    if "画像" in message:
+    if "画像" in message or "写真" in message:
         result = run_get_damage_image({})
         if "error" in result:
             return result["error"]
@@ -148,24 +164,7 @@ async def _direct_answer(message: str) -> str:
         if "数式" not in message:
             # 数式が明示されない限りは、数式・重みを出さない平易な説明のみ返す
             return result["explanation_ja"]
-        c = result["contributions"]
-        w = result["weights"]
-        breakdown = "、".join(
-            f"{key.split('_', 1)[-1]}: {value:.2f}"
-            for key, value in c["feature_breakdown"].items()
-        )
-        return (
-            f"{result['explanation_ja']}\n\n"
-            "**計算の内訳**\n"
-            f"- 計算式: {result['formula']}\n"
-            f"- 震度スコア S_i = {result['s_i']}, 切片 w0 = {w['w0']}, 震度の重み w1 = {w['w1']}\n"
-            f"- w1×S_i = {c['w1*S_i']:.3f}\n"
-            f"- 特徴量ごとの寄与(重み×特徴量値。0は算定に未反映): {breakdown or 'なし'}\n"
-            f"- 特徴量の合計寄与 feature_total = {c['feature_total']:.3f}\n"
-            f"- z = w0 + w1×S_i + feature_total = {c['z']:.3f}\n"
-            f"- 支払率 = 1/(1+exp(-z)) = {result['payout_ratio']:.3f}\n"
-            f"- 補償額 = 支払率 × 再調達価額(2,000万円) = {result['payout_yen_formatted']}"
-        )
+        return result["calculation_markdown"]
 
     result = await run_estimate_payout_for_address({"address": message})
     if "error" in result:
