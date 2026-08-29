@@ -1,0 +1,430 @@
+{
+  "collected_at": "2026-08-29T08:29:38.788661+00:00",
+  "model": "qwen/qwen3.6-35b-a3b",
+  "mode": {
+    "intensity_mode": "mock",
+    "features_mode": "mock"
+  },
+  "scenarios": [
+    {
+      "key": "wajima",
+      "label": "輪島市 河井町1部115番地",
+      "address": "石川県輪島市河井町1部115番地",
+      "turns": [
+        {
+          "kind": "payout",
+          "label": "補償額",
+          "prompt": "能登半島地震における石川県輪島市河井町1部115番地の補償額を教えてください",
+          "answer": "補償額は**3,091,005円**です。"
+        },
+        {
+          "kind": "reason",
+          "label": "平易な根拠",
+          "prompt": "この補償額になった根拠を教えてください",
+          "answer": "この地域は**震度7相当**の極めて激しい揺れに見舞われました。\n**FASTALERT**で収集した被害投稿の情報を見ると、倒壊や道路被害、救助要請に関する情報が目立ちました。\n補償額の算定では、揺れの強さだけでなく、**地盤変状**といった被害の状況も反映しています。\nこれらの情報を総合的に評価した結果、法人契約の**保険金額(1,000万円)に対して約31%**を支払う水準と判断し、**約309万円**という補償額を算出しました。"
+        },
+        {
+          "kind": "math",
+          "label": "数式による根拠",
+          "prompt": "数式を使って理由を説明してください",
+          "answer": "**計算の内訳**\n\n支払率を求める基本式です。\n\n$$p = \\frac{1}{1 + \\exp(-z)}$$\n\n$$z = w_0 + w_1 S_i + \\sum_k w_k x_k$$\n\n- 震度スコア: $S_i=6.75$\n- 切片: $w_0=-14.85$\n- 震度の重み: $w_1=2.00$\n- 被害特徴量の重み: 液状化 0.24、地盤変状 0.72\n- 被害特徴量の寄与: 液状化 0.00、地盤変状 0.52\n\n震度と被害特徴量の寄与を合計します。\n\n$$w_1 S_i \\approx 13.53$$\n\n$$\\sum_k w_k x_k \\approx 0.52$$\n\n$$z \\approx -14.85 + 13.53 + 0.52$$\n\n$$z \\approx -0.80$$\n\n丸め前の値で算出した支払率です。\n\n$$p \\approx 30.91\\%$$\n\n法人契約の保険金額に支払率を掛けます。\n\n$$P \\approx 10,000,000 \\times 30.91\\%$$\n\n$$P = 3,091,005\\text{円}$$\n\nしたがって、補償額は**約309万円**です。表示値は小数第3位で四捨五入していますが、補償額は丸め前の値で計算しています。"
+        },
+        {
+          "kind": "photo",
+          "label": "被害写真",
+          "prompt": "写真で被害の状況を教えてください",
+          "answer": "![輪島市の道路損壊の被害画像](https://pbs.twimg.com/media/GC04-vda4AAavrz.jpg)\n\n*輪島市・カテゴリ「道路損壊」の被害投稿画像([出典](https://twitter.com/misakura_rin/status/1742111283472973918))*\n\nこれが補償額算定で影響が大きかった地盤変状に対応する実際の投稿画像です。"
+        }
+      ],
+      "state": {
+        "history": [],
+        "query": {
+          "address": "石川県輪島市河井町1部115番地",
+          "lat": 37.396023,
+          "lon": 136.899872,
+          "matched_address": "石川県輪島市河井町１番",
+          "muni_name": "輪島市",
+          "muni_code": "17204",
+          "in_demo_area": true
+        },
+        "intensity": {
+          "shindo_class": "7",
+          "s_i": 6.75,
+          "source": "mock",
+          "station_name": null,
+          "distance_km": null
+        },
+        "features": {
+          "muni_name": "輪島市",
+          "muni_code": "wajima",
+          "nsi_倒壊": 19.9715,
+          "nsi_液状化": 0.0,
+          "nsi_道路被害": 9.2725,
+          "nsi_土砂災害": 6.4194,
+          "nsi_救助要請": 9.2725,
+          "nsi_停電": 1.4265,
+          "nsi_断水": 0.7133,
+          "nsi_火災": 1.4265,
+          "nsi_津波": 0.0,
+          "nsi_地盤変状": 0.7133,
+          "source": "cached_csv"
+        },
+        "payout": {
+          "payout_ratio": 0.30910046056781604,
+          "payout_yen": 3091005,
+          "payout_yen_formatted": "約309万円",
+          "weights": {
+            "w0": -14.84791713068457,
+            "w1": 2.004195076079665,
+            "feature_weights": {
+              "nsi_液状化": 0.23934125513899404,
+              "nsi_土砂災害": 0.0,
+              "nsi_救助要請": 0.0,
+              "nsi_津波": 0.0,
+              "nsi_地盤変状": 0.7223780701498257
+            }
+          },
+          "insured_amount_yen": 10000000,
+          "formula": "支払額 = 1 / (1 + exp(-(w0 + w1*S_i + Σ_k w_k*x_k))) × 保険金額",
+          "contributions": {
+            "w0": -14.84791713068457,
+            "w1*S_i": 13.528316763537738,
+            "feature_total": 0.5152722774378707,
+            "feature_breakdown": {
+              "nsi_液状化": 0.0,
+              "nsi_土砂災害": 0.0,
+              "nsi_救助要請": 0.0,
+              "nsi_津波": 0.0,
+              "nsi_地盤変状": 0.5152722774378707,
+              "nsi_倒壊": 0.0,
+              "nsi_道路被害": 0.0,
+              "nsi_停電": 0.0,
+              "nsi_断水": 0.0,
+              "nsi_火災": 0.0
+            },
+            "top_features": [
+              [
+                "nsi_地盤変状",
+                0.5152722774378707
+              ]
+            ],
+            "z": -0.8043280897089607
+          }
+        },
+        "damage_image": {
+          "muni_name": "輪島市",
+          "damage_type": "地盤変状",
+          "category": "自然現象",
+          "image_url": "https://pbs.twimg.com/media/GC2-j0OXEAEZ-Uv.jpg",
+          "topic_id": 9391035,
+          "topic_head": "石川県輪島市 黒島漁港で自然現象",
+          "source_url": "https://twitter.com/SAKETUBER/status/1742258158863618320",
+          "published_at": "2024-01-02T18:54:49Z",
+          "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9391035",
+          "markdown": "![輪島市の自然現象の被害画像](https://pbs.twimg.com/media/GC2-j0OXEAEZ-Uv.jpg)\n\n*輪島市・カテゴリ「自然現象」の被害投稿画像([出典](https://twitter.com/SAKETUBER/status/1742258158863618320))*",
+          "local_path": "images/wajima.jpg"
+        }
+      },
+      "image": {
+        "muni_name": "輪島市",
+        "damage_type": "地盤変状",
+        "category": "道路損壊",
+        "image_url": "https://pbs.twimg.com/media/GC04-vda4AAavrz.jpg",
+        "topic_id": 9385040,
+        "topic_head": "石川県輪島市稲屋町付近 国道249号で道路損壊",
+        "source_url": "https://twitter.com/misakura_rin/status/1742111283472973918",
+        "published_at": "2024-01-02T09:11:11Z",
+        "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9385040",
+        "markdown": "![輪島市の道路損壊の被害画像](https://pbs.twimg.com/media/GC04-vda4AAavrz.jpg)\n\n*輪島市・カテゴリ「道路損壊」の被害投稿画像([出典](https://twitter.com/misakura_rin/status/1742111283472973918))*",
+        "local_path": "images/wajima.jpg"
+      },
+      "checks": {
+        "payout_state_exists": true,
+        "reason_mentions_fastalert": true,
+        "math_matches_fixed_markdown": true,
+        "photo_markdown_in_answer": true,
+        "image_downloaded": true
+      }
+    },
+    {
+      "key": "uchinada",
+      "label": "内灘町 大学1丁目2番地1",
+      "address": "石川県河北郡内灘町字大学1丁目2番地1",
+      "turns": [
+        {
+          "kind": "payout",
+          "label": "補償額",
+          "prompt": "能登半島地震における石川県河北郡内灘町字大学1丁目2番地1の補償額を教えてください",
+          "answer": "補償額は**597,363円**です。"
+        },
+        {
+          "kind": "reason",
+          "label": "平易な根拠",
+          "prompt": "この補償額になった根拠を教えてください",
+          "answer": "この地域は震度5弱相当の揺れに見舞われました。\n\nSNS等から集めた被害投稿を見ると、液状化や倒壊に関する被害情報が目立ちました。\n\n補償額の算定では、揺れの強さとこうした被害状況を総合的に評価しました。その結果、法人契約の保険金額（1,000万円）に対して約6%を支払う水準と判断し、**約60万円**という補償額を算出しました。"
+        },
+        {
+          "kind": "math",
+          "label": "数式による根拠",
+          "prompt": "数式を使って理由を説明してください",
+          "answer": "**計算の内訳**\n\n支払率を求める基本式です。\n\n$$p = \\frac{1}{1 + \\exp(-z)}$$\n\n$$z = w_0 + w_1 S_i + \\sum_k w_k x_k$$\n\n- 震度スコア: $S_i=4.75$\n- 切片: $w_0=-14.85$\n- 震度の重み: $w_1=2.00$\n- 被害特徴量の重み: 液状化 0.24、地盤変状 0.72\n- 被害特徴量の寄与: 液状化 2.57、地盤変状 0.00\n\n震度と被害特徴量の寄与を合計します。\n\n$$w_1 S_i \\approx 9.52$$\n\n$$\\sum_k w_k x_k \\approx 2.57$$\n\n$$z \\approx -14.85 + 9.52 + 2.57$$\n\n$$z \\approx -2.76$$\n\n丸め前の値で算出した支払率です。\n\n$$p \\approx 5.97\\%$$\n\n法人契約の保険金額に支払率を掛けます。\n\n$$P \\approx 10,000,000 \\times 5.97\\%$$\n\n$$P = 597,363\\text{円}$$\n\nしたがって、補償額は**約60万円**です。表示値は小数第3位で四捨五入していますが、補償額は丸め前の値で計算しています。"
+        },
+        {
+          "kind": "photo",
+          "label": "被害写真",
+          "prompt": "写真で被害の状況を教えてください",
+          "answer": "![内灘町の液状化の被害画像](https://pbs.twimg.com/media/GC0kJWGbIAAbC9p.jpg)\n\n*内灘町・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Wizard_of_Oz__/status/1742088391234408549))*\n\nこれが補償額算定で影響が大きかった被害カテゴリの実際の投稿画像です。"
+        }
+      ],
+      "state": {
+        "history": [],
+        "query": {
+          "address": "石川県河北郡内灘町字大学1丁目2番地1",
+          "lat": 36.653542,
+          "lon": 136.644989,
+          "matched_address": "石川県内灘町大学一丁目２番地",
+          "muni_name": "内灘町",
+          "muni_code": "17365",
+          "in_demo_area": true
+        },
+        "intensity": {
+          "shindo_class": "5弱",
+          "s_i": 4.75,
+          "source": "mock",
+          "station_name": null,
+          "distance_km": null
+        },
+        "features": {
+          "muni_name": "内灘町",
+          "muni_code": "uchinada",
+          "nsi_倒壊": 8.726,
+          "nsi_液状化": 10.7452,
+          "nsi_道路被害": 7.8534,
+          "nsi_土砂災害": 0.0,
+          "nsi_救助要請": 0.0,
+          "nsi_停電": 0.0,
+          "nsi_断水": 2.6178,
+          "nsi_火災": 0.0,
+          "nsi_津波": 0.0,
+          "nsi_地盤変状": 0.0,
+          "source": "cached_csv"
+        },
+        "payout": {
+          "payout_ratio": 0.05973627907368244,
+          "payout_yen": 597363,
+          "payout_yen_formatted": "約60万円",
+          "weights": {
+            "w0": -14.84791713068457,
+            "w1": 2.004195076079665,
+            "feature_weights": {
+              "nsi_液状化": 0.23934125513899404,
+              "nsi_土砂災害": 0.0,
+              "nsi_救助要請": 0.0,
+              "nsi_津波": 0.0,
+              "nsi_地盤変状": 0.7223780701498257
+            }
+          },
+          "insured_amount_yen": 10000000,
+          "formula": "支払額 = 1 / (1 + exp(-(w0 + w1*S_i + Σ_k w_k*x_k))) × 保険金額",
+          "contributions": {
+            "w0": -14.84791713068457,
+            "w1*S_i": 9.51992661137841,
+            "feature_total": 2.571769654719519,
+            "feature_breakdown": {
+              "nsi_液状化": 2.571769654719519,
+              "nsi_土砂災害": 0.0,
+              "nsi_救助要請": 0.0,
+              "nsi_津波": 0.0,
+              "nsi_地盤変状": 0.0,
+              "nsi_倒壊": 0.0,
+              "nsi_道路被害": 0.0,
+              "nsi_停電": 0.0,
+              "nsi_断水": 0.0,
+              "nsi_火災": 0.0
+            },
+            "top_features": [
+              [
+                "nsi_液状化",
+                2.571769654719519
+              ]
+            ],
+            "z": -2.7562208645866417
+          }
+        },
+        "damage_image": {
+          "muni_name": "内灘町",
+          "damage_type": "液状化",
+          "category": "液状化",
+          "image_url": "https://pbs.twimg.com/media/GC0kJWGbIAAbC9p.jpg",
+          "topic_id": 9384267,
+          "topic_head": "石川県内灘町字鶴ケ丘2丁目付近で液状化",
+          "source_url": "https://twitter.com/Wizard_of_Oz__/status/1742088391234408549",
+          "published_at": "2024-01-02T07:40:13Z",
+          "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384267",
+          "markdown": "![内灘町の液状化の被害画像](https://pbs.twimg.com/media/GC0kJWGbIAAbC9p.jpg)\n\n*内灘町・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Wizard_of_Oz__/status/1742088391234408549))*",
+          "local_path": "images/uchinada.jpg"
+        }
+      },
+      "image": {
+        "muni_name": "内灘町",
+        "damage_type": "液状化",
+        "category": "液状化",
+        "image_url": "https://pbs.twimg.com/media/GC0kJWGbIAAbC9p.jpg",
+        "topic_id": 9384267,
+        "topic_head": "石川県内灘町字鶴ケ丘2丁目付近で液状化",
+        "source_url": "https://twitter.com/Wizard_of_Oz__/status/1742088391234408549",
+        "published_at": "2024-01-02T07:40:13Z",
+        "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9384267",
+        "markdown": "![内灘町の液状化の被害画像](https://pbs.twimg.com/media/GC0kJWGbIAAbC9p.jpg)\n\n*内灘町・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Wizard_of_Oz__/status/1742088391234408549))*",
+        "local_path": "images/uchinada.jpg"
+      },
+      "checks": {
+        "payout_state_exists": true,
+        "reason_mentions_fastalert": false,
+        "math_matches_fixed_markdown": true,
+        "photo_markdown_in_answer": true,
+        "image_downloaded": true
+      }
+    },
+    {
+      "key": "nagaoka",
+      "label": "長岡市 中之島1993番地17",
+      "address": "新潟県長岡市中之島1993番地17",
+      "turns": [
+        {
+          "kind": "payout",
+          "label": "補償額",
+          "prompt": "能登半島地震における新潟県長岡市中之島1993番地17の補償額を教えてください",
+          "answer": "補償額は**364,946円**です。"
+        },
+        {
+          "kind": "reason",
+          "label": "平易な根拠",
+          "prompt": "この補償額になった根拠を教えてください",
+          "answer": "この地域は**震度6弱相当**の激しい揺れに見舞われました。\n\n補償額を算出する際は、揺れの強さに加えて**FASTALERT**で収集されたSNS投稿等の被害状況が反映されます。FASTALERTでは、倒壊や断水、特に**液状化**に関する被害情報が目立ちました。\n\n揺れの強さとこうした被害状況を総合的に評価した結果、法人契約の保険金額（1,000万円）に対して約4%の割合で計算され、**約36万円**という補償額となりました。"
+        },
+        {
+          "kind": "math",
+          "label": "数式による根拠",
+          "prompt": "数式を使って理由を説明してください",
+          "answer": "**計算の内訳**\n\n支払率を求める基本式です。\n\n$$p = \\frac{1}{1 + \\exp(-z)}$$\n\n$$z = w_0 + w_1 S_i + \\sum_k w_k x_k$$\n\n- 震度スコア: $S_i=5.75$\n- 切片: $w_0=-14.85$\n- 震度の重み: $w_1=2.00$\n- 被害特徴量の重み: 液状化 0.24、地盤変状 0.72\n- 被害特徴量の寄与: 液状化 0.05、地盤変状 0.00\n\n震度と被害特徴量の寄与を合計します。\n\n$$w_1 S_i \\approx 11.52$$\n\n$$\\sum_k w_k x_k \\approx 0.05$$\n\n$$z \\approx -14.85 + 11.52 + 0.05$$\n\n$$z \\approx -3.27$$\n\n丸め前の値で算出した支払率です。\n\n$$p \\approx 3.65\\%$$\n\n法人契約の保険金額に支払率を掛けます。\n\n$$P \\approx 10,000,000 \\times 3.65\\%$$\n\n$$P = 364,946\\text{円}$$\n\nしたがって、補償額は**約36万円**です。表示値は小数第3位で四捨五入していますが、補償額は丸め前の値で計算しています。"
+        },
+        {
+          "kind": "photo",
+          "label": "被害写真",
+          "prompt": "写真で被害の状況を教えてください",
+          "answer": "![長岡市の液状化の被害画像](https://pbs.twimg.com/media/GCvY1chbEAAiggX.jpg)\n\n*長岡市・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Arianrod_kazuki/status/1741724102434730447))*\n\nこれが補償額算定で影響が大きかった「液状化」被害カテゴリの実際の投稿画像です。"
+        }
+      ],
+      "state": {
+        "history": [],
+        "query": {
+          "address": "新潟県長岡市中之島1993番地17",
+          "lat": 37.532978,
+          "lon": 138.875381,
+          "matched_address": "新潟県長岡市中之島１９９３番地",
+          "muni_name": "長岡市",
+          "muni_code": "15202",
+          "in_demo_area": true
+        },
+        "intensity": {
+          "shindo_class": "6弱",
+          "s_i": 5.75,
+          "source": "mock",
+          "station_name": null,
+          "distance_km": null
+        },
+        "features": {
+          "muni_name": "長岡市",
+          "muni_code": "nagaoka",
+          "nsi_倒壊": 0.6316,
+          "nsi_液状化": 0.2105,
+          "nsi_道路被害": 0.0,
+          "nsi_土砂災害": 0.0,
+          "nsi_救助要請": 0.0,
+          "nsi_停電": 0.0,
+          "nsi_断水": 0.4211,
+          "nsi_火災": 0.0,
+          "nsi_津波": 0.0,
+          "nsi_地盤変状": 0.0,
+          "source": "cached_csv"
+        },
+        "payout": {
+          "payout_ratio": 0.036494588710920615,
+          "payout_yen": 364946,
+          "payout_yen_formatted": "約36万円",
+          "weights": {
+            "w0": -14.84791713068457,
+            "w1": 2.004195076079665,
+            "feature_weights": {
+              "nsi_液状化": 0.23934125513899404,
+              "nsi_土砂災害": 0.0,
+              "nsi_救助要請": 0.0,
+              "nsi_津波": 0.0,
+              "nsi_地盤変状": 0.7223780701498257
+            }
+          },
+          "insured_amount_yen": 10000000,
+          "formula": "支払額 = 1 / (1 + exp(-(w0 + w1*S_i + Σ_k w_k*x_k))) × 保険金額",
+          "contributions": {
+            "w0": -14.84791713068457,
+            "w1*S_i": 11.524121687458074,
+            "feature_total": 0.05038133420675824,
+            "feature_breakdown": {
+              "nsi_液状化": 0.05038133420675824,
+              "nsi_土砂災害": 0.0,
+              "nsi_救助要請": 0.0,
+              "nsi_津波": 0.0,
+              "nsi_地盤変状": 0.0,
+              "nsi_倒壊": 0.0,
+              "nsi_道路被害": 0.0,
+              "nsi_停電": 0.0,
+              "nsi_断水": 0.0,
+              "nsi_火災": 0.0
+            },
+            "top_features": [
+              [
+                "nsi_液状化",
+                0.05038133420675824
+              ]
+            ],
+            "z": -3.273414109019738
+          }
+        },
+        "damage_image": {
+          "muni_name": "長岡市",
+          "damage_type": "液状化",
+          "category": "液状化",
+          "image_url": "https://pbs.twimg.com/media/GCvY1chbEAAiggX.jpg",
+          "topic_id": 9379288,
+          "topic_head": "新潟県長岡市で液状化",
+          "source_url": "https://twitter.com/Arianrod_kazuki/status/1741724102434730447",
+          "published_at": "2024-01-01T07:32:40Z",
+          "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379288",
+          "markdown": "![長岡市の液状化の被害画像](https://pbs.twimg.com/media/GCvY1chbEAAiggX.jpg)\n\n*長岡市・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Arianrod_kazuki/status/1741724102434730447))*",
+          "local_path": "images/nagaoka.jpg"
+        }
+      },
+      "image": {
+        "muni_name": "長岡市",
+        "damage_type": "液状化",
+        "category": "液状化",
+        "image_url": "https://pbs.twimg.com/media/GCvY1chbEAAiggX.jpg",
+        "topic_id": 9379288,
+        "topic_head": "新潟県長岡市で液状化",
+        "source_url": "https://twitter.com/Arianrod_kazuki/status/1741724102434730447",
+        "published_at": "2024-01-01T07:32:40Z",
+        "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9379288",
+        "markdown": "![長岡市の液状化の被害画像](https://pbs.twimg.com/media/GCvY1chbEAAiggX.jpg)\n\n*長岡市・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Arianrod_kazuki/status/1741724102434730447))*",
+        "local_path": "images/nagaoka.jpg"
+      },
+      "checks": {
+        "payout_state_exists": true,
+        "reason_mentions_fastalert": true,
+        "math_matches_fixed_markdown": true,
+        "photo_markdown_in_answer": true,
+        "image_downloaded": true
+      }
+    }
+  ]
+}
