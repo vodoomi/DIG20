@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="能登半島地震の事前収集データを使った地震保険即時補償額デモ">
+  <title>地震保険 即時補償額デモ</title>
+  <link rel="stylesheet" href="vendor/leaflet.css">
+  <link rel="stylesheet" href="vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header id="top-bar">
+    <h1>ジシンプラス保険</h1>
+  </header>
+
+  <main>
+    <section id="chat-panel" aria-label="補償額チャット">
+      <div id="messages" role="log" aria-live="polite"></div>
+
+      <div id="quick-reply-slot" aria-label="質問の選択肢"></div>
+
+      <form id="chat-form">
+        <label class="sr-only" for="message-input">質問</label>
+        <input
+          type="text"
+          name="message"
+          id="message-input"
+          placeholder="選択肢を選ぶか、質問を入力してください"
+          autocomplete="off"
+          required
+        >
+        <button id="send-button" type="submit">送信</button>
+        <span id="form-status" role="status" aria-live="polite">考え中...</span>
+      </form>
+
+    </section>
+
+    <section id="map-panel" aria-label="補償額と震度の地図">
+      <div id="map"></div>
+      <div id="map-status" role="status" hidden></div>
+      <div id="legend"></div>
+    </section>
+  </main>
+
+  <script src="vendor/leaflet.js"></script>
+  <script src="vendor/katex/katex.min.js"></script>
+  <script src="vendor/katex/auto-render.min.js"></script>
+  <script src="data/demo-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
