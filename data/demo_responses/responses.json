@@ -33,7 +33,7 @@
           "kind": "photo",
           "label": "被害写真",
           "prompt": "写真で被害の状況を教えてください",
-          "answer": "![輪島市の道路損壊の被害画像](https://pbs.twimg.com/media/GC04-vda4AAavrz.jpg)\n\n*輪島市・カテゴリ「道路損壊」の被害投稿画像([出典](https://twitter.com/misakura_rin/status/1742111283472973918))*\n\nこれが補償額算定で影響が大きかった地盤変状に対応する実際の投稿画像です。"
+          "answer": "![輪島市の道路損壊の被害画像](images/wajima.jpg)\n\n*輪島市・カテゴリ「道路損壊」の被害投稿画像([出典](https://twitter.com/misakura_rin/status/1742111283472973918))*\n\nこれが補償額算定で影響が大きかった地盤変状に対応する実際の投稿画像です。"
         }
       ],
       "state": {
@@ -114,14 +114,14 @@
         "damage_image": {
           "muni_name": "輪島市",
           "damage_type": "地盤変状",
-          "category": "自然現象",
-          "image_url": "https://pbs.twimg.com/media/GC2-j0OXEAEZ-Uv.jpg",
-          "topic_id": 9391035,
-          "topic_head": "石川県輪島市 黒島漁港で自然現象",
-          "source_url": "https://twitter.com/SAKETUBER/status/1742258158863618320",
-          "published_at": "2024-01-02T18:54:49Z",
-          "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9391035",
-          "markdown": "![輪島市の自然現象の被害画像](https://pbs.twimg.com/media/GC2-j0OXEAEZ-Uv.jpg)\n\n*輪島市・カテゴリ「自然現象」の被害投稿画像([出典](https://twitter.com/SAKETUBER/status/1742258158863618320))*",
+          "category": "道路損壊",
+          "image_url": "https://pbs.twimg.com/media/GC04-vda4AAavrz.jpg",
+          "topic_id": 9385040,
+          "topic_head": "石川県輪島市稲屋町付近 国道249号で道路損壊",
+          "source_url": "https://twitter.com/misakura_rin/status/1742111283472973918",
+          "published_at": "2024-01-02T09:11:11Z",
+          "fastalert_url": "https://app.fastalert.jp/domestic/disaster/9385040",
+          "markdown": "![輪島市の道路損壊の被害画像](https://pbs.twimg.com/media/GC04-vda4AAavrz.jpg)\n\n*輪島市・カテゴリ「道路損壊」の被害投稿画像([出典](https://twitter.com/misakura_rin/status/1742111283472973918))*",
           "local_path": "images/wajima.jpg"
         }
       },
@@ -173,7 +173,7 @@
           "kind": "photo",
           "label": "被害写真",
           "prompt": "写真で被害の状況を教えてください",
-          "answer": "![内灘町の液状化の被害画像](https://pbs.twimg.com/media/GC0kJWGbIAAbC9p.jpg)\n\n*内灘町・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Wizard_of_Oz__/status/1742088391234408549))*\n\nこれが補償額算定で影響が大きかった被害カテゴリの実際の投稿画像です。"
+          "answer": "![内灘町の液状化の被害画像](images/uchinada.jpg)\n\n*内灘町・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Wizard_of_Oz__/status/1742088391234408549))*\n\nこれが補償額算定で影響が大きかった被害カテゴリの実際の投稿画像です。"
         }
       ],
       "state": {
@@ -313,7 +313,7 @@
           "kind": "photo",
           "label": "被害写真",
           "prompt": "写真で被害の状況を教えてください",
-          "answer": "![長岡市の液状化の被害画像](https://pbs.twimg.com/media/GCvY1chbEAAiggX.jpg)\n\n*長岡市・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Arianrod_kazuki/status/1741724102434730447))*\n\nこれが補償額算定で影響が大きかった「液状化」被害カテゴリの実際の投稿画像です。"
+          "answer": "![長岡市の液状化の被害画像](images/nagaoka.jpg)\n\n*長岡市・カテゴリ「液状化」の被害投稿画像([出典](https://twitter.com/Arianrod_kazuki/status/1741724102434730447))*\n\nこれが補償額算定で影響が大きかった「液状化」被害カテゴリの実際の投稿画像です。"
         }
       ],
       "state": {
