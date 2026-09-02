@@ -25,6 +25,7 @@ server.py — 地震保険即時支払いデモ用 独自MCPサーバ(Model Cont
 import asyncio
 import csv
 import json
+import math
 import os
 from datetime import datetime, timedelta, timezone
 from decimal import ROUND_HALF_UP, Decimal
@@ -55,6 +56,18 @@ FEATURES_CSV = _repo_root() / "data" / "features" / "fastalert_features.csv"
 IMAGE_URLS_JSON = _repo_root() / "data" / "images" / "image_urls.json"
 
 _INT_FEATURE_FIELDS = {"n_signal", "n_types"}
+
+_SHORT_SHAKING_DESCRIPTIONS = {
+    "1": "ごく弱い揺れ",
+    "2": "弱い揺れ",
+    "3": "やや強い揺れ",
+    "4": "強い揺れ",
+    "5弱": "強い揺れ",
+    "5強": "非常に強い揺れ",
+    "6弱": "激しい揺れ",
+    "6強": "非常に激しい揺れ",
+    "7": "極めて激しい揺れ",
+}
 
 
 def _load_json(path: Path) -> dict:
@@ -291,55 +304,117 @@ def _feature_label(key: str) -> str:
     return key
 
 
-def _describe_observed_features(features_result: dict, limit: int = 3) -> str:
-    """観測された被害特徴量(値>0)を大きい順に列挙する。重みの有無とは無関係(実際の被害状況の説明)。"""
-    observed = sorted(
-        (
-            (key, value)
-            for key, value in features_result.items()
-            if key.startswith(payout.FEATURE_KEY_PREFIXES)
-            and isinstance(value, (int, float))
-            and value > 0
-        ),
-        key=lambda kv: kv[1],
-        reverse=True,
-    )
-    if not observed:
-        return "際立って大きな被害情報は確認されませんでした"
-    names = [_feature_label(key) for key, _ in observed[:limit]]
-    return "・".join(names) + "に関する被害情報が目立ちました"
+def _feature_rank(feature_key: str, current_value: float) -> tuple[int, int] | None:
+    """基準CSV内における被害特徴量の降順順位を返す。"""
+    if not FEATURES_CSV.exists():
+        return None
+
+    with FEATURES_CSV.open(newline="", encoding="utf-8") as f:
+        rows = list(csv.DictReader(f))
+    if not rows or feature_key not in rows[0]:
+        return None
+
+    values = [
+        float(row[feature_key])
+        for row in rows
+        if row.get(feature_key) not in (None, "", "None")
+    ]
+    if not values:
+        return None
+
+    rank = 1 + sum(value > current_value for value in values)
+    return rank, len(values)
 
 
-def _describe_weighted_features(top_features: list, limit: int = 3) -> str:
-    """補償額の算定に実際に効いた(寄与>0の)特徴量の説明。"""
+def _describe_feature_level(feature_key: str, current_value: float) -> str | None:
+    """基準CSV内の順位から特徴量の大きさを平易な水準表現で返す。"""
+    rank_result = _feature_rank(feature_key, current_value)
+    if rank_result is None:
+        return None
+
+    rank, total = rank_result
+    if rank == 1:
+        level = "非常に高い水準"
+    elif rank <= math.ceil(total / 3):
+        level = "高い水準"
+    elif rank <= math.ceil(total * 2 / 3):
+        level = "中程度の水準"
+    else:
+        level = "比較的低い水準"
+    return level
+
+
+def _format_loss_ratio_percent(value: float) -> str:
+    """損害率を、10%以上は整数、10%未満は小数第1位で表示する。"""
+    percentage = value * 100
+    return f"{percentage:.0f}" if percentage >= 10 else f"{percentage:.1f}"
+
+
+def _build_fastalert_summary(features_result: dict, payout_result: dict) -> str:
+    """FASTALERT被害投稿の説明と損害率への影響を構造化して返す。"""
+    contributions = payout_result.get("contributions", {})
+    top_features = contributions.get("top_features", [])
     if not top_features:
-        return "補償額の算定では被害投稿による上乗せはなく、揺れの強さが主な根拠です"
-    names = [_feature_label(key) for key, _ in top_features[:limit]]
-    return "補償額の算定では、モデルが特に重視する" + "・".join(names) + "の情報を揺れの強さに加えて反映しました"
+        return (
+            "- この地域では、算定に反映される被害投稿は確認されませんでした。\n"
+            "- 被害投稿による損害率の上昇はありません。"
+        )
+
+    top_feature_key = top_features[0][0]
+    feature_name = _feature_label(top_feature_key)
+    feature_value = features_result.get(top_feature_key)
+    if isinstance(feature_value, (int, float)):
+        feature_level = _describe_feature_level(top_feature_key, feature_value)
+    else:
+        feature_level = None
+
+    payout_ratio = payout_result["payout_ratio"]
+    feature_total = contributions.get("feature_total", 0.0)
+    ratio_without_features = payout.sigmoid(contributions["z"] - feature_total)
+    uplift_points = (payout_ratio - ratio_without_features) * 100
+
+    if feature_level is None:
+        feature_summary = f"- この地域では**{feature_name}**に関する被害投稿が目立ちました。"
+    else:
+        feature_summary = (
+            f"- この地域では**{feature_name}**に関する被害投稿が目立ちました。"
+            f"他の地域と比べて**{feature_level}**でした。"
+        )
+
+    return (
+        f"{feature_summary}\n"
+        f"- この被害状況を加味すると、損害率は**約{uplift_points:.1f}ポイント上昇**します。"
+    )
 
 
 def _build_explanation(intensity_result: dict, features_result: dict, payout_result: dict) -> str:
     """数式や重みの生数値を出さず、平易な日本語の文章で補償額の根拠を説明する。"""
     shindo_class = intensity_result.get("shindo_class", "不明")
-    shindo_desc = intensity.describe_shindo(shindo_class) if intensity_result else "揺れの情報が不明"
-    feature_desc = _describe_observed_features(features_result)
-    weighted_desc = _describe_weighted_features(
-        payout_result.get("contributions", {}).get("top_features", [])
-    )
-    ratio_pct = round(payout_result["payout_ratio"] * 100)
+    shaking_description = _SHORT_SHAKING_DESCRIPTIONS.get(shindo_class, "揺れ")
+    contributions = payout_result.get("contributions", {})
+    feature_total = contributions.get("feature_total", 0.0)
+    ratio_without_features = payout.sigmoid(contributions["z"] - feature_total)
+    fastalert_summary = _build_fastalert_summary(features_result, payout_result)
+    final_loss_ratio = _format_loss_ratio_percent(payout_result["payout_ratio"])
+    baseline_loss_ratio = _format_loss_ratio_percent(ratio_without_features)
     insured_amount_man = payout_result["insured_amount_yen"] / 10_000
 
     low_sample_note = ""
     if features_result and features_result.get("low_sample"):
-        low_sample_note = " なお、この地域は被害投稿の件数自体が少ないため、参考値としてご利用ください。"
+        low_sample_note = "\n\n> この地域は被害投稿の件数が少ないため、参考値としてご利用ください。"
 
     return (
-        f"この地域は震度{shindo_class}相当({shindo_desc})の揺れに見舞われました。"
-        f"SNS等から集めた被害投稿を見ると、{feature_desc}。{weighted_desc}。"
-        f"揺れの強さとこうした被害状況を総合的に評価した結果、"
-        f"法人契約の保険金額({insured_amount_man:,.0f}万円)に対して"
-        f"約{ratio_pct}%を支払う水準と判断し、{payout_result['payout_yen_formatted']}という"
-        f"補償額を算出しました。{low_sample_note}"
+        f"この地域は**震度{shindo_class}相当の{shaking_description}**に見舞われました。\n\n"
+        "**1. 揺れから見た損害の目安**\n\n"
+        f"- 震度{shindo_class}に対するベースの損害率は"
+        f"**約{baseline_loss_ratio}%**です。\n\n"
+        "**2. FASTALERTで確認した被害状況**\n\n"
+        f"{fastalert_summary}\n\n"
+        "**3. 算定結果**\n\n"
+        f"- 損害率：**約{baseline_loss_ratio}% → 約{final_loss_ratio}%**\n"
+        f"- 保険金額：**{insured_amount_man:,.0f}万円**\n"
+        f"- 補償額：**{payout_result['payout_yen_formatted']}**"
+        f"{low_sample_note}"
     )
 
 
