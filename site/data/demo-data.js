@@ -1,5 +1,5 @@
 window.DEMO_DATA = {
-  "collected_at": "2026-08-29T08:29:38.788661+00:00",
+  "collected_at": "2026-09-02T10:05:57.798773+00:00",
   "progress_delay_ms": 600,
   "unsupported_message": "このサイトは発表用デモのため、回答できる住所と質問を限定しています。画面に表示された選択肢から選んでください。",
   "scenarios": [
@@ -11,12 +11,12 @@ window.DEMO_DATA = {
         "payout": {
           "label": "補償額",
           "prompt": "能登半島地震における石川県輪島市河井町1部115番地の補償額を教えてください",
-          "answer_html": "<p>補償額は<strong>3,091,005円</strong>です。</p>"
+          "answer_html": "<p>補償額は<strong>約309万円</strong>です。</p>"
         },
         "reason": {
           "label": "平易な根拠",
           "prompt": "この補償額になった根拠を教えてください",
-          "answer_html": "<p>この地域は<strong>震度7相当</strong>の極めて激しい揺れに見舞われました。\nFASTALERTで収集した被害投稿の情報を見ると、<strong>倒壊</strong>や<strong>道路被害</strong>、<strong>救助要請</strong>に関する情報が目立ちました。\n補償額の算定では、揺れの強さだけでなく、<strong>地盤変状</strong>といった被害の状況も反映しています。\nこれらの情報を総合的に評価した結果、法人契約の保険金額(1,000万円)に対して約31%を支払う水準と判断し、<strong>約309万円</strong>という補償額を算出しました。</p>"
+          "answer_html": "<p>この地域は<strong>震度7相当の極めて激しい揺れ</strong>に見舞われました。</p>\n<p><strong>1. 揺れから見た損害の目安</strong></p>\n<ul>\n<li>震度7に対するベースの損害率は<strong>約21%</strong>です。</li>\n</ul>\n<p><strong>2. FASTALERTで確認した被害状況</strong></p>\n<ul>\n<li>この地域では<strong>地盤変状</strong>に関する被害投稿が目立ちました。他の地域と比べて<strong>高い水準</strong>でした。</li>\n<li>この被害状況を加味すると、損害率は<strong>約9.8ポイント上昇</strong>します。</li>\n</ul>\n<p><strong>3. 算定結果</strong></p>\n<ul>\n<li>損害率：<strong>約21% → 約31%</strong></li>\n<li>保険金額：<strong>1,000万円</strong></li>\n<li>補償額：<strong>約309万円</strong></li>\n</ul>"
         },
         "math": {
           "label": "数式による根拠",
@@ -61,12 +61,12 @@ window.DEMO_DATA = {
         "payout": {
           "label": "補償額",
           "prompt": "能登半島地震における石川県河北郡内灘町字大学1丁目2番地1の補償額を教えてください",
-          "answer_html": "<p>補償額は<strong>597,363円</strong>です。</p>"
+          "answer_html": "<p>補償額は<strong>約60万円</strong>です。</p>"
         },
         "reason": {
           "label": "平易な根拠",
           "prompt": "この補償額になった根拠を教えてください",
-          "answer_html": "<p>この地域は<strong>震度5弱相当</strong>の揺れに見舞われました。</p>\n<p>SNS等から集めた被害投稿を見ると、<strong>液状化</strong>や<strong>倒壊</strong>に関する被害情報が目立ちました。</p>\n<p>補償額の算定では、揺れの強さとこうした被害状況を総合的に評価しました。その結果、法人契約の保険金額（1,000万円）に対して約6%を支払う水準と判断し、<strong>約60万円</strong>という補償額を算出しました。</p>"
+          "answer_html": "<p>この地域は<strong>震度5弱相当の強い揺れ</strong>に見舞われました。</p>\n<p><strong>1. 揺れから見た損害の目安</strong></p>\n<ul>\n<li>震度5弱に対するベースの損害率は<strong>約0.5%</strong>です。</li>\n</ul>\n<p><strong>2. FASTALERTで確認した被害状況</strong></p>\n<ul>\n<li>この地域では<strong>液状化</strong>に関する被害投稿が目立ちました。他の地域と比べて<strong>非常に高い水準</strong>でした。</li>\n<li>この被害状況を加味すると、損害率は<strong>約5.5ポイント上昇</strong>します。</li>\n</ul>\n<p><strong>3. 算定結果</strong></p>\n<ul>\n<li>損害率：<strong>約0.5% → 約6.0%</strong></li>\n<li>保険金額：<strong>1,000万円</strong></li>\n<li>補償額：<strong>約60万円</strong></li>\n</ul>"
         },
         "math": {
           "label": "数式による根拠",
@@ -111,12 +111,12 @@ window.DEMO_DATA = {
         "payout": {
           "label": "補償額",
           "prompt": "能登半島地震における新潟県長岡市中之島1993番地17の補償額を教えてください",
-          "answer_html": "<p>補償額は<strong>364,946円</strong>です。</p>"
+          "answer_html": "<p>補償額は<strong>約36万円</strong>です。</p>"
         },
         "reason": {
           "label": "平易な根拠",
           "prompt": "この補償額になった根拠を教えてください",
-          "answer_html": "<p>この地域は<strong>震度6弱相当</strong>の激しい揺れに見舞われました。</p>\n<p>補償額を算出する際は、揺れの強さに加えてFASTALERTで収集されたSNS投稿等の被害状況が反映されます。FASTALERTでは、<strong>倒壊</strong>や<strong>断水</strong>、特に<strong>液状化</strong>に関する被害情報が目立ちました。</p>\n<p>揺れの強さとこうした被害状況を総合的に評価した結果、法人契約の保険金額（1,000万円）に対して約4%の割合で計算され、<strong>約36万円</strong>という補償額となりました。</p>"
+          "answer_html": "<p>この地域は<strong>震度6弱相当の激しい揺れ</strong>に見舞われました。</p>\n<p><strong>1. 揺れから見た損害の目安</strong></p>\n<ul>\n<li>震度6弱に対するベースの損害率は<strong>約3.5%</strong>です。</li>\n</ul>\n<p><strong>2. FASTALERTで確認した被害状況</strong></p>\n<ul>\n<li>この地域では<strong>液状化</strong>に関する被害投稿が目立ちました。他の地域と比べて<strong>中程度の水準</strong>でした。</li>\n<li>この被害状況を加味すると、損害率は<strong>約0.2ポイント上昇</strong>します。</li>\n</ul>\n<p><strong>3. 算定結果</strong></p>\n<ul>\n<li>損害率：<strong>約3.5% → 約3.6%</strong></li>\n<li>保険金額：<strong>1,000万円</strong></li>\n<li>補償額：<strong>約36万円</strong></li>\n</ul>"
         },
         "math": {
           "label": "数式による根拠",

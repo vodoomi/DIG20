@@ -1,7 +1,8 @@
-"""発表用デモの固定回答候補をQwenから一括収集する。
+"""発表用デモの固定回答候補をQwenから収集する。
 
 3つのデモ住所について、補償額・平易な根拠・数式説明・被害写真の順に実際の
 LM Studio + payout MCP経路を通し、回答原文、計算state、画像をレビュー用に保存する。
+``--only-reason`` の場合は保存済みstateを使い、平易な根拠だけを再収集して差し替える。
 FASTALERTのliveモードは使用しない。
 """
 
@@ -40,6 +41,11 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=DEFAULT_OUTPUT_DIR,
         help="回答JSON・レビューMarkdown・画像の保存先",
+    )
+    parser.add_argument(
+        "--only-reason",
+        action="store_true",
+        help="既存の回答JSONを使い、平易な根拠だけをQwenから再収集する",
     )
     return parser.parse_args()
 
@@ -178,6 +184,36 @@ async def collect_scenario(
     }
 
 
+async def collect_reason_only(scenario: dict) -> str:
+    """保存済みstateを使って1住所分の平易な根拠だけを収集する。
+
+    Args:
+        scenario: 既存の回答と計算stateを含むシナリオ。
+
+    Returns:
+        Qwenが返した平易な根拠の回答原文。
+
+    Raises:
+        RuntimeError: 保存済みstateが不完全、またはQwenが固定回答を変更した場合。
+    """
+    saved_state = scenario.get("state", {})
+    if "payout" not in saved_state:
+        raise RuntimeError(f"{scenario.get('key')}: 保存済みの補償額stateがありません")
+
+    state.reset_latest()
+    state.merge_latest(deepcopy(saved_state))
+    print(f"[{scenario['key']}] 平易な根拠だけを再収集中...", flush=True)
+    answer = await lmstudio.chat(
+        quick_replies.REASON_MESSAGE,
+        history=[],
+        use_fastalert=False,
+    )
+    expected = run_explain_payout({}).get("explanation_ja")
+    if answer.strip() != expected:
+        raise RuntimeError(f"{scenario['key']}: 理由回答が固定Markdownと一致しません")
+    return answer
+
+
 def build_review_markdown(payload: dict) -> str:
     """収集結果から人手確認用Markdownを生成する。
 
@@ -287,13 +323,77 @@ async def collect_all(output_dir: Path) -> dict:
         state.write_config(original_config)
 
 
+async def recollect_reasons(output_dir: Path) -> dict:
+    """既存回答のうち平易な根拠だけをQwenで再収集して保存する。
+
+    Args:
+        output_dir: 既存の回答JSONとレビューMarkdownを格納するディレクトリ。
+
+    Returns:
+        理由回答を差し替えた全収集結果。
+
+    Raises:
+        FileNotFoundError: 既存の回答JSONが存在しない場合。
+        RuntimeError: シナリオまたは理由回答が不足している場合。
+    """
+    responses_path = output_dir / "responses.json"
+    if not responses_path.is_file():
+        raise FileNotFoundError(f"既存の回答JSONがありません: {responses_path}")
+
+    payload = json.loads(responses_path.read_text(encoding="utf-8"))
+    scenarios_by_key = {
+        scenario["key"]: scenario
+        for scenario in payload.get("scenarios", [])
+    }
+    original_config = state.read_config()
+    try:
+        state.write_config(MOCK_CONFIG)
+        for option in quick_replies.DEMO_ADDRESSES:
+            scenario = scenarios_by_key.get(option.key)
+            if scenario is None:
+                raise RuntimeError(f"既存の回答JSONに{option.key}がありません")
+
+            answer = await collect_reason_only(scenario)
+            reason_turn = next(
+                (turn for turn in scenario.get("turns", []) if turn.get("kind") == "reason"),
+                None,
+            )
+            if reason_turn is None:
+                raise RuntimeError(f"{option.key}: 既存の理由回答がありません")
+            reason_turn["answer"] = answer
+            scenario.setdefault("checks", {})["reason_mentions_fastalert"] = (
+                "FASTALERT" in answer
+            )
+
+        payload["collected_at"] = datetime.now(timezone.utc).isoformat()
+        payload["model"] = lmstudio.LM_STUDIO_MODEL
+        responses_path.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+        (output_dir / "review.md").write_text(
+            build_review_markdown(payload),
+            encoding="utf-8",
+        )
+        return payload
+    finally:
+        state.reset_latest()
+        state.write_config(original_config)
+
+
 def main() -> None:
     """回答収集を実行し、保存先を表示する。"""
     args = parse_args()
-    payload = asyncio.run(collect_all(args.output_dir.resolve()))
+    output_dir = args.output_dir.resolve()
+    if args.only_reason:
+        payload = asyncio.run(recollect_reasons(output_dir))
+        target = "理由回答の再収集"
+    else:
+        payload = asyncio.run(collect_all(output_dir))
+        target = "全回答の収集"
     print(
-        f"収集完了: {len(payload['scenarios'])}シナリオ -> "
-        f"{args.output_dir.resolve() / 'review.md'}",
+        f"{target}完了: {len(payload['scenarios'])}シナリオ -> "
+        f"{output_dir / 'review.md'}",
         flush=True,
     )
 
